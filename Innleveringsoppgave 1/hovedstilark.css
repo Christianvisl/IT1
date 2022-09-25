@@ -23,14 +23,13 @@ a {
     text-decoration: none;
     color: black;
     font-size: 30px;
-    transform: rotate(0deg);
     transition-duration: 1000ms;
 }
 
 a:hover{
     color: rgb(200, 20, 150);
     background-color: white;
-    transform: rotate(90deg);
+    font-size: 200%;
 }
 
 a:active{
