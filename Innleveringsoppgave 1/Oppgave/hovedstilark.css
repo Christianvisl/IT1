@@ -13,6 +13,7 @@ h1{
     padding: 0.3% 10% 0.3% 10%;
     margin: auto;
 }
+
 .hovedDiv{
     color: rgb(50, 0, 200);
     background-color: rgba(210, 210, 210, 0.7);
@@ -35,8 +36,7 @@ h1{
     margin: 2% 20% 2% 20%;
     padding: 1%;
     
-    border-style: solid;
+    border-style: dashed;
     border-color: rgb(70, 0, 139);
     border-width: 3px;
-    
 }
