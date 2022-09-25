@@ -1,16 +1,42 @@
 body{
-    background-color: #e36df2;
-    opacity: 0.9;
-    background-image:  linear-gradient(30deg, #5e98ef 12%, transparent 12.5%, transparent 87%, #5e98ef 87.5%, #5e98ef), linear-gradient(150deg, #5e98ef 12%, transparent 12.5%, transparent 87%, #5e98ef 87.5%, #5e98ef), linear-gradient(30deg, #5e98ef 12%, transparent 12.5%, transparent 87%, #5e98ef 87.5%, #5e98ef), linear-gradient(150deg, #5e98ef 12%, transparent 12.5%, transparent 87%, #5e98ef 87.5%, #5e98ef), linear-gradient(60deg, #5e98ef77 25%, transparent 25.5%, transparent 75%, #5e98ef77 75%, #5e98ef77), linear-gradient(60deg, #5e98ef77 25%, transparent 25.5%, transparent 75%, #5e98ef77 75%, #5e98ef77);
-    background-size: 32px 56px;
-    background-position: 0 0, 0 0, 16px 28px, 16px 28px, 0 0, 16px 28px;
+    background-image: url(bakgrunnhovedside.jpg);
+    background-repeat: repeat-y;
+    background-size: cover;
 }
 
 h1{
-    color: rgba(230, 120, 30, 0.8);
-    background-color: rgb(200, 200, 200);
-    text-align: center;
-    padding: 5px;
-    margin-left: 40%;
-    margin-right: 40%;
+    color: antiquewhite;
+    background-color: rgba(190, 81, 214, 0.5);
+    
+    width: fit-content;
+
+    padding: 0.3% 10% 0.3% 10%;
+    margin: auto;
+}
+.hovedDiv{
+    color: rgb(50, 0, 200);
+    background-color: rgba(210, 210, 210, 0.7);
+    
+    text-align: left;
+    width: fit-content;
+    
+    padding: 1% 5% 2% 5%;
+    margin: 2% 20% 2% 20%;
+    
+    border-style: solid;
+    border-color: rgb(70, 0, 139);
+    border-width: 3px;
+}
+
+.oppsummering{
+    color: antiquewhite;
+    background-color: rgba(190, 81, 214, 0.5);
+    
+    margin: 2% 20% 2% 20%;
+    padding: 1%;
+    
+    border-style: solid;
+    border-color: rgb(70, 0, 139);
+    border-width: 3px;
+    
 }
