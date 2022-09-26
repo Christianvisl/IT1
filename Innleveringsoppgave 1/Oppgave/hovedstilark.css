@@ -120,3 +120,8 @@ h1{
     border-width: 3px;
     border-color: rgb(70, 0, 139);
 }
+
+#periodesystemet{
+    max-width: 100%;
+    padding-top: 5%;
+}
