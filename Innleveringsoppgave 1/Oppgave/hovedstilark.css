@@ -75,10 +75,10 @@ h1{
 }
 
 /* angir egenskaper til tabell 2 */
-#tabell2, th, td{
+#tabell2 th,  td{
     border: 3px solid rgb(70, 0, 139);
     border-collapse: collapse;
-    padding: 5px 50px 5px 30px;
+    padding: 0.5% 3% 0.5% 1%;
 }
 
 
