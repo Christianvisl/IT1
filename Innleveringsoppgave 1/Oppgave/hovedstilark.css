@@ -28,15 +28,41 @@ h1{
     border-color: rgb(70, 0, 139);
     border-width: 3px;
 }
+.hovedDiv span{
+    color: rgb(150, 0, 200);
+    font-weight: bold;
+}
+
+.hovedDiv h2{
+    color: rgb(150, 0, 200)
+}
 
 .oppsummering{
     color: antiquewhite;
     background-color: rgba(190, 81, 214, 0.5);
     
     margin: 2% 20% 2% 20%;
-    padding: 1%;
+    padding: 1% 5% 2% 5%;
     
     border-style: dashed;
     border-color: rgb(70, 0, 139);
     border-width: 3px;
 }
+
+#eksemplerStoffer{
+    max-width: 100%;
+    padding-top: 5%;
+}
+
+#tabell1{
+    margin: auto;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.tabell2, th, td{
+    border: 3px solid rgb(70, 0, 139);
+    border-collapse: collapse;
+    padding: 5px 50px 5px 30px;
+}
+
