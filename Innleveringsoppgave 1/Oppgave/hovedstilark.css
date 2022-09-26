@@ -1,9 +1,12 @@
+/* bakgrunn legges inn */
 body{
     background-image: url(bakgrunnhovedside.jpg);
     background-repeat: repeat-y;
     background-size: cover;
 }
 
+
+/* hovedoverskrift får sine verdier */
 h1{
     color: antiquewhite;
     background-color: rgba(190, 81, 214, 0.5);
@@ -14,6 +17,8 @@ h1{
     margin: auto;
 }
 
+
+/* hovedmalen for oppsettet av siden */
 .hovedDiv{
     color: rgb(50, 0, 200);
     background-color: rgba(210, 210, 210, 0.7);
@@ -28,15 +33,20 @@ h1{
     border-color: rgb(70, 0, 139);
     border-width: 3px;
 }
+
+/* alle span-elementer i .hovedDiv får disse verdiene */
 .hovedDiv span{
     color: rgb(150, 0, 200);
     font-weight: bold;
 }
 
+/* alle h2-overskrifter i .hovedDiv får disse verdiene */
 .hovedDiv h2{
     color: rgb(150, 0, 200);
 }
 
+
+/* alle elementer med klassen .oppsummering får disse verdiene */
 .oppsummering{
     color: antiquewhite;
     background-color: rgba(190, 81, 214, 0.5);
@@ -49,23 +59,30 @@ h1{
     border-width: 3px;
 }
 
+
+/* id-en til et bilde */
 #eksemplerStoffer{
     max-width: 100%;
     padding-top: 5%;
 }
 
+
+/* angir egenskaper til tabell 1 */
 #tabell1{
     margin: auto;
     width: 100%;
     margin-bottom: 50px;
 }
 
-#tabell2, th, td{
+/* angir egenskaper til tabell 2 */
+#tabell2{
     border: 3px solid rgb(70, 0, 139);
     border-collapse: collapse;
     padding: 5px 50px 5px 30px;
 }
 
+
+/* design for #meny1, menyen øverst på siden */
 #meny1{
     background-color: rgba(210, 210, 210, 0.7);
     border-style: solid;
@@ -94,6 +111,7 @@ h1{
     color: antiquewhite;
 }
 
+/* link nederst på siden som tar klienten til toppen av siden */
 #linkTop{
     float: right;
     width: fit-content;
