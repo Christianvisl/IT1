@@ -76,12 +76,12 @@ h1{
 }
 #meny1 h3{
     color: rgb(150, 0, 200);
-    padding-left: 10%;
+    padding-left: 5%;
 }
 #meny1 ul {
     list-style-type: circle;
     overflow: hidden;
-    padding-right: 5%;
+    padding-right: 2%;
 }
   
 #meny1 li a {
@@ -93,4 +93,16 @@ h1{
 #meny1 li a:hover {
     color: antiquewhite;
     font-size: 105%;
+}
+#linkTop{
+    float: right;
+    width: fit-content;
+    background-color: rgba(210, 210, 210, 0.7);
+    text-decoration: none;
+    color: rgb(50, 0, 200);
+    padding: 1%;
+    margin-right: 5%;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(70, 0, 139);
 }
