@@ -81,29 +81,33 @@ h1{
     border-color: rgb(70, 0, 139);
     border-width: 3px;
     float: left;
-    margin-top: 2%;
+    margin: 2% 0% 0% 1%;
 }
 #meny1 h3{
     color: rgb(150, 0, 200);
-    padding-left: 5%;
+    padding-left: 9%;
 }
-#meny1 ul {
+#meny1 ul{
     list-style-type: circle;
     overflow: hidden;
-    padding-right: 2%;
+    padding-right: 3%;
 }
-  
-#meny1 li a {
+#meny1 ul li a {
     color: rgb(50, 0, 200);
     text-align: left;
     text-decoration: none;
 }
+
+#meny1 > ul > li > a{
+    color: rgb(150, 0, 200);
+    font-size: 105%;
+}
   
-#meny1 li a:hover {
+#meny1 ul li a:hover {
     color: antiquewhite;
 }
 
-#meny1 li a:active {
+#meny1 ul li a:active {
     color: rgba(255, 255, 255, 0.001);
 }
 
