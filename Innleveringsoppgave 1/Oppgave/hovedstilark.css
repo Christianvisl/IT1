@@ -71,12 +71,24 @@ h1 {
 
 /* angir egenskaper til tabell 2 */
 #tabell2 th,
-td {
+#tabell2 td,
+#tabell2 table {
     border: 3px solid rgb(70, 0, 139);
     border-collapse: collapse;
     padding: 0.5% 3% 0.5% 1%;
 }
 
+#tabell2 {
+    margin: 2% 0% 2% 0%;
+}
+
+#tabell2 th,
+#tabell2 td,
+#tabell2 table {
+    border: 3px solid rgb(70, 0, 139);
+    border-collapse: collapse;
+    padding: 0.5% 3% 0.5% 1%;
+}
 
 /* design for #meny1, menyen øverst på siden */
 .meny1 {
