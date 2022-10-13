@@ -1,32 +1,92 @@
-body{
-    background-color: rgb(13, 168, 185);
+body {
+    background-color: rgb(170, 67, 218);
 }
 
-h1{
+h1 {
     width: fit-content;
-    padding: 30px;
-    margin: auto;
-    border-style: dashed;
-    border-color: rgb(30, 230, 174);
-}
-
-p {
     padding: 20px;
-    margin: 10px auto;
-    border: 2px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #dddddd;
+    color: rgb(100, 10, 250);
+}
+
+
+.kul-knapp {
+    width: 250px;
+    height: 70px;
+    border: none;
+    outline: none;
+    background: #ddddddd1;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-top: 22px;
+    font-size: 27px;
+}
+
+.kul-knapp:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.kul-knapp:active:after {
+    background: transparent;
+}
+
+.kul-knapp:hover:before {
+    opacity: 1;
+}
+
+.kul-knapp:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ddddddd1;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+p{
+    margin: auto;
+    margin-top: 20px;
     width: fit-content;
-    background-color: rgba(230, 230, 230, 0.4);
-    transition-duration: 500ms;
+    align-items: center;
+    padding: 20px;
 }
-a{
+
+a {
     text-decoration: none;
-    color: rgb(100, 280, 220);
-    transition-duration: 500ms;
-}
-a:hover{
-    color: rgb(200, 10, 150);
-    font-size: 130%;
-}
-p:hover{
-    background-color:rgb(13, 168, 185);
+    padding: 20px;
+    color: rgb(100, 10, 250);
 }
