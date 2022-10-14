@@ -70,12 +70,15 @@ a {
     background-clip: text;
     -webkit-background-clip: text;
 }
-a:hover{
+
+a:hover {
     color: white;
 }
-p:hover{
+
+p:hover {
     background-color: transparent;
 }
-a:active{
+
+a:active {
     color: transparent;
 }
