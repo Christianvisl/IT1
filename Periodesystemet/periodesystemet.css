@@ -26,8 +26,8 @@
             background-image: var(--gradient);
             animation: bg-animation 20s infinite alternate;
             background-clip: text;
-            font-size: 30px;
-            padding: 2px 20px 2px 20px;
+            font-size: 25px;
+            padding: 0px 20px 0px 20px;
             font-weight: bold;
             text-transform: uppercase;
             color: transparent;
@@ -41,9 +41,34 @@
             text-align: left;
             padding-left: 35px;
         }
-        div#overskrift:hover,div.alkali:hover,div.jordalkali:hover,div.halogener:hover,div.edelgasser:hover,div.gruppe:hover,div.periode:hover,div.span-3b:hover,div.span-7:hover,div.span-18:hover,div.boks:hover{
+
+        div#overskrift:hover,
+        div.alkali:hover,
+        div.jordalkali:hover,
+        div.halogener:hover,
+        div.edelgasser:hover,
+        div.gruppe:hover,
+        div.periode:hover,
+        div.span-3b:hover,
+        div.span-7:hover,
+        div.span-18:hover,
+        div.boks:hover {
             transform: none;
             font-size: medium;
+        }
+
+        div#overskrift,
+        div.alkali,
+        div.jordalkali,
+        div.halogener,
+        div.edelgasser,
+        div.gruppe,
+        div.periode,
+        div.span-3b,
+        div.span-7,
+        div.span-18,
+        div.boks {
+            border: none;
         }
 
         .jordalkali {
@@ -73,15 +98,17 @@
             grid-gap: 5px;
             grid-template-columns: repeat(19, 1fr);
         }
-        .boks{
+
+        .boks {
             background-color: transparent;
         }
 
         div {
             text-align: center;
-            padding: 10px;
+            padding: 5px;
             background: rgb(32, 130, 175);
             border-radius: 5px;
+            border: solid 2px white;
         }
 
         div:hover {
