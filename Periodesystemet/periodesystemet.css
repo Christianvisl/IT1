@@ -9,9 +9,23 @@
         body {
             background-size: 400%;
             background-image: var(--gradient);
-            animation: bg-animation 20s infinite;
+            animation: bg-animation 15s infinite alternate;
             color: white;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        @keyframes bg-animation {
+            0% {
+                background-position: left
+            }
+        
+            50% {
+                background-position: right
+            }
+        
+            100% {
+                background-position: left
+            }
         }
 
         #overskrift {
@@ -26,7 +40,7 @@
             background-image: var(--gradient);
             animation: bg-animation 20s infinite alternate;
             background-clip: text;
-            font-size: 25px;
+            font-size: 40px;
             padding: 0px 20px 0px 20px;
             font-weight: bold;
             text-transform: uppercase;
@@ -96,6 +110,7 @@
         section {
             display: grid;
             grid-gap: 5px;
+            margin-right: 10px;
             grid-template-columns: repeat(19, 1fr);
         }
 
@@ -112,7 +127,7 @@
         }
 
         div:hover {
-            transform: scale(1.2);
+            transform: scale(1.4);
             font-size: 10px;
         }
 
@@ -123,6 +138,9 @@
         div p {
             display: none;
             font-size: 10px;
+        }
+        #Rf, #Ds{
+            font-size: 9px;
         }
 
         .span-10 {
