@@ -5,6 +5,18 @@
         :root {
             --gradient2: linear-gradient(90deg, purple, blue, purple);
         }
+        
+        @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+            html {
+              transform: rotate(-90deg);
+              transform-origin: left top;
+              width: 100vh;
+              overflow-x: hidden;
+              position: absolute;
+              top: 100%;
+              left: 0;
+            }
+          }
 
         body {
             background-size: 400%;
@@ -18,11 +30,11 @@
             0% {
                 background-position: left
             }
-        
+
             50% {
                 background-position: right
             }
-        
+
             100% {
                 background-position: left
             }
@@ -139,7 +151,9 @@
             display: none;
             font-size: 10px;
         }
-        #Rf, #Ds{
+
+        #Rf,
+        #Ds {
             font-size: 9px;
         }
 
