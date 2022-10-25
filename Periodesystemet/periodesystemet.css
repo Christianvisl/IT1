@@ -5,7 +5,8 @@
         :root {
             --gradient2: linear-gradient(90deg, purple, blue, purple);
         }
-        
+
+
         @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
             html {
               transform: rotate(-90deg);
