@@ -1,28 +1,52 @@
-var tall1 = Number(prompt("Gi et tall"));
-var operator = prompt("+, -, *, /");
-var tall2 = Number(prompt("Gi et tall til"));
+
+
+var mattestykket = String(prompt("Skriv mattestykket"));
 var resultat;
+var tall1;
+var tall2;
+var operator;
 
-if (operator == "+"){
+if (mattestykket.indexOf("+") > 0) {
+    operator = mattestykket.indexOf("+");
+    tall1 = Number(mattestykket.substring(0, operator));
+    tall2 = Number(mattestykket.substring(operator + 1, 100));
     resultat = tall1 + tall2;
-    document.write("<p>Resultatet er lik</p>" + resultat)
+    tall1 = String(tall1);
+    tall2 = String(tall2);
+    operator = mattestykket[mattestykket.indexOf("+")];
+    document.write(tall1 + " " + operator + " " + tall2 + " = " + resultat)
 }
 
-else if (operator == "-"){
+else if (mattestykket.indexOf("-") > 0) {
+    operator = mattestykket.indexOf("-");
+    tall1 = Number(mattestykket.substring(0, operator));
+    tall2 = Number(mattestykket.substring(operator + 1, 20));
     resultat = tall1 - tall2;
-    document.write("<p>Resultatet er lik</p>" + resultat)
+    tall1 = String(tall1);
+    tall2 = String(tall2);
+    operator = mattestykket[mattestykket.indexOf("-")];
+    document.write(tall1 + " " + operator + " " + tall2 + " = " + resultat)
 }
-
-else if (operator == "*"){
+else if (mattestykket.indexOf("*") > 0) {
+    operator = mattestykket.indexOf("*");
+    tall1 = Number(mattestykket.substring(0, operator));
+    tall2 = Number(mattestykket.substring(operator + 1, 20));
     resultat = tall1 * tall2;
-    document.write("<p>Resultatet er lik</p>" + resultat)
+    tall1 = String(tall1);
+    tall2 = String(tall2);
+    operator = mattestykket[mattestykket.indexOf("*")];
+    document.write(tall1 + " " + operator + " " + tall2 + " = " + resultat)
 }
-
-else if (operator == "/"){
+else if (mattestykket.indexOf("/") > 0) {
+    operator = mattestykket.indexOf("/");
+    tall1 = Number(mattestykket.substring(0, operator));
+    tall2 = Number(mattestykket.substring(operator + 1, 20));
     resultat = tall1 / tall2;
-    document.write("<p>Resultatet er lik</p>" + resultat)
+    tall1 = String(tall1);
+    tall2 = String(tall2);
+    operator = mattestykket[mattestykket.indexOf("/")];
+    document.write(tall1 + " " + operator + " " + tall2 + " = " + resultat)
 }
-
-else{
-    document.write('<p style="color = red">Du skrev ikke inn en operator</p>');
-}
+else {
+    document.write("ERROR")
+}  

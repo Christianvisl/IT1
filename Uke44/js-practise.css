@@ -1,23 +1,21 @@
-body{
+body {
     background-color: burlywood;
     color: white;
+    font-size: 30px;
 }
-h1{
+
+#resultat {
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1 {
     margin: auto;
     padding: 10px;
     border-radius: 10px;
     background-color: white;
     text-align: center;
-    color: burlywood;
-}
-p{
-    font-size: 20px;
-}
-
-button{
-    background-color: white;
     width: fit-content;
-    padding: 5px;
-    margin-top: 100px;
-    
+    color: burlywood;
 }
