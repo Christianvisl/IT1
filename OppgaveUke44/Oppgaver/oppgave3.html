@@ -1,12 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 3</title>
 </head>
+
 <body>
-    
+    <script>
+        var antallsekunderstart;
+        var antallsekunder;
+        var omgjort;
+        var antalltimer;
+        var antallminutter;
+        var rest1;
+        var rest2;
+
+        var sekunder;
+        var minutter;
+        var timer;
+
+        antallsekunderstart = Number(prompt("Hvor mange sekunder?"))
+
+        antallsekunder = antallsekunderstart;
+        antallminutter = antallsekunder / 60;
+
+
+        if (antallsekunder == 0) {
+            document.write("Du skrev ikke inn noe")
+        }
+        else if (antallsekunder == 1) {
+            document.write("1 sekund er 1 sekund.")
+        }
+        else if (antallsekunder < 60) {
+            document.write(antallsekunderstart + " sekunder er " + antallsekunder + " sekunder.")
+        }
+        else if (antallsekunder == 60) {
+            document.write("60 sekunder er 1 minutt.")
+        }
+        else {
+            rest1 = (antallsekunder % 60) / 60;
+            antallminutter = Math.round(antallminutter - rest1);
+            rest1 *= Math.round(60);
+
+            antalltimer = antallminutter / 60;
+            rest2 = (antallminutter % 60) / 60;
+            antalltimer = Math.round(antalltimer - rest2);
+            rest2 *= Math.round(60);
+
+            antallminutter = Math.round(rest2);
+            antallsekunder = Math.round(rest1);
+
+            sekunder = " og " + rest1 + " sekunder.";
+            minutter = antallminutter + " minutter ";
+            timer = antalltimer + " timer ";
+            antallsekunderstart = antallsekunderstart + " sekunder ";
+
+            if (antalltimer > 0) {
+                minutter = rest2 + " minutter ";
+            }
+
+            if (rest1 == 0) {
+                sekunder = "og ingen ekstra sekunder.";
+            }
+            else if (rest1 == 1) {
+                sekunder = "og 1 sekund.";
+            }
+            if (antallminutter == 0) {
+                minutter = "ingen minutter ";
+            }
+            else if (antallminutter == 1) {
+                minutter = "1 minutt "
+            }
+            if (antalltimer == 0) {
+                timer = "Ingen timer ";
+            }
+            else if (antalltimer == 1) {
+                timer = "1 time "
+            }
+
+            if (antallsekunderstart < 3600) {
+                document.write(antallsekunderstart + "er " + antallminutter + " minutter " + sekunder)
+            }
+            else if (antallsekunderstart == 3600) {
+                document.write(antallsekunderstart + "er 1 time " + minutter + sekunder)
+            }
+            else {
+                document.write(antallsekunderstart + "er " + timer + minutter + sekunder)
+            }
+        }
+
+
+
+    </script>
+
 </body>
+
 </html>
