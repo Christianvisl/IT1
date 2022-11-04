@@ -9,91 +9,93 @@
 </head>
 
 <body>
+    <input id="input" type="text" placeholder="Skriv antall sekunder">
+    <button onclick="omregn()">Omregn</button>
+    <p id="Svar"></p>
+
     <script>
-        var antallsekunderstart;
-        var antallsekunder;
-        var omgjort;
-        var antalltimer;
-        var antallminutter;
-        var rest1;
-        var rest2;
+        function omregn() {
 
-        var sekunder;
-        var minutter;
-        var timer;
+            var antallsekunderstart = Number(document.getElementById("input").value);
+            var antallsekunder;
+            var omgjort;
+            var antalltimer;
+            var antallminutter;
+            var rest1;
+            var rest2;
 
-        antallsekunderstart = Number(prompt("Hvor mange sekunder?"))
+            var sekunder;
+            var minutter;
+            var timer;
 
-        antallsekunder = antallsekunderstart;
-        antallminutter = antallsekunder / 60;
+            antallsekunder = antallsekunderstart;
+            antallminutter = antallsekunder / 60;
 
 
-        if (antallsekunder == 0) {
-            document.write("Du skrev ikke inn noe")
-        }
-        else if (antallsekunder == 1) {
-            document.write("1 sekund er 1 sekund.")
-        }
-        else if (antallsekunder < 60) {
-            document.write(antallsekunderstart + " sekunder er " + antallsekunder + " sekunder.")
-        }
-        else if (antallsekunder == 60) {
-            document.write("60 sekunder er 1 minutt.")
-        }
-        else {
-            rest1 = (antallsekunder % 60) / 60;
-            antallminutter = Math.round(antallminutter - rest1);
-            rest1 *= Math.round(60);
-
-            antalltimer = antallminutter / 60;
-            rest2 = (antallminutter % 60) / 60;
-            antalltimer = Math.round(antalltimer - rest2);
-            rest2 *= Math.round(60);
-
-            antallminutter = Math.round(rest2);
-            antallsekunder = Math.round(rest1);
-
-            sekunder = " og " + rest1 + " sekunder.";
-            minutter = antallminutter + " minutter ";
-            timer = antalltimer + " timer ";
-            antallsekunderstart = antallsekunderstart + " sekunder ";
-
-            if (antalltimer > 0) {
-                minutter = rest2 + " minutter ";
+            if (antallsekunderstart == 0) {
+                document.getElementById("Svar").innerHTML = "Du skrev ikke inn noe";
             }
-
-            if (rest1 == 0) {
-                sekunder = "og ingen ekstra sekunder.";
+            else if (antallsekunderstart == 1) {
+                document.getElementById("Svar").innerHTML = "1 sekund er 1 sekund";
             }
-            else if (rest1 == 1) {
-                sekunder = "og 1 sekund.";
+            else if (antallsekunderstart < 60) {
+                document.getElementById("Svar").innerHTML = antallsekunderstart + " sekunder er " + antallsekunder + " sekunder";
             }
-            if (antallminutter == 0) {
-                minutter = "ingen minutter ";
-            }
-            else if (antallminutter == 1) {
-                minutter = "1 minutt "
-            }
-            if (antalltimer == 0) {
-                timer = "Ingen timer ";
-            }
-            else if (antalltimer == 1) {
-                timer = "1 time "
-            }
-
-            if (antallsekunderstart < 3600) {
-                document.write(antallsekunderstart + "er " + antallminutter + " minutter " + sekunder)
-            }
-            else if (antallsekunderstart == 3600) {
-                document.write(antallsekunderstart + "er 1 time ")
+            else if (antallsekunderstart == 60) {
+                document.getElementById("Svar").innerHTML = "60 sekunder er 1 minutt";
             }
             else {
-                document.write(antallsekunderstart + "er " + timer + minutter + sekunder)
+                rest1 = (antallsekunder % 60) / 60;
+                antallminutter = Math.round(antallminutter - rest1);
+                rest1 *= Math.round(60);
+
+                antalltimer = antallminutter / 60;
+                rest2 = (antallminutter % 60) / 60;
+                antalltimer = Math.round(antalltimer - rest2);
+                rest2 *= Math.round(60);
+
+                antallminutter = Math.round(rest2);
+                antallsekunder = Math.round(rest1);
+
+                sekunder = " og " + rest1 + " sekunder";
+                minutter = antallminutter + " minutter ";
+                timer = antalltimer + " timer ";
+                antallsekunderstart = antallsekunderstart + " sekunder ";
+
+                if (antalltimer > 0) {
+                    minutter = rest2 + " minutter ";
+                }
+
+                if (rest1 == 0) {
+                    sekunder = "";
+                }
+                if (rest1 == 1) {
+                    sekunder = "og 1 sekund";
+                }
+                if (antallminutter == 0) {
+                    minutter = "";
+                }
+                if (antallminutter == 1) {
+                    minutter = "1 minutt "
+                }
+                if (antalltimer == 0) {
+                    timer = "";
+                }
+                if (antalltimer == 1) {
+                    timer = "1 time "
+                }
+
+                if (antallsekunderstart < 3600) {
+                    document.getElementById("Svar").innerHTML = antallsekunderstart + "er " + minutter + sekunder;
+                }
+                else if (antallsekunderstart % 3600 == 0) {
+                    document.getElementById("Svar").innerHTML = antallsekunderstart + "er " + timer;
+                }
+                else {
+                    document.getElementById("Svar").innerHTML = antallsekunderstart + "er " + timer + minutter + sekunder;
+                }
             }
         }
-
-
-
     </script>
 
 </body>
