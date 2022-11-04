@@ -53,8 +53,8 @@
 
             var timer = antallTimer + " timer ";
             var minutter = antallMinutter + " minutter ";
-            var sekunder = " og " + antallSekunder + " sekunder, er ";
-            sekundersvar = sekundersvar + " sekunder";
+            var sekunder = " og " + antallSekunder + " sekunder ";
+            sekundersvar = ", er " + sekundersvar + " sekunder";
 
             if (antallTimer == 0){
                 timer = " ";
@@ -72,7 +72,7 @@
                 sekunder = " ";
             }
             if (antallSekunder == 1){
-                sekunder = " og 1 sekund, er "
+                sekunder = " og 1 sekund "
             }
             document.getElementById("Svar").innerHTML = timer + minutter + sekunder + sekundersvar;
 
