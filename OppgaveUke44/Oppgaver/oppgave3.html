@@ -10,10 +10,18 @@
 
 <body>
     <input id="input" type="text" placeholder="Skriv antall sekunder">
-    <button onclick="omregn()">Omregn</button>
+
+    <button id="knapp" onclick="omregn()">Omregn</button>
     <p id="Svar"></p>
 
     <script>
+        var input = document.getElementById("input");
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("knapp").click();
+            }
+        });
         function omregn() {
 
             var antallsekunderstart = Number(document.getElementById("input").value);
@@ -31,6 +39,8 @@
             antallsekunder = antallsekunderstart;
             antallminutter = antallsekunder / 60;
 
+
+            antallsekunderstart = Number(antallsekunderstart);
 
             if (antallsekunderstart == 0) {
                 document.getElementById("Svar").innerHTML = "Du skrev ikke inn noe";
@@ -95,7 +105,9 @@
                     document.getElementById("Svar").innerHTML = antallsekunderstart + "er " + timer + minutter + sekunder;
                 }
             }
+
         }
+
     </script>
 
 </body>

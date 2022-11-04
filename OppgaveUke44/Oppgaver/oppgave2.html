@@ -9,20 +9,15 @@
 </head>
 
 <style>
-    #timer {
-        width: 200px;
-        margin-top: 20px;
-    }
-
-    #minutter {
-        width: 200px;
-        margin-top: 20px;
-    }
-
+    #timer,
+    #minutter,
     #sekunder {
         width: 200px;
         margin-top: 20px;
-        margin-bottom: 20px
+    }
+
+    button {
+        margin-top: 30px;
     }
 
     #flex {
@@ -38,11 +33,20 @@
         <input id="sekunder" type="text" placeholder="Skriv antall sekunder">
     </div>
 
-    <button onclick="omregn()">Omregn</button>
+    <button id="knapp" onclick="omregn()">Omregn</button>
 
     <p id="Svar"></p>
 
     <script>
+
+        var inputSekunder = document.getElementById("sekunder");
+        inputSekunder.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("knapp").click();
+            }
+        });
+
         function omregn() {
 
             var antallTimer = Number(document.getElementById("timer").value);;
