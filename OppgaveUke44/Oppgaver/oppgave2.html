@@ -24,7 +24,8 @@
         margin-top: 20px;
         margin-bottom: 20px
     }
-    #flex{
+
+    #flex {
         display: flex;
         flex-direction: column;
     }
@@ -54,26 +55,27 @@
             var timer = antallTimer + " timer ";
             var minutter = antallMinutter + " minutter ";
             var sekunder = " og " + antallSekunder + " sekunder ";
-            sekundersvar = ", er " + sekundersvar + " sekunder";
+            sekundersvar = " er " + sekundersvar + " sekunder";
 
-            if (antallTimer == 0){
-                timer = " ";
+            if (antallTimer == 0) {
+                timer = " "
             }
-            if (antallTimer == 1){
+            if (antallTimer == 1) {
                 timer = "1 time "
             }
-            if (antallMinutter == 0){
-                minutter = " ";
+            if (antallMinutter == 0) {
+                minutter = " "
             }
-            if (antallMinutter == 1){
+            if (antallMinutter == 1) {
                 minutter = "1 minutt "
             }
-            if (antallSekunder == 0){
-                sekunder = " ";
+            if (antallSekunder == 0) {
+                sekunder = " "
             }
-            if (antallSekunder == 1){
+            if (antallSekunder == 1) {
                 sekunder = " og 1 sekund "
             }
+
             document.getElementById("Svar").innerHTML = timer + minutter + sekunder + sekundersvar;
 
         }
