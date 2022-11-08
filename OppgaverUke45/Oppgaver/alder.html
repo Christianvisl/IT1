@@ -51,8 +51,11 @@
             else if (alder < 100) {
                 document.getElementById("Svar").innerHTML = "Du er eldgammel"
             }
-            else {
+            else if (alder < 120) {
                 document.getElementById("Svar").innerHTML = "Gratulerer! Du er heeelt utrolig!"
+            }
+            else {
+                document.getElementById("Svar").innerHTML = "Beklager, men du lever ikke lenger"
             }
         }
     </script>
