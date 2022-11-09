@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>While</title>
+    <title>While oppgaver</title>
 </head>
 <style>
     div {
@@ -32,22 +32,19 @@
         <button id="knapp1" onclick="click1()">Alle tall fra 0 til 100</button>
         <button id="knapp2" onclick="click2()">Alle tall fra 0 til 100, untatt tiere</button>
         <button id="knapp3" onclick="click3()">8-ganger'n</button>
-        <button id="knapp4" onclick="click4()">Trekk 4</button>
+        <button id="knapp4" onclick="click4()">Tilfeldig ord på 2 til 10 bokstaver</button>
     </div>
 
     <p id="Svar1"></p>
     <p id="Svar2"></p>
     <p id="Svar3"></p>
     <p id="Svar4"></p>
+    <p id="Svar5"></p>
 
     <button id="knapp5" onclick="click5()">Reset</button>
 
     <script>
 
-        var knapp1 = document.getElementById("knapp1");
-        var knapp2 = document.getElementById("knapp2");
-        var knapp3 = document.getElementById("knapp3");
-        var knapp4 = document.getElementById("knapp4");
 
 
         function click1() {
@@ -90,23 +87,44 @@
         }
 
         function click4() {
-            var kons = "bcdfghjklmnpqrstvwxz";
+            var konso = "bcdfghjklmnpqrstvwxz";
+            var vokal = "aeiouyæøå"
+
+            var antallKons = Number(Math.round((Math.random() * 6)));
+            var antallVokal = Number(Math.round((Math.random() * 4)));
 
 
-            var antallKons = Number((Math.random() * 5) + 1);
+            var bokstaverKons = String(bokstaverKons);
+            var bokstaverVokal = String(bokstaverVokal);
 
+            var Konsonanter = "";
+            var Vokaler = "";
 
-            var bokstaverKons;
+            var kons;
+            var vok;
 
-
-            var Konsonanter = String(Konsonanter);
-
-            while (Konsonanter.length < 6) {
-                bokstaverKons = kons[16];
+            while (Konsonanter.length <= antallKons) {
+                kons = (Math.random() * 19);
+                kons = Math.round(kons);
+                bokstaverKons = konso[kons];
                 Konsonanter += "" + bokstaverKons;
             }
 
-            document.getElementById("Svar4").innerHTML = Konsonanter;
+            while (Vokaler.length <= antallVokal) {
+                vok = (Math.random() * 8);
+                vok = Math.round(vok);
+                bokstaverVokal = vokal[vok];
+                Vokaler += "" + bokstaverVokal;
+            }
+
+            var ord = Konsonanter + Vokaler;
+            document.getElementById("Svar4").innerHTML = "De tilfeldige konsonantene er: " + Konsonanter + " og de tilfeldige vokalene er: " + Vokaler;
+
+
+            var arrayOrd = ord.split("");
+            arrayOrd.sort(function () { return 0.5 - Math.random() });
+            document.getElementById("Svar5").innerHTML = "Ordet er: " + arrayOrd.join("");
+
         }
 
         function click5() {
