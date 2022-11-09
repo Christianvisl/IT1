@@ -13,8 +13,10 @@
         Alder
     </h1>
 
-    <input id="alder" type="text" placeholder="Hva er din alder?">
-    <button id="knapp" onclick="sjekk()">Sjekk alder</button>
+    <button id="generer" onclick="sjekk()">Tilfeldig alder</button>
+    <h1> eller </h1>
+    <input id="alder" type="number" placeholder="Hva er din alder?">
+    <button id="knapp" onclick="sjekk2()">Sjekk alder</button>
 
     <p id="Svar"></p>
 
@@ -27,7 +29,39 @@
             }
         });
 
-        function sjekk() {
+        function sjekk(){
+            var alder = Math.round(Math.random() * 180);
+
+            if (alder < 10) {
+                document.getElementById("Svar").innerHTML = alder +  ", du er ung"
+            }
+            else if (alder < 20) {
+                document.getElementById("Svar").innerHTML = alder +   ", du er ungdom"
+            }
+            else if (alder < 40) {
+                document.getElementById("Svar").innerHTML = alder +   ", du er en ung voksen"
+            }
+            else if (alder < 60) {
+                document.getElementById("Svar").innerHTML = alder +   ", du er en eldre voksen"
+            }
+            else if (alder == 67) {
+                document.getElementById("Svar").innerHTML = alder +   ", du er jammen blitt pensjonist i år"
+            }
+            else if (alder < 80) {
+                document.getElementById("Svar").innerHTML = alder +   ", du er gammel"
+            }
+            else if (alder < 100) {
+                document.getElementById("Svar").innerHTML = alder +   ", du er eldgammel"
+            }
+            else if (alder < 120) {
+                document.getElementById("Svar").innerHTML = alder +   ", gratulerer! Du er heeelt utrolig!"
+            }
+            else {
+                document.getElementById("Svar").innerHTML = alder +   ", beklager, men du lever ikke lenger"
+            }
+        }
+
+        function sjekk2() {
             var alder = document.getElementById("alder").value;
 
             if (alder < 10) {
