@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+<style>
+    div {
+        margin: auto;
+        text-align: center;
+    }
+
+    button {
+        margin: 10px;
+        padding: 10px;
+        background-color: turquoise;
+        border: solid 2px lightblue;
+    }
+
+    p {
+        margin: 10px 50px 10px 50px;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div>
+        <button id="knapp1" onclick="click1()">Alle tall fra 0 til 100</button>
+        <button id="knapp2" onclick="click2()">Alle tall fra 0 til 100, untatt tiere</button>
+        <button id="knapp3" onclick="click3()">8-ganger'n</button>
+        <button id="knapp4" onclick="click4()">Trekk 4</button>
+    </div>
+
+    <p id="Svar1"></p>
+    <p id="Svar2"></p>
+    <p id="Svar3"></p>
+    <p id="Svar4"></p>
+
+    <button id="knapp5" onclick="click5()">Reset</button>
+
+    <script>
+
+        var knapp1 = document.getElementById("knapp1");
+        var knapp2 = document.getElementById("knapp2");
+        var knapp3 = document.getElementById("knapp3");
+        var knapp4 = document.getElementById("knapp4");
+
+
+        function click1() {
+            var tallene = "";
+            var tall = 0;
+
+            while (tall <= 100) {
+                tallene += ", " + tall;
+                tall++;
+            }
+            document.getElementById("Svar1").innerHTML = "Tallene fra 0 til 100 er" + tallene;
+        }
+
+        function click2() {
+            var tallene = "";
+            var tall = 0;
+
+            while (tall <= 100) {
+                if (tall % 10 != 0) {
+                    tallene += ", " + tall;
+                    tall++;
+                }
+                else if (tall % 10 == 0) {
+                    tallene += "";
+                    tall++;
+                }
+
+            }
+
+            document.getElementById("Svar2").innerHTML = "Tallene fra 0 til 100 untatt tiere er" + tallene;
+        }
+
+        function click3() {
+            var tallene = "";
+            var tall = 8;
+            for (tall = 8; tall < 100; tall += 8) {
+                tallene += "<br>" + tall;
+            }
+            document.getElementById("Svar3").innerHTML = "8-ganger'n opp til 100 er" + tallene;
+        }
+
+        function click4() {
+            var kons = "bcdfghjklmnpqrstvwxz";
+
+
+            var antallKons = Number((Math.random() * 5) + 1);
+
+
+            var bokstaverKons;
+
+
+            var Konsonanter = String(Konsonanter);
+
+            while (Konsonanter.length < 6) {
+                bokstaverKons = kons[16];
+                Konsonanter += "" + bokstaverKons;
+            }
+
+            document.getElementById("Svar4").innerHTML = Konsonanter;
+        }
+
+        function click5() {
+            document.getElementById("Svar1").innerHTML = "";
+            document.getElementById("Svar2").innerHTML = "";
+            document.getElementById("Svar3").innerHTML = "";
+            document.getElementById("Svar4").innerHTML = "";
+        }
+
+    </script>
+
+
+</body>
+
+</html>
