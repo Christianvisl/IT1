@@ -5,21 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stilark.css">
     <title>Oppgave 4</title>
 </head>
-<style>
-    body {
-        margin: auto;
-        margin-top: 30px;
-        text-align: center;
-    }
-
-    p {
-        padding: 20px;
-    }
-</style>
 
 <body>
+    <div class="overskrift">
+    <h1>
+        Gjett paddordet
+    </h1>
+    </div>
+    
     <input id="passord" type="password" placeholder="Skriv passordet">
     <button id="knapp" onclick="sjekker()">Sjekk</button>
     <p id="Svar"></p>
@@ -33,6 +29,14 @@
         });
 
         function sjekker() {
+            var svar = document.getElementById("Svar");
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.color = "#00ff6c";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.margin = "auto";
+
             var hemmelig = "cAl3sirD";
 
             var passord1 = String(document.getElementById("passord").value);
