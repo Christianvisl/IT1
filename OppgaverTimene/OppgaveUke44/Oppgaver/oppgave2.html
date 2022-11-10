@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2</title>
+</head>
+
+<style>
+    #timer,
+    #minutter,
+    #sekunder {
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    button {
+        margin-top: 30px;
+    }
+
+    #flex {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <div id="flex">
+        <input id="timer" type="text" placeholder="Skriv antall timer">
+        <input id="minutter" type="text" placeholder="Skriv antall minutter">
+        <input id="sekunder" type="text" placeholder="Skriv antall sekunder">
+    </div>
+
+    <button id="knapp" onclick="omregn()">Omregn</button>
+
+    <p id="Svar"></p>
+
+    <script>
+
+        var inputSekunder = document.getElementById("sekunder");
+        inputSekunder.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("knapp").click();
+            }
+        });
+
+        function omregn() {
+
+            var antallTimer = Number(document.getElementById("timer").value);;
+            var antallMinutter = Number(document.getElementById("minutter").value);;
+            var antallSekunder = Number(document.getElementById("sekunder").value);;
+            var sekundersvar;
+
+            sekundersvar = antallTimer * 3600 + antallMinutter * 60 + antallSekunder;
+
+            var timer = antallTimer + " timer ";
+            var minutter = antallMinutter + " minutter ";
+            var sekunder = " og " + antallSekunder + " sekunder ";
+            sekundersvar = " er " + sekundersvar + " sekunder";
+
+            if (antallTimer == 0) {
+                timer = " "
+            }
+            if (antallTimer == 1) {
+                timer = "1 time "
+            }
+            if (antallMinutter == 0) {
+                minutter = " "
+            }
+            if (antallMinutter == 1) {
+                minutter = "1 minutt "
+            }
+            if (antallSekunder == 0) {
+                sekunder = " "
+            }
+            if (antallSekunder == 1) {
+                sekunder = " og 1 sekund "
+            }
+
+            document.getElementById("Svar").innerHTML = timer + minutter + sekunder + sekundersvar;
+
+        }
+    </script>
+</body>
+
+</html>
