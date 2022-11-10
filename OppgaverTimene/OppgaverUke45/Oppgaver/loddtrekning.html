@@ -8,49 +8,168 @@
     <title>Loddtrekning</title>
 </head>
 
+<style>
+    body {
+        margin: auto;
+        text-align: center;
+    }
+
+    #dittTall {
+        width: 350px;
+        margin: 0px 0px 30px 20px;
+    }
+</style>
+
 <body>
     <h1>
         Loddtrekning
     </h1>
 
     <input id="antall" type="number" placeholder="Antall lodd solgt">
+    <input id="dittTall" type="text" placeholder="Hvilket(e) lodd har du? (bruk komma mellom loddene)">
+
+    <br>
 
     <button id="knapp1" onclick="trekk1()">Trekk 1</button>
     <button id="knapp2" onclick="trekk2()">Trekk 2</button>
     <button id="knapp3" onclick="trekk3()">Trekk 3</button>
     <button id="knapp4" onclick="trekk4()">Trekk 4</button>
+    <button id="reset" onclick="reset()">Reset</button>
 
     <p id="Svar"></p>
+    <p id="sammeLodd1"></p>
+    <p id="sammeLodd2"></p>
+    <p id="sammeLodd3"></p>
+    <p id="sammeLodd4"></p>
 
     <script>
+        function reset(){
+            document.getElementById("Svar").innerHTML = "";
+            document.getElementById("sammeLodd1").innerHTML = "";
+            document.getElementById("sammeLodd2").innerHTML = "";
+            document.getElementById("sammeLodd3").innerHTML = "";
+            document.getElementById("sammeLodd4").innerHTML = "";
+        }
         function trekk1() {
+            document.getElementById("Svar").innerHTML = "";
+            document.getElementById("sammeLodd1").innerHTML = "";
+            document.getElementById("sammeLodd2").innerHTML = "";
+            document.getElementById("sammeLodd3").innerHTML = "";
+            document.getElementById("sammeLodd4").innerHTML = "";
+
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
 
-            document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall;
+            document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall1;
+
+            var vinnerlodd1 = String(tilfeldigTall1);
+
+            var dittLodd = document.getElementById("dittTall").value;
+            var arrayLodd = dittLodd.split(",");
+
+            if (arrayLodd.includes(vinnerlodd1)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd1));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd1").innerHTML = "Du vant med loddet " + lodd;
+            }
+            else {
+                document.getElementById("sammeLodd1").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
+            }
         }
 
         function trekk2() {
+            document.getElementById("Svar").innerHTML = "";
+            document.getElementById("sammeLodd1").innerHTML = "";
+            document.getElementById("sammeLodd2").innerHTML = "";
+            document.getElementById("sammeLodd3").innerHTML = "";
+            document.getElementById("sammeLodd4").innerHTML = "";
+
             var tall = document.getElementById("antall").value;
- 
+
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
 
             document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + " og " + tilfeldigTall2;
+
+            var vinnerlodd1 = String(tilfeldigTall1);
+            var vinnerlodd2 = String(tilfeldigTall2);
+
+            var dittLodd = document.getElementById("dittTall").value;
+            var arrayLodd = dittLodd.split(",");
+
+            if (arrayLodd.includes(vinnerlodd1)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd1));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd1").innerHTML = "Du vant med loddet " + lodd;
+            }
+            if (arrayLodd.includes(vinnerlodd2)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd2));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd2").innerHTML = "Du vant med loddet " + lodd;
+            }
+            
+            else {
+                document.getElementById("sammeLodd1").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
+            }
         }
 
         function trekk3() {
+            document.getElementById("Svar").innerHTML = "";
+            document.getElementById("sammeLodd1").innerHTML = "";
+            document.getElementById("sammeLodd2").innerHTML = "";
+            document.getElementById("sammeLodd3").innerHTML = "";
+            document.getElementById("sammeLodd4").innerHTML = "";
+
             var tall = document.getElementById("antall").value;
 
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
 
-            document.getElementById("Svar").innerHTML ="Vinnerloddene er: " +  tilfeldigTall1 + ", " + tilfeldigTall2 + " og " + tilfeldigTall3;
+            document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + " og " + tilfeldigTall3;
+
+
+            var vinnerlodd1 = String(tilfeldigTall1);
+            var vinnerlodd2 = String(tilfeldigTall2);
+            var vinnerlodd3 = String(tilfeldigTall3);
+
+            var dittLodd = document.getElementById("dittTall").value;
+            var arrayLodd = dittLodd.split(",");
+
+            if (arrayLodd.includes(vinnerlodd1)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd1));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd1").innerHTML = "Du vant med loddet " + lodd;
+            }
+            if (arrayLodd.includes(vinnerlodd2)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd2));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd2").innerHTML = "Du vant med loddet " + lodd;
+            }
+            if (arrayLodd.includes(vinnerlodd3)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd3));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd3").innerHTML = "Du vant med loddet " + lodd;
+            }
+            else {
+                document.getElementById("sammeLodd1").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
+            }
         }
 
         function trekk4() {
+            document.getElementById("Svar").innerHTML = "";
+            document.getElementById("sammeLodd1").innerHTML = "";
+            document.getElementById("sammeLodd2").innerHTML = "";
+            document.getElementById("sammeLodd3").innerHTML = "";
+            document.getElementById("sammeLodd4").innerHTML = "";
+            
             var tall = document.getElementById("antall").value;
 
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
@@ -58,7 +177,42 @@
             var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall4 = Math.round(Math.random() * (tall - 1)) + 1;
 
-            document.getElementById("Svar").innerHTML ="Vinnerloddene er: " +  tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + " og " + tilfeldigTall4;
+            document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + " og " + tilfeldigTall4;
+
+            var vinnerlodd1 = String(tilfeldigTall1);
+            var vinnerlodd2 = String(tilfeldigTall2);
+            var vinnerlodd3 = String(tilfeldigTall3);
+
+            var dittLodd = document.getElementById("dittTall").value;
+            var arrayLodd = dittLodd.split(",");
+
+            if (arrayLodd.includes(vinnerlodd1)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd1));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd1").innerHTML = "Du vant med loddet " + lodd;
+            }
+            if (arrayLodd.includes(vinnerlodd2)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd2));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd2").innerHTML = "Du vant med loddet " + lodd;
+            }
+            if (arrayLodd.includes(vinnerlodd3)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd3));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd3").innerHTML = "Du vant med loddet " + lodd;
+            }
+            if (arrayLodd.includes(vinnerlodd4)) {
+                var posisjon = Number(arrayLodd.indexOf(vinnerlodd4));
+                var lodd = arrayLodd[posisjon];
+
+                document.getElementById("sammeLodd4").innerHTML = "Du vant med loddet " + lodd;
+            }
+            else {
+                document.getElementById("sammeLodd1").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
+            }
         }
 
     </script>
