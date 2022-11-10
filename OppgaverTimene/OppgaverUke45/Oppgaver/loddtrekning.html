@@ -13,7 +13,7 @@
         Loddtrekning
     </h1>
 
-    <input id="antall" type="number" placeholder="Antall lodd">
+    <input id="antall" type="number" placeholder="Antall lodd solgt">
 
     <button id="knapp1" onclick="trekk1()">Trekk 1</button>
     <button id="knapp2" onclick="trekk2()">Trekk 2</button>
@@ -23,54 +23,43 @@
     <p id="Svar"></p>
 
     <script>
-
-        var knapp1 = document.getElementById("knapp1");
-        var knapp2 = document.getElementById("knapp2");
-        var knapp3 = document.getElementById("knapp3");
-        var knapp4 = document.getElementById("knapp4");
-
-
         function trekk1() {
             var tall = document.getElementById("antall").value;
-            var tilfeldigTall = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt = Number(parseInt(tilfeldigTall));
-            document.getElementById("Svar").innerHTML = tilfeldigTallHelt;
+
+            var tilfeldigTall = Math.round((Math.random() * tall));
+
+            document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall;
         }
 
         function trekk2() {
             var tall = document.getElementById("antall").value;
-            var tilfeldigTall1 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt1 = Number(parseInt(tilfeldigTall1));
-            var tilfeldigTall2 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt2 = Number(parseInt(tilfeldigTall2));
 
-            document.getElementById("Svar").innerHTML = tilfeldigTallHelt1 + " og " + tilfeldigTallHelt2;
+            var tilfeldigTall1 = Math.round(Math.random() * tall);
+            var tilfeldigTall2 = Math.round(Math.random() * tall);
+
+            document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + " og " + tilfeldigTall2;
         }
 
         function trekk3() {
             var tall = document.getElementById("antall").value;
-            var tilfeldigTall1 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt1 = Number(parseInt(tilfeldigTall1));
-            var tilfeldigTall2 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt2 = Number(parseInt(tilfeldigTall2));
-            var tilfeldigTall3 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt3 = Number(parseInt(tilfeldigTall3));
 
-            document.getElementById("Svar").innerHTML = tilfeldigTallHelt1 + ", " + tilfeldigTallHelt2 + " og " + tilfeldigTallHelt3;
+            var tilfeldigTall1 = Math.round(Math.random() * tall);
+            var tilfeldigTall2 = Math.round(Math.random() * tall);
+            var tilfeldigTall3 = Math.round(Math.random() * tall);
+
+            document.getElementById("Svar").innerHTML ="Vinnerloddene er: " +  tilfeldigTall1 + ", " + tilfeldigTall2 + " og " + tilfeldigTall3;
         }
 
         function trekk4() {
             var tall = document.getElementById("antall").value;
-            var tilfeldigTall1 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt1 = Number(parseInt(tilfeldigTall1));
-            var tilfeldigTall2 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt2 = Number(parseInt(tilfeldigTall2));
-            var tilfeldigTall3 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt3 = Number(parseInt(tilfeldigTall3));
-            var tilfeldigTall4 = (Math.random() * tall) + 1;
-            var tilfeldigTallHelt4 = Number(parseInt(tilfeldigTall4));
 
-            document.getElementById("Svar").innerHTML = tilfeldigTallHelt1 + ", " + tilfeldigTallHelt2 + ", " + tilfeldigTallHelt3 + " og " + tilfeldigTallHelt4;
+            var tilfeldigTall1 = Math.round(Math.random() * tall);
+            var tilfeldigTall2 = Math.round(Math.random() * tall);
+            var tilfeldigTall3 = Math.round(Math.random() * tall);
+            var tilfeldigTall4 = Math.round(Math.random() * tall);
+
+
+            document.getElementById("Svar").innerHTML ="Vinnerloddene er: " +  tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + " og " + tilfeldigTall4;
         }
 
     </script>

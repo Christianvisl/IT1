@@ -31,10 +31,13 @@
         });
 
         function sjekk(){
-            var alder = Math.round(Math.random() * 180);
+            var alder = Math.round(Math.random() * 140);
 
-            if (alder < 10) {
-                document.getElementById("Svar").innerHTML = alder +  ", du er ung"
+            if (alder < 3){
+                document.getElementById("Svar").innerHTML = alder + ", du er en baby"
+            }
+            else if (alder < 10) {
+                document.getElementById("Svar").innerHTML = alder +  ", du er et barn"
             }
             else if (alder < 20) {
                 document.getElementById("Svar").innerHTML = alder +   ", du er ungdom"
@@ -65,7 +68,10 @@
         function sjekk2() {
             var alder = document.getElementById("alder").value;
 
-            if (alder < 10) {
+            if (alder < 3){
+                document.getElementById("Svar").innerHTML = "Du er en baby"
+            }
+            else if (alder < 10) {
                 document.getElementById("Svar").innerHTML = "Du er ung"
             }
             else if (alder < 20) {
