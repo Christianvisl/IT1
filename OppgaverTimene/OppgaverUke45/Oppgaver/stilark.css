@@ -1,0 +1,71 @@
+body {
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+    margin: auto;
+    text-align: center;
+}
+
+#dittTall {
+    width: 350px;
+    margin: 0px 0px 30px 20px;
+}
+
+.overskrift {
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    font-size: 20px;
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h1 {
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+    padding: 15px;
+    width: fit-content;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+button {
+    border-radius: 10px;
+    color: #00AAFF;
+    font-weight: bold;
+    margin: 15px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: white;
+    border: none;
+}
+
+input {
+    text-decoration: #00FF6C;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 15px;
+}
+
+p {
+    margin: auto;
+    background-color: white;
+    text-decoration: #00FF6C;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: fit-content;
+}
+
+h3 {
+    color: #999999;
+    font-weight: bold;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    margin: auto;
+    background-color: white;
+}
