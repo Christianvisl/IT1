@@ -26,16 +26,16 @@
         function trekk1() {
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall = Math.round((Math.random() * tall));
+            var tilfeldigTall = Math.round(Math.random() * (tall - 1)) + 1;
 
             document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall;
         }
 
         function trekk2() {
             var tall = document.getElementById("antall").value;
-
-            var tilfeldigTall1 = Math.round(Math.random() * tall);
-            var tilfeldigTall2 = Math.round(Math.random() * tall);
+ 
+            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
 
             document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + " og " + tilfeldigTall2;
         }
@@ -43,9 +43,9 @@
         function trekk3() {
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall1 = Math.round(Math.random() * tall);
-            var tilfeldigTall2 = Math.round(Math.random() * tall);
-            var tilfeldigTall3 = Math.round(Math.random() * tall);
+            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
 
             document.getElementById("Svar").innerHTML ="Vinnerloddene er: " +  tilfeldigTall1 + ", " + tilfeldigTall2 + " og " + tilfeldigTall3;
         }
@@ -53,11 +53,10 @@
         function trekk4() {
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall1 = Math.round(Math.random() * tall);
-            var tilfeldigTall2 = Math.round(Math.random() * tall);
-            var tilfeldigTall3 = Math.round(Math.random() * tall);
-            var tilfeldigTall4 = Math.round(Math.random() * tall);
-
+            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
+            var tilfeldigTall4 = Math.round(Math.random() * (tall - 1)) + 1;
 
             document.getElementById("Svar").innerHTML ="Vinnerloddene er: " +  tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + " og " + tilfeldigTall4;
         }
