@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="stilark.css">
     <title>Loddtrekning</title>
 </head>
+<style>
+</style>
 
 <body>
     <div class="overskrift">
@@ -17,7 +19,7 @@
     </div>
 
     <input id="antall" type="number" placeholder="Antall lodd solgt">
-    <input id="dittTall" type="text" placeholder="Hvilket(e) lodd har du? (bruk komma mellom loddene)">
+    <input id="dittTall" type="text" placeholder="Hvilke(t) lodd har du? (bruk komma mellom loddene)">
 
     <br>
 
@@ -35,45 +37,77 @@
     <p id="sammeLodd4"></p>
 
     <script>
+
         function reset() {
             document.getElementById("Svar").innerHTML = "";
+            var svar = document.getElementById("Svar");
+            svar.style.backgroundColor = "transparent";
+            
+
             document.getElementById("sammeLodd1").innerHTML = "";
             document.getElementById("sammeLodd2").innerHTML = "";
             document.getElementById("sammeLodd3").innerHTML = "";
             document.getElementById("sammeLodd4").innerHTML = "";
         }
-        function trekk1() {
 
+        function trekk1() {
             var tall = document.getElementById("antall").value;
 
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
+
+            var svar = document.getElementById("Svar");
+            svar.style.color = "#00ff6c";
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.fontWeight = "bold";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.fontSize = "15px";
+            svar.style.margin = "auto";
 
             document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall1;
         }
 
         function trekk2() {
-
             var tall = document.getElementById("antall").value;
 
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
 
+            var svar = document.getElementById("Svar");
+            svar.style.color = "#00ff6c";
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.fontWeight = "bold";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.fontSize = "15px";
+            svar.style.margin = "auto";
+
             document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2;
         }
 
         function trekk3() {
-
             var tall = document.getElementById("antall").value;
 
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
 
+            var svar = document.getElementById("Svar");
+            svar.style.color = "#00ff6c";
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.fontWeight = "bold";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.fontSize = "15px";
+            svar.style.margin = "auto";
+
             document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3;
         }
 
         function trekk4() {
-
             var tall = document.getElementById("antall").value;
 
             var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
@@ -81,11 +115,20 @@
             var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
             var tilfeldigTall4 = Math.round(Math.random() * (tall - 1)) + 1;
 
+            var svar = document.getElementById("Svar");
+            svar.style.color = "#00ff6c";
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.fontWeight = "bold";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.fontSize = "15px";
+            svar.style.margin = "auto";
+
             document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + ", " + tilfeldigTall4;
         }
 
         function sjekk() {
-            
             var vinnerlodd1 = String(tilfeldigTall1);
             var vinnerlodd2 = String(tilfeldigTall2);
             var vinnerlodd3 = String(tilfeldigTall3);
@@ -121,6 +164,7 @@
             else {
                 document.getElementById("sammeLodd1").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
             }
+
         }
 
     </script>

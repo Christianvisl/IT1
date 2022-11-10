@@ -48,7 +48,7 @@ input {
     margin: 5px;
     font-size: 15px;
 }
-
+/*
 p {
     margin: auto;
     background-color: white;
@@ -57,9 +57,9 @@ p {
     padding: 10px;
     border-radius: 10px;
     border: none;
-    width: fit-content;
+    width: 300px;
 }
-
+*/
 h3 {
     color: #999999;
     font-weight: bold;
