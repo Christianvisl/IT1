@@ -17,23 +17,52 @@
     </div>
 
     <div>
-        <button id="knapp1" onclick="click1()">Alle tall fra 0 til 100</button>
-        <button id="knapp2" onclick="click2()">Alle tall fra 0 til 100, untatt tiere</button>
-        <button id="knapp3" onclick="click3()">8-ganger'n</button>
-        <button id="knapp4" onclick="click4()">Tilfeldig ord på 2 til 10 bokstaver</button>
+        <button id="knapp1" onclick="click5(), svar(), click1()">Alle tall fra 0 til 100</button>
+        <button id="knapp2" onclick="click5(), svar(), click2()">Alle tall fra 0 til 100, untatt tiere</button>
+        <button id="knapp3" onclick="click5(), svar(), svar3(), click3()">8-ganger'n</button>
+        <button id="knapp4" onclick="click5(), svar(), click4()">Tilfeldig ord på 2 til 10 bokstaver</button>
     </div>
 
-    <p id="Svar1"></p>
-    <p id="Svar2"></p>
-    <p id="Svar3"></p>
-    <p id="Svar4"></p>
-    <p id="Svar5"></p>
+    <div id="svarene">
+        <p id="Svar1"></p>
+        <p id="Svar2"></p>
+        <p id="Svar3"></p>
+        <div id="svar4">
+            <p id="Svar4"></p>
+            <p id="Svar5"></p>
+        </div>
+    </div>
 
     <button id="knapp5" onclick="click5()">Reset</button>
 
     <script>
+        function svar() {
+            var svar = document.getElementById("svarene");
+            svar.style.color = "#00aaff";
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.fontWeight = "bold";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.fontSize = "15px";
+            svar.style.margin = "auto";
+            svar.style.width = "800px";
+        }
+        function svar4() {
+            var svar4 = document.getElementById("svar4");
+            var svar = document.getElementById("svarene");
 
+            svar.style.width = "fit-content";
+            svar4.style.width = "400px";
+            svar4.style.margin = "auto";
+        }
+        function svar3() {
+            var svar3 = document.getElementById("Svar3");
+            var svar = document.getElementById("svarene");
 
+            svar.style.width = "fit-content";
+            svar3.style.width = "200px";
+        }
 
         function click1() {
             var tallene = "";

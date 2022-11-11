@@ -16,9 +16,8 @@
         </h1>
     </div>
 
-    <h3>Generer en tilfeldig alder:</h3>
-    <button id="generer" onclick="sjekk()">Tilfeldig alder</button>
-    <h3 style="margin-top: 40px;">Skriv inn din egne alder:</h3>
+    <button id="generer" onclick="sjekk()">Generer en tilfeldig alder</button>
+    <br>
     <input id="alder" type="number" placeholder="Hva er din alder?">
     <button id="knapp" onclick="sjekk2()">Sjekk alder</button>
 
@@ -34,6 +33,14 @@
         });
 
         function sjekk() {
+            var svar = document.getElementById("Svar");
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.color = "#00aaff";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.margin = "auto";
+            svar.style.fontWeight = "bold";
             var alder = Math.round(Math.random() * 140);
 
             if (alder < 3) {
@@ -69,6 +76,14 @@
         }
 
         function sjekk2() {
+            var svar = document.getElementById("Svar");
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.color = "#00aaff";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.margin = "auto";
+            svar.style.fontWeight = "bold";
             var alder = document.getElementById("alder").value;
 
             if (alder < 3) {
