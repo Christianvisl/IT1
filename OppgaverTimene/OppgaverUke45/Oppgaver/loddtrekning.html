@@ -23,10 +23,10 @@
 
     <br>
 
-    <button id="knapp1" onclick="trekk1()">Trekk 1</button>
-    <button id="knapp2" onclick="trekk2()">Trekk 2</button>
-    <button id="knapp3" onclick="trekk3()">Trekk 3</button>
-    <button id="knapp4" onclick="trekk4()">Trekk 4</button>
+    <button id="knapp1" onclick="reset(), svar(), trekk1()">Trekk 1</button>
+    <button id="knapp2" onclick="reset(), svar(), trekk2()">Trekk 2</button>
+    <button id="knapp3" onclick="reset(), svar(), trekk3()">Trekk 3</button>
+    <button id="knapp4" onclick="reset(), svar(), trekk4()">Trekk 4</button>
     <button id="sjekk" onclick="sjekk()">Sjekk om du vant</button>
     <button id="reset" onclick="reset()">Reset</button>
 
@@ -37,12 +37,23 @@
     <p id="sammeLodd4"></p>
 
     <script>
+        var loddene = document.getElementById("Svar").value;
 
+        function svar() {
+            var svar = document.getElementById("Svar");
+            svar.style.color = "#00aaff";
+            svar.style.backgroundColor = "white";
+            svar.style.padding = "10px";
+            svar.style.fontWeight = "bold";
+            svar.style.width = "fit-content";
+            svar.style.borderRadius = "10px";
+            svar.style.fontSize = "15px";
+            svar.style.margin = "auto";
+        }
         function reset() {
             document.getElementById("Svar").innerHTML = "";
             var svar = document.getElementById("Svar");
             svar.style.backgroundColor = "transparent";
-
 
             document.getElementById("sammeLodd1").innerHTML = "";
             document.getElementById("sammeLodd2").innerHTML = "";
@@ -54,82 +65,163 @@
 
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
+            if (tall >= 1) {
+                var tilfeldigTall1 = Math.floor(Math.random() * tall) + 1;
 
-            var svar = document.getElementById("Svar");
-            svar.style.color = "#00aaff";
-            svar.style.backgroundColor = "white";
-            svar.style.padding = "10px";
-            svar.style.fontWeight = "bold";
-            svar.style.width = "fit-content";
-            svar.style.borderRadius = "10px";
-            svar.style.fontSize = "15px";
-            svar.style.margin = "auto";
+                document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall1;
+            }
 
-            document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall1;
+            else {
+                document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+            }
         }
 
         function trekk2() {
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
-            var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
+            if (tall >= 2) {
+                var tilfeldigTall1 = Math.floor(Math.random() * tall) + 1;
+                var tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
+                while (tilfeldigTall1 == tilfeldigTall2) {
+                    tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
+                }
 
-            var svar = document.getElementById("Svar");
-            svar.style.color = "#00aaff";
-            svar.style.backgroundColor = "white";
-            svar.style.padding = "10px";
-            svar.style.fontWeight = "bold";
-            svar.style.width = "fit-content";
-            svar.style.borderRadius = "10px";
-            svar.style.fontSize = "15px";
-            svar.style.margin = "auto";
+                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2;
+            }
 
-            document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2;
+            else {
+                document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+            }
         }
 
         function trekk3() {
             var tall = document.getElementById("antall").value;
 
-            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
-            var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
-            var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
+            if (tall >= 3) {
+                var tilfeldigTall1 = Math.floor(Math.random() * tall) + 1;
+                var tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
+                while (tilfeldigTall2 == tilfeldigTall1) {
+                    tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
+                }
+                var tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                while (tilfeldigTall3 == tilfeldigTall1) {
+                    tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    while (tilfeldigTall3 == tilfeldigTall2) {
+                        tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    }
+                }
+                while (tilfeldigTall3 == tilfeldigTall2) {
+                    tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    while (tilfeldigTall3 == tilfeldigTall1) {
+                        tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    }
+                }
 
-            var svar = document.getElementById("Svar");
-            svar.style.color = "#00aaff";
-            svar.style.backgroundColor = "white";
-            svar.style.padding = "10px";
-            svar.style.fontWeight = "bold";
-            svar.style.width = "fit-content";
-            svar.style.borderRadius = "10px";
-            svar.style.fontSize = "15px";
-            svar.style.margin = "auto";
+                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3;
+            }
 
-            document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3;
+            else {
+                document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+            }
         }
 
         function trekk4() {
             var tall = document.getElementById("antall").value;
+            if (tall >= 4) {
+                var tilfeldigTall1 = Math.floor(Math.random() * tall) + 1;
 
-            var tilfeldigTall1 = Math.round(Math.random() * (tall - 1)) + 1;
-            var tilfeldigTall2 = Math.round(Math.random() * (tall - 1)) + 1;
-            var tilfeldigTall3 = Math.round(Math.random() * (tall - 1)) + 1;
-            var tilfeldigTall4 = Math.round(Math.random() * (tall - 1)) + 1;
 
-            var svar = document.getElementById("Svar");
-            svar.style.color = "#00aaff";
-            svar.style.backgroundColor = "white";
-            svar.style.padding = "10px";
-            svar.style.fontWeight = "bold";
-            svar.style.width = "fit-content";
-            svar.style.borderRadius = "10px";
-            svar.style.fontSize = "15px";
-            svar.style.margin = "auto";
+                var tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
+                while (tilfeldigTall2 == tilfeldigTall1) {
+                    tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
+                }
 
-            document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + ", " + tilfeldigTall4;
+
+                var tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                while (tilfeldigTall3 == tilfeldigTall1) {
+                    tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    while (tilfeldigTall3 == tilfeldigTall2) {
+                        tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    }
+                }
+                while (tilfeldigTall3 == tilfeldigTall2) {
+                    tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    while (tilfeldigTall3 == tilfeldigTall1) {
+                        tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                    }
+                }
+
+
+                var tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+
+                while (tilfeldigTall4 == tilfeldigTall2) {
+                    tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+
+                    while (tilfeldigTall4 == tilfeldigTall1) {
+                        tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        while (tilfeldigTall4 == tilfeldigTall3) {
+                            tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        }
+                    }
+                    while (tilfeldigTall4 == tilfeldigTall3) {
+                        tilfeldigTall3 = Math.floor(Math.random() * tall) + 1;
+                        while (tilfeldigTall4 == tilfeldigTall1) {
+                            tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        }
+                    }
+                }
+
+                while (tilfeldigTall4 == tilfeldigTall1) {
+                    tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+
+                    while (tilfeldigTall4 == tilfeldigTall2) {
+                        tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        while (tilfeldigTall4 == tilfeldigTall3) {
+                            tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        }
+                    }
+                    while (tilfeldigTall4 == tilfeldigTall3) {
+                        tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        while (tilfeldigTall4 == tilfeldigTall2) {
+                            tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        }
+                    }
+                }
+
+                while (tilfeldigTall4 == tilfeldigTall3) {
+                    tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+
+                    while (tilfeldigTall4 == tilfeldigTall2) {
+                        tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        while (tilfeldigTall4 == tilfeldigTall1) {
+                            tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        }
+                    }
+                    while (tilfeldigTall4 == tilfeldigTall1) {
+                        tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        while (tilfeldigTall4 == tilfeldigTall2) {
+                            tilfeldigTall4 = Math.floor(Math.random() * tall) + 1;
+                        }
+                    }
+                }
+                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3 + ", " + tilfeldigTall4;
+
+            }
+
+            else {
+                document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+            }
         }
 
+
         function sjekk() {
+            var svaret = document.getElementById("Svar").value;
+            alert(svaret);
+            var loddene = svaret.split(":");
+            var bareLoddene = loddene.shift();
+
+            alert(bareLoddene);
+
             var vinnerlodd1 = String(tilfeldigTall1);
             var vinnerlodd2 = String(tilfeldigTall2);
             var vinnerlodd3 = String(tilfeldigTall3);

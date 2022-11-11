@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="stilark.css">
     <title>While oppgaver</title>
 </head>
+<style>
+    span {
+        color: #00ff6c;
+        font-size: 25px;
+    }
+</style>
 
 <body>
     <div class="overskrift">
@@ -17,23 +23,29 @@
     </div>
 
     <div>
-        <button id="knapp1" onclick="click5(), svar(), click1()">Alle tall fra 0 til 100</button>
-        <button id="knapp2" onclick="click5(), svar(), click2()">Alle tall fra 0 til 100, untatt tiere</button>
-        <button id="knapp3" onclick="click5(), svar(), svar3(), click3()">8-ganger'n</button>
-        <button id="knapp4" onclick="click5(), svar(), click4()">Tilfeldig ord på 2 til 10 bokstaver</button>
+        <button id="knapp1" onclick="reset(), svar(), click1()"><span>Oppgave 2</span><br><br> Alle tall fra 0 til
+            100</button>
+        <button id="knapp2" onclick="reset(), svar(), click2()"><span>Oppgave 3</span><br><br> Alle tall fra 0 til 100,
+            untatt tiere</button>
+        <button id="knapp3" onclick="reset(), svar(), svar3(), click3()"><span>Oppgave 4</span><br><br>
+            8-ganger'n</button>
+        <button id="knapp4" onclick="reset(), svar(), svar4(), click4()"><span>Oppgave 5</span><br><br> Tilfeldig ord på
+            2 til 10 bokstaver</button>
+        <button id="knapp5" onclick="reset(), svar(), svar5(), click5()"><span>Oppgave 6</span><br><br> Tilfeldig liten
+            gangetabellen</button>
     </div>
 
     <div id="svarene">
-        <p id="Svar1"></p>
-        <p id="Svar2"></p>
-        <p id="Svar3"></p>
-        <div id="svar4">
+        <p id="Svar"></p>
+        <p id="Svar"></p>
+        <p id="Svar"></p>
+        <div id="svar4box">
             <p id="Svar4"></p>
             <p id="Svar5"></p>
         </div>
     </div>
 
-    <button id="knapp5" onclick="click5()">Reset</button>
+    <button id="resetKnapp" onclick="reset()">Reset</button>
 
     <script>
         function svar() {
@@ -47,21 +59,25 @@
             svar.style.fontSize = "15px";
             svar.style.margin = "auto";
             svar.style.width = "800px";
+            svar.style.textAlign = "center";
         }
         function svar4() {
             var svar4 = document.getElementById("svar4");
             var svar = document.getElementById("svarene");
 
             svar.style.width = "fit-content";
-            svar4.style.width = "400px";
-            svar4.style.margin = "auto";
+            svar4box.style.width = "500px";
+            svar4box.style.margin = "auto";
         }
         function svar3() {
-            var svar3 = document.getElementById("Svar3");
             var svar = document.getElementById("svarene");
 
-            svar.style.width = "fit-content";
-            svar3.style.width = "200px";
+            svar.style.width = "200px";
+        }
+        function svar5() {
+            var svar = document.getElementById("svarene");
+
+            svar.style.width = "200px";
         }
 
         function click1() {
@@ -72,7 +88,7 @@
                 tallene += ", " + tall;
                 tall++;
             }
-            document.getElementById("Svar1").innerHTML = "Tallene fra 0 til 100 er" + tallene;
+            document.getElementById("Svar").innerHTML = "Tallene fra 0 til 100 er" + tallene;
         }
 
         function click2() {
@@ -91,7 +107,7 @@
 
             }
 
-            document.getElementById("Svar2").innerHTML = "Tallene fra 0 til 100 untatt tiere er" + tallene;
+            document.getElementById("Svar").innerHTML = "Tallene fra 0 til 100 untatt tiere er" + tallene;
         }
 
         function click3() {
@@ -100,7 +116,7 @@
             for (tall = 8; tall < 100; tall += 8) {
                 tallene += "<br>" + tall;
             }
-            document.getElementById("Svar3").innerHTML = "8-ganger'n opp til 100 er" + tallene;
+            document.getElementById("Svar").innerHTML = "8-ganger'n opp til 100 er" + tallene;
         }
 
         function click4() {
@@ -141,13 +157,29 @@
             var arrayOrd = ord.split("");
             arrayOrd.sort(function () { return 0.5 - Math.random() });
             document.getElementById("Svar5").innerHTML = "Ordet er: " + arrayOrd.join("");
-
         }
 
+
         function click5() {
-            document.getElementById("Svar1").innerHTML = "";
-            document.getElementById("Svar2").innerHTML = "";
-            document.getElementById("Svar3").innerHTML = "";
+            var tallene = "";
+            var tall = Math.floor(Math.random() * 10) + 1;
+            var x = tall;
+
+            for (tall = x; tall < (x * 11); tall += x) {
+                tallene += "<br>" + tall;
+            }
+            document.getElementById("Svar").innerHTML = x + "-ganger'n opp til " + (10 * x) + " er:" + tallene;
+        }
+
+
+        function reset() {
+            var svar = document.getElementById("svarene");
+            var svar4 = document.getElementById("Svar4");
+
+            svar.style.backgroundColor = "transparent";
+            svar4box.style.backgroundColor = "transparent";
+
+            document.getElementById("Svar").innerHTML = "";
             document.getElementById("Svar4").innerHTML = "";
             document.getElementById("Svar5").innerHTML = "";
         }

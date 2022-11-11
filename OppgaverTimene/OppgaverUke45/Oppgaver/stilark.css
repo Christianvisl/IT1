@@ -48,24 +48,3 @@ input {
     margin: 5px;
     font-size: 15px;
 }
-/*
-p {
-    margin: auto;
-    background-color: white;
-    text-decoration: #00FF6C;
-    font-size: 15px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    width: 300px;
-}
-*/
-h3 {
-    color: #999999;
-    font-weight: bold;
-    width: fit-content;
-    padding: 5px;
-    border-radius: 10px;
-    margin: auto;
-    background-color: white;
-}
