@@ -26,7 +26,7 @@
     <button id="knapp1" onclick="reset(), svar(), trekk1()">Trekk 1</button>
     <button id="knapp2" onclick="reset(), svar(), trekk2()">Trekk 2</button>
     <button id="knapp3" onclick="reset(), svar(), trekk3()">Trekk 3</button>
-    <button id="sjekk" onclick="svar2(), sjekk()">Sjekk om du vant</button>
+
     <button id="reset" onclick="reset()">Reset</button>
 
     <p id="Svar"></p>
@@ -43,10 +43,10 @@
             svar.style.borderRadius = "10px";
             svar.style.fontSize = "15px";
             svar.style.margin = "auto";
-        }
-        function svar2() {
+            svar.style.marginTop = "30px";
+
             var svar2 = document.getElementById("Svar2");
-            svar2.style.color = "#00ff6c";
+            svar2.style.color = "#00aaff";
             svar2.style.backgroundColor = "white";
             svar2.style.padding = "10px";
             svar2.style.fontWeight = "bold";
@@ -54,7 +54,7 @@
             svar2.style.borderRadius = "10px";
             svar2.style.fontSize = "15px";
             svar2.style.margin = "auto";
-            svar2.style.marginTop = "30px";
+            svar2.style.marginTop = "10px";
         }
         function reset() {
             document.getElementById("Svar").innerHTML = "";
@@ -64,20 +64,40 @@
             document.getElementById("Svar2").innerHTML = "";
             var svar2 = document.getElementById("Svar2");
             svar2.style.backgroundColor = "transparent";
+
+            document.getElementById("Svar").innerHTML = "";
+            document.getElementById("Svar2").innerHTML = "";
         }
 
-        function trekk1() {
 
+        function trekk1() {
             var tall = document.getElementById("antall").value;
 
             if (tall >= 1) {
                 var tilfeldigTall1 = Math.floor(Math.random() * tall) + 1;
 
                 document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall1;
+
+                var dittLodd = String(document.getElementById("dittTall").value);
+                dittLodd.split(",");
+                const arrayLodd = dittLodd;
+
+                if (arrayLodd.includes(tilfeldigTall1)) {
+                    document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall1;
+                }
+                else {
+                    document.getElementById("Svar2").innerHTML = "Du tapte";
+                }
             }
 
+
+            else if (tall == 0) {
+                document.getElementById("Svar").innerHTML = "Du glemte å skrive noe";
+                document.getElementById("Svar2").innerHTML = "Sånn funker det ikke, beklager";
+            }
             else {
                 document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+                document.getElementById("Svar2").innerHTML = "Sånn funker det ikke, beklager";
             }
         }
 
@@ -91,11 +111,35 @@
                     tilfeldigTall2 = Math.floor(Math.random() * tall) + 1;
                 }
 
-                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2;
+                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + " og " + tilfeldigTall2;
+
+                var dittLodd = String(document.getElementById("dittTall").value);
+                dittLodd.split(",");
+                const arrayLodd = dittLodd;
+
+                if (arrayLodd.includes(tilfeldigTall1)) {
+                    if (arrayLodd.includes(tilfeldigTall2)) {
+                        document.getElementById("Svar2").innerHTML = "Du vant begge loddene!";
+                    }
+                    else {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall1;
+                    }
+                }
+                else if (arrayLodd.includes(tilfeldigTall2)) {
+                    document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall2;
+                }
+                else {
+                    document.getElementById("Svar2").innerHTML = "Du tapte";
+                }
             }
 
+            else if (tall == 0) {
+                document.getElementById("Svar").innerHTML = "Du glemte å skrive noe";
+                document.getElementById("Svar2").innerHTML = "Sånn funker det ikke, beklager";
+            }
             else {
                 document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+                document.getElementById("Svar2").innerHTML = "Sånn funker det ikke, beklager";
             }
         }
 
@@ -122,108 +166,60 @@
                     }
                 }
 
-                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + ", " + tilfeldigTall3;
-            }
-
-            else {
-                document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
-            }
-        }
-
-
-
-        function sjekk() {
-            var svaret = "Vinnerloddene er: 1, 2, 3";
-
-            if (svaret.indexOf(":") > 0) {
-
-                var loddene1 = svaret.split(":");
-                loddene1.shift();
-                var arrloddene = loddene1.toString();
-                var loddene2 = arrloddene.split(",");
-
-                var vinnerlodd1 = "....";
-                var vinnerlodd2 = "....";
-                var vinnerlodd3 = "....";
-
-                vinnerlodd1 = loddene2[0];
-
-                if (loddene2.length >= 1) {
-                    vinnerlodd2 = loddene2[1];
-                }
-                if (loddene2.length >= 2) {
-                    vinnerlodd3 = loddene2[2];
-                }
+                document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + " og " + tilfeldigTall3;
 
                 var dittLodd = String(document.getElementById("dittTall").value);
+                dittLodd.split(",");
                 const arrayLodd = dittLodd;
 
-                var lodd1 = "";
-                var lodd2 = "";
-                var lodd3 = "";
-                
-                var x1 = 0;
-                var x2 = 0;
-                var x3 = 0;
-               
-                console.log("vinnerlodd 1 = " + vinnerlodd1);
-                console.log("vinnerlodd 2 = " + vinnerlodd2);
-                console.log("vinnerlodd 3 = " + vinnerlodd3);
-                console.log(arrayLodd);
-
-                if (arrayLodd.includes(vinnerlodd1)) {
-                    lodd1 = vinnerlodd1;
-                    x1 = 1;
-                    console.log("dette er 1");
+                if (arrayLodd.includes(tilfeldigTall3)) {
+                    if (arrayLodd.includes(tilfeldigTall2)) {
+                        if (arrayLodd.includes(tilfeldigTall1)) {
+                            document.getElementById("Svar2").innerHTML = "Du vant alle loddene!";
+                        }
+                        else {
+                            document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + tilfeldigTall2 + " og " + tilfeldigTall3;
+                        }
+                    }
+                    else if (arrayLodd.includes(tilfeldigTall1)) {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + tilfeldigTall1 + " og " + tilfeldigTall3;
+                    }
+                    else {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall3;
+                    }
                 }
 
-                if (arrayLodd.includes(vinnerlodd2)) {
-                    lodd2 = vinnerlodd2;
-                    x2 = 3;
-                    console.log("dette er 2");
+                else if (arrayLodd.includes(tilfeldigTall2)) {
+                    if (arrayLodd.includes(tilfeldigTall1)) {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + tilfeldigTall1 + " og " + tilfeldigTall2;
+                    }
+                    else {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall2;
+                    }
                 }
 
-                if (arrayLodd.includes(vinnerlodd3)) {
-                    lodd3 = vinnerlodd3;
-                    x3 = 7;
-                    console.log("dette er 3");
+                else if (arrayLodd.includes(tilfeldigTall1)) {
+                    if (arrayLodd.includes(tilfeldigTall3)) {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + tilfeldigTall1 + " og " + tilfeldigTall3;
+                    }
+                    else {
+                        document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall1;
+                    }
                 }
-
-                if ((x1 + x2 + x3) == 1) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + lodd1;
-                }
-                else if ((x1 + x2 + x3) == 4) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + lodd1 + " og " + lodd2;
-                }
-                else if ((x1 + x2 + x3) == 8) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + lodd1 + " og " + lodd3;
-                }
-
-                else if ((x1 + x2 + x3) == 3) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + lodd2;
-                }
-                else if ((x1 + x2 + x3) == 10) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + lodd2 + " og " + lodd3;
-                }
-                
-                else if ((x1 + x2 + x3) == 7) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + lodd3;
-                }
-                
-
-                else if ((x1 + x2 + x3) > 1) {
-                    document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + lodd1 + lodd2 + lodd3;
-                }
-
                 else {
                     document.getElementById("Svar2").innerHTML = "Du tapte";
                 }
             }
+
+            else if (tall == 0) {
+                document.getElementById("Svar").innerHTML = "Du glemte å skrive noe";
+                document.getElementById("Svar2").innerHTML = "Sånn funker det ikke, beklager";
+            }
             else {
-                document.getElementById("Svar2").innerHTML = "Du kan ikke sjekke loddene";
+                document.getElementById("Svar").innerHTML = "Du kan ikke trekke flere lodd enn det ble solgt";
+                document.getElementById("Svar2").innerHTML = "Sånn funker det ikke, beklager";
             }
         }
-
     </script>
 </body>
 
