@@ -27,14 +27,11 @@
     <button id="knapp2" onclick="reset(), svar(), trekk2()">Trekk 2</button>
     <button id="knapp3" onclick="reset(), svar(), trekk3()">Trekk 3</button>
     <button id="knapp4" onclick="reset(), svar(), trekk4()">Trekk 4</button>
-    <button id="sjekk" onclick="sjekk()">Sjekk om du vant</button>
+    <button id="sjekk" onclick="svar2(), sjekk()">Sjekk om du vant</button>
     <button id="reset" onclick="reset()">Reset</button>
 
     <p id="Svar"></p>
-    <p id="sammeLodd1"></p>
-    <p id="sammeLodd2"></p>
-    <p id="sammeLodd3"></p>
-    <p id="sammeLodd4"></p>
+    <p id="Svar2"></p>
 
     <script>
         var loddene = document.getElementById("Svar").value;
@@ -50,15 +47,26 @@
             svar.style.fontSize = "15px";
             svar.style.margin = "auto";
         }
+        function svar2() {
+            var svar2 = document.getElementById("Svar2");
+            svar2.style.color = "#00ff6c";
+            svar2.style.backgroundColor = "white";
+            svar2.style.padding = "10px";
+            svar2.style.fontWeight = "bold";
+            svar2.style.width = "fit-content";
+            svar2.style.borderRadius = "10px";
+            svar2.style.fontSize = "15px";
+            svar2.style.margin = "auto";
+            svar2.style.marginTop = "30px";
+        }
         function reset() {
             document.getElementById("Svar").innerHTML = "";
             var svar = document.getElementById("Svar");
             svar.style.backgroundColor = "transparent";
 
-            document.getElementById("sammeLodd1").innerHTML = "";
-            document.getElementById("sammeLodd2").innerHTML = "";
-            document.getElementById("sammeLodd3").innerHTML = "";
-            document.getElementById("sammeLodd4").innerHTML = "";
+            document.getElementById("Svar2").innerHTML = "";
+            var svar2 = document.getElementById("Svar2");
+            svar2.style.backgroundColor = "transparent";
         }
 
         function trekk1() {
@@ -213,49 +221,61 @@
             }
         }
 
+        var svaret1 = String(document.getElementById("Svar").value);
 
         function sjekk() {
-            var svaret = document.getElementById("Svar").value;
+            var svaret = "Vinnerloddene er: 1, 2, 3, 4";
+
+            if (svaret.indexOf(":") < 0) {
+                document.getElementById("Svar2").innerHTML = "Du kan ikke ha noen lodd om det ikke ble trukket noen!";
+            }
+
             alert(svaret);
+
             var loddene = svaret.split(":");
             var bareLoddene = loddene.shift();
 
             alert(bareLoddene);
 
-            var vinnerlodd1 = String(tilfeldigTall1);
-            var vinnerlodd2 = String(tilfeldigTall2);
-            var vinnerlodd3 = String(tilfeldigTall3);
-            var vinnerlodd4 = String(tilfeldigTall4);
-
             var dittLodd = document.getElementById("dittTall").value;
             var arrayLodd = dittLodd.split(",");
 
+            var lodd1 = "";
+            var lodd2 = "";
+            var lodd3 = "";
+            var lodd4 = "";
+
             if (arrayLodd.includes(vinnerlodd1)) {
                 var posisjon = Number(arrayLodd.indexOf(vinnerlodd1));
-                var lodd = arrayLodd[posisjon];
-
-                document.getElementById("sammeLodd1").innerHTML = "Du vant med loddet " + lodd;
+                lodd1 = arrayLodd[posisjon];
             }
+
             if (arrayLodd.includes(vinnerlodd2)) {
                 var posisjon = Number(arrayLodd.indexOf(vinnerlodd2));
-                var lodd = arrayLodd[posisjon];
-
-                document.getElementById("sammeLodd2").innerHTML = "Du vant med loddet " + lodd;
+                lodd2 = ", " + arrayLodd[posisjon];
             }
+
             if (arrayLodd.includes(vinnerlodd3)) {
                 var posisjon = Number(arrayLodd.indexOf(vinnerlodd3));
-                var lodd = arrayLodd[posisjon];
-
-                document.getElementById("sammeLodd3").innerHTML = "Du vant med loddet " + lodd;
+                lodd3 = ", " + arrayLodd[posisjon];
             }
+
             if (arrayLodd.includes(vinnerlodd4)) {
                 var posisjon = Number(arrayLodd.indexOf(vinnerlodd4));
-                var lodd = arrayLodd[posisjon];
-
-                document.getElementById("sammeLodd4").innerHTML = "Du vant med loddet " + lodd;
+                lodd4 = " og " + arrayLodd[posisjon];
             }
+            if (lodd1 != "") {
+                if (lodd2 != ", ") {
+                    if (lodd3 != ", ") {
+                        if (lodd4 != " og ") {
+                            document.getElementById("Svar2").innerHTML = "Du vant med loddene: " + lodd1 + ", " + lodd2 + ", " + lodd3 + " og " + lodd4;
+                        }
+                    }
+                }
+            }
+
             else {
-                document.getElementById("sammeLodd1").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
+                document.getElementById("Svar2").innerHTML = "Du vant ikke med noen av loddene: " + arrayLodd;
             }
 
         }

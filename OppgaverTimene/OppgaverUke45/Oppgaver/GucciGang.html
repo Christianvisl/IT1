@@ -74,9 +74,10 @@
         }
 
         function egen() {
-            var antallHele = Number(document.getElementById("antall"));
+            var antallHele = document.getElementById("antall");
+            alert(antallHele);
 
-            if (antallHele < 1) {
+            if (antallHele > 1) {
                 var del1 = String(document.getElementById("inputT1"));
                 var antallDel1 = Number(document.getElementById("antallT1"));
 
