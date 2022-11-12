@@ -1,7 +1,28 @@
+:root {
+    --gradient: linear-gradient(90deg, #00aaff, #00ff6c, #00aaff);
+
+}
+
 body {
-    background: linear-gradient(to right, #00AAFF, #00FF6C);
-    margin: auto;
+    background-size: 300%;
+    background-image: var(--gradient);
+    animation: bg-animation 20s infinite;
     text-align: center;
+    margin: auto;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
 }
 
 #dittTall {
@@ -11,7 +32,7 @@ body {
 
 .overskrift {
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: white;
     border-radius: 15px;
     font-size: 20px;
     width: fit-content;
@@ -30,14 +51,7 @@ h1 {
 }
 
 button {
-    border-radius: 10px;
-    color: #00AAFF;
-    font-weight: bold;
-    margin: 15px;
-    padding: 10px;
-    font-size: 15px;
-    background-color: white;
-    border: none;
+    background-color: transparent;
 }
 
 input {
@@ -46,5 +60,8 @@ input {
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
+    margin: auto;
     font-size: 15px;
+    width: 300px;
+    text-align: center;
 }

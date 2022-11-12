@@ -16,10 +16,10 @@
         </h1>
     </div>
 
-    <button id="generer" onclick="sjekk()">Generer en tilfeldig alder</button>
+    <button id="generer" onclick="svar(), sjekk()">Generer en tilfeldig alder</button>
     <br>
     <input id="alder" type="number" placeholder="Hva er din alder?">
-    <button id="knapp" onclick="sjekk2()">Sjekk alder</button>
+    <button id="knapp" onclick="svar(), sjekk2()">Sjekk alder</button>
 
     <p id="Svar"></p>
 
@@ -32,7 +32,7 @@
             }
         });
 
-        function sjekk() {
+        function svar(){
             var svar = document.getElementById("Svar");
             svar.style.backgroundColor = "white";
             svar.style.padding = "10px";
@@ -41,81 +41,78 @@
             svar.style.borderRadius = "10px";
             svar.style.margin = "auto";
             svar.style.fontWeight = "bold";
+        }
+
+        function sjekk() {
             var alder = Math.round(Math.random() * 140);
 
             if (alder < 3) {
-                document.getElementById("Svar").innerHTML = alder + ", du er en baby"
+                var setning = ", du er en baby"
             }
             else if (alder < 10) {
-                document.getElementById("Svar").innerHTML = alder + ", du er et barn"
+                var setning = ", du er et barn"
             }
             else if (alder < 20) {
-                document.getElementById("Svar").innerHTML = alder + ", du er ungdom"
+                var setning = ", du er ungdom"
             }
             else if (alder < 40) {
-                document.getElementById("Svar").innerHTML = alder + ", du er en ung voksen"
+                var setning = ", du er en ung voksen"
             }
             else if (alder < 60) {
-                document.getElementById("Svar").innerHTML = alder + ", du er en eldre voksen"
+                var setning = ", du er en eldre voksen"
             }
             else if (alder == 67) {
-                document.getElementById("Svar").innerHTML = alder + ", du er jammen blitt pensjonist i år"
+                var setning = ", du er jammen blitt pensjonist i år"
             }
             else if (alder < 80) {
-                document.getElementById("Svar").innerHTML = alder + ", du er gammel"
+                var setning = ", du er gammel"
             }
             else if (alder < 100) {
-                document.getElementById("Svar").innerHTML = alder + ", du er eldgammel"
+                var setning = ", du er eldgammel"
             }
             else if (alder < 120) {
-                document.getElementById("Svar").innerHTML = alder + ", gratulerer! Du er heeelt utrolig!"
+                var setning = ", gratulerer! Du er heeelt utrolig!"
             }
             else {
-                document.getElementById("Svar").innerHTML = alder + ", beklager, men du lever ikke lenger"
+                var setning = ", beklager, men du lever ikke lenger"
             }
+            document.getElementById("Svar").innerHTML = "Den tilfeldige alderen er " + alder + setning;
         }
 
         function sjekk2() {
-            var svar = document.getElementById("Svar");
-            svar.style.backgroundColor = "white";
-            svar.style.padding = "10px";
-            svar.style.color = "#00aaff";
-            svar.style.width = "fit-content";
-            svar.style.borderRadius = "10px";
-            svar.style.margin = "auto";
-            svar.style.fontWeight = "bold";
             var alder = document.getElementById("alder").value;
 
             if (alder < 3) {
-                document.getElementById("Svar").innerHTML = "Du er en baby"
+                var setning = ", du er en baby"
             }
             else if (alder < 10) {
-                document.getElementById("Svar").innerHTML = "Du er ung"
+                var setning = ", du er et barn"
             }
             else if (alder < 20) {
-                document.getElementById("Svar").innerHTML = "Du er ungdom"
+                var setning = ", du er ungdom"
             }
             else if (alder < 40) {
-                document.getElementById("Svar").innerHTML = "Du er en ung voksen"
+                var setning = ", du er en ung voksen"
             }
             else if (alder < 60) {
-                document.getElementById("Svar").innerHTML = "Du er en eldre voksen"
+                var setning = ", du er en eldre voksen"
             }
             else if (alder == 67) {
-                document.getElementById("Svar").innerHTML = "Du er jammen blitt pensjonist i år"
+                var setning = ", du er jammen blitt pensjonist i år"
             }
             else if (alder < 80) {
-                document.getElementById("Svar").innerHTML = "Du er gammel"
+                var setning = ", du er gammel"
             }
             else if (alder < 100) {
-                document.getElementById("Svar").innerHTML = "Du er eldgammel"
+                var setning = ", du er eldgammel"
             }
             else if (alder < 120) {
-                document.getElementById("Svar").innerHTML = "Gratulerer! Du er heeelt utrolig!"
+                var setning = ", gratulerer! Du er heeelt utrolig!"
             }
             else {
-                document.getElementById("Svar").innerHTML = "Beklager, men du lever ikke lenger"
+                var setning = ", beklager, men du lever ikke lenger"
             }
+            document.getElementById("Svar").innerHTML = "Din alder er " + alder + setning;
         }
     </script>
 </body>

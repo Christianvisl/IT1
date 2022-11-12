@@ -60,7 +60,7 @@ function regnUt() {
         operator = mattestykket[mattestykket.indexOf("^")];
     }
     else {
-        document.write("ERROR")
+        document.getElementById("resultatet").innerHTML = "ERROR";
     }
     document.getElementById("resultatet").innerHTML = resultat;
 
