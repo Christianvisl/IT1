@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gucci Gang</title>
+</head>
+<body>
+    <div class="overskrift">
+        <h1>
+            Gucci Gang lyrics
+        </h1>
+    </div>
+    <button id="generer" onclick="generer()">Generer lyrics til Cucci Gang</button>
+    
+
+    <p id="resultat"></p>
+
+    <script>
+        function generer(){
+            var gg = "Gucci Gang, ";
+            var spend = "spend three racks on new chains <br>" ;
+
+            document.getElementById("resultat").innerHTML = "Teksten til Gucci Gang er: " + ((9 * gg) + spend) * 74;
+        }
+    </script>
+</body>
+</html>
