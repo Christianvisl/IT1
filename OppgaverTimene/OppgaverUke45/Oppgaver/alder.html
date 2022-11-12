@@ -86,7 +86,8 @@
                 setning = ". Gratulerer! Du er heeelt utrolig!"
             }
             else {
-                setning = ". Beklager, men du lever ikke lenger"
+                setning = "ikke " + alder + ". Du lever ikke lenger"
+                alder = "";
             }
             document.getElementById("Svar").innerHTML = "Din tilfeldige alder er " + alder + setning;
         }
@@ -124,10 +125,11 @@
                 setning = ", du er eldgammel"
             }
             else if (alder < 120) {
-                setning = ", gratulerer! Du er heeelt utrolig!"
+                setning = ". Gratulerer! Du er heeelt utrolig!"
             }
             else {
-                setning = ", beklager, men du lever ikke lenger"
+                setning = "ikke " + alder + ". Du lever ikke lenger"
+                alder = "";
             }
             document.getElementById("Svar").innerHTML = "Din alder er " + alder + setning;
         }
