@@ -5,6 +5,21 @@ input.addEventListener("keypress", function (event) {
     }
 });
 
+function svar() {
+    var svar = document.getElementById("resultatet");
+    svar.style.color = "#00aaff";
+    svar.style.backgroundColor = "white";
+    svar.style.padding = "10px";
+    svar.style.fontWeight = "bold";
+    svar.style.width = "fit-content";
+    svar.style.borderRadius = "10px";
+    svar.style.fontSize = "15px";
+    svar.style.margin = "auto";
+    svar.style.width = "fit-content";
+    svar.style.minWidth = "100px";
+    svar.style.textAlign = "center";
+    svar.style.marginTop = "20px";
+}
 
 function regnUt() {
     var mattestykket = document.getElementById("input").value;

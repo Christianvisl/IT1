@@ -52,6 +52,7 @@ h1 {
 
 button {
     background-color: transparent;
+    border: none;
 }
 
 input {
