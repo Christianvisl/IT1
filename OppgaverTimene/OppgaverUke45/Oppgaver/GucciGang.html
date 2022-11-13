@@ -26,7 +26,7 @@
     <input id="inputT2" type="text" placeholder="Skriv den andre setningen">
     <input id="antallT2" type="number" placeholder="Antall av den andre setningen">
     <br>
-    <input id="antall" type="number" placeholder="Antall av hele verset">
+    <input id="antallHele" type="number" placeholder="Antall av hele verset">
     <button id="genererEgen" onclick="resultat(), egen()">Generer tekst til din sang</button>
 
 
@@ -37,13 +37,14 @@
             var svar = document.getElementById("resultat");
             svar.style.color = "#00aaff";
             svar.style.backgroundColor = "white";
-            svar.style.padding = "10px";
+            svar.style.padding = "20px";
             svar.style.fontWeight = "bold";
             svar.style.width = "fit-content";
             svar.style.borderRadius = "10px";
-            svar.style.fontSize = "15px";
+            svar.style.fontSize = "20px";
             svar.style.margin = "auto";
-            svar.style.width = "800px";
+            svar.style.width = "fit-content";
+            svar.style.maxWidth = "800px";
             svar.style.textAlign = "center";
         }
 
@@ -74,40 +75,58 @@
         }
 
         function egen() {
-            var antallHele = document.getElementById("antall");
-            alert(antallHele);
+
+            var antallHele = document.getElementById("antallHele").value;
 
             if (antallHele > 1) {
-                var del1 = String(document.getElementById("inputT1"));
-                var antallDel1 = Number(document.getElementById("antallT1"));
+                var del1 = "";
+                var antallDel1 = 0;
+                var del2 = "";
+                var antallDel2 = 0;
 
-                var del2 = String(document.getElementById("inputT2"));
-                var antallDel2 = Number(document.getElementById("antallT2"));
+                del1 = String(document.getElementById("inputT1").value);
+                antallDel1 = Number(document.getElementById("antallT1").value);
+                del2 = String(document.getElementById("inputT2").value);
+                antallDel2 = Number(document.getElementById("antallT2").value);
 
-                var x = 0;
-                var y = 0;
-                var z = 0;
-
-                var heleDel1 = "";
-                var heleDel2 = "";
-                var heleLyrics = "";
-
-                while (x < antallDel1) {
-                    heleDel1 += del1;
-                    x++;
+                if (del1.length == 0) {
+                    document.getElementById("resultat").innerHTML = "Du må fylle inn flere verdier";
                 }
-                while (y < antallDel2) {
-                    heleDel2 += del2;
-                    y++;
+                else if (antallDel1 == 0) {
+                    document.getElementById("resultat").innerHTML = "Du må fylle inn flere verdier";
                 }
-                var lyrics = heleDel1 + heleDel2;
-
-                while (z < antallHele) {
-                    heleLyrics += lyrics;
-                    z++;
+                else if (del2.length == 0) {
+                    document.getElementById("resultat").innerHTML = "Du må fylle inn flere verdier";
                 }
+                else if (antallDel2 == 0) {
+                    document.getElementById("resultat").innerHTML = "Du må fylle inn flere verdier";
+                }
+                else {
+                    var x = 0;
+                    var y = 0;
+                    var z = 0;
 
-                document.getElementById("resultat").innerHTML = "Teksten til sangen din er: <br>" + heleLyrics;
+                    var heleDel1 = "";
+                    var heleDel2 = "";
+                    var heleLyrics = "";
+
+                    while (x < antallDel1) {
+                        heleDel1 += del1;
+                        x++;
+                    }
+                    while (y < antallDel2) {
+                        heleDel2 += del2;
+                        y++;
+                    }
+                    var lyrics = heleDel1 + heleDel2;
+
+                    while (z < antallHele) {
+                        heleLyrics += "<br>" + lyrics;
+                        z++;
+                    }
+
+                    document.getElementById("resultat").innerHTML = "Teksten til sangen din er: <br>" + heleLyrics;
+                }
             }
 
             else {
