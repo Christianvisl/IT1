@@ -78,7 +78,11 @@
 
                 document.getElementById("Svar").innerHTML = "Vinnerloddet er: " + tilfeldigTall1;
 
-                var arrayLodd = String(document.getElementById("dittTall").value);
+                var loddene = String(document.getElementById("dittTall").value);
+                const arrayLodd = loddene.split(",");
+                console.log(arrayLodd);
+
+                tilfeldigTall1 = String(tilfeldigTall1);
 
                 if (arrayLodd.includes(tilfeldigTall1)) {
                     document.getElementById("Svar2").innerHTML = "Du vant med loddet: " + tilfeldigTall1;
@@ -111,7 +115,12 @@
 
                 document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + " og " + tilfeldigTall2;
 
-                var arrayLodd = String(document.getElementById("dittTall").value);
+                var loddene = String(document.getElementById("dittTall").value);
+                const arrayLodd = loddene.split(",");
+                console.log(arrayLodd);
+
+                tilfeldigTall1 = String(tilfeldigTall1);
+                tilfeldigTall2 = String(tilfeldigTall2);
 
                 if (arrayLodd.includes(tilfeldigTall1)) {
                     if (arrayLodd.includes(tilfeldigTall2)) {
@@ -164,7 +173,13 @@
 
                 document.getElementById("Svar").innerHTML = "Vinnerloddene er: " + tilfeldigTall1 + ", " + tilfeldigTall2 + " og " + tilfeldigTall3;
 
-                var arrayLodd = String(document.getElementById("dittTall").value);
+                var loddene = String(document.getElementById("dittTall").value);
+                const arrayLodd = loddene.split(",");
+                console.log(arrayLodd);
+
+                tilfeldigTall1 = String(tilfeldigTall1);
+                tilfeldigTall2 = String(tilfeldigTall2);
+                tilfeldigTall3 = String(tilfeldigTall3);
 
                 if (arrayLodd.includes(tilfeldigTall3)) {
                     if (arrayLodd.includes(tilfeldigTall2)) {
