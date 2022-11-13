@@ -1,6 +1,5 @@
 :root {
     --gradient: linear-gradient(90deg, #ee6352, purple, #ee6352);
-
 }
 
 body {
@@ -64,11 +63,25 @@ a {
     text-decoration: none;
     color: transparent;
     padding: 5px 10px 5px 10px;
-    background-image: var(--gradient);
-    animation: bg-animation 5s infinite alternate;
     background-size: 300%;
+    background-image: var(--gradient);
+    animation: bg-animation2 5s infinite;
     background-clip: text;
     -webkit-background-clip: text;
+}
+
+@keyframes bg-animation2 {
+    0% {
+        background-position: left
+    }
+
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
 }
 
 a:hover {

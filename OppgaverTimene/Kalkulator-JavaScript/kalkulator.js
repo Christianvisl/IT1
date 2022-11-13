@@ -45,6 +45,12 @@ class Calculator {
         case '*':
           computation = prev * current
           break
+        case '^':
+          computation = prev ** current /* n opphøyd i x */
+          break
+        case '√':
+          computation = Math.pow(current, 1 / prev) /* n'te roten til x */
+          break
         case '÷':
           computation = prev / current
           break
