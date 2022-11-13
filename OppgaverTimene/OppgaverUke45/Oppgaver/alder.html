@@ -12,6 +12,7 @@
     #genereralder {
         background-color: transparent;
         border: none;
+        box-shadow: none;
     }
 </style>
 
@@ -24,7 +25,7 @@
 
     <button id="generer" onclick="svar(), sjekk()">Generer en tilfeldig alder</button>
     <br>
-    <input id="alder" max="150" type="number" placeholder="Hva er din alder?">
+    <input id="alder" max="150" min="0" type="number" placeholder="Hva er din alder?">
     <br>
     <button id="genereralder" onclick="svar(), sjekk2()"></button>
 
@@ -48,7 +49,7 @@
             svar.style.borderRadius = "10px";
             svar.style.margin = "auto";
             svar.style.fontWeight = "bold";
-            svar.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
+            svar.style.boxShadow = "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
         }
 
         function sjekk() {
@@ -59,7 +60,7 @@
             if (alder < 3) {
                 setning = ", du er en baby"
             }
-            else if (alder < 10) {
+            else if (alder < 13) {
                 setning = ", du er et barn"
             }
             else if (alder < 20) {
@@ -98,10 +99,14 @@
 
             var setning;
 
-            if (alder < 3) {
+            if (alder < 0) {
+                setning = "ikke " + alder + ", for da er du ikke født"
+                alder = ""
+            }
+            else if (alder < 3) {
                 setning = ", du er en baby"
             }
-            else if (alder < 10) {
+            else if (alder < 13) {
                 setning = ", du er et barn"
             }
             else if (alder < 20) {
