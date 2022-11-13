@@ -46,6 +46,7 @@
             svar.style.width = "fit-content";
             svar.style.maxWidth = "800px";
             svar.style.textAlign = "center";
+            svar.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
         }
 
         function generer() {
@@ -138,6 +139,7 @@
         function reset() {
             var svar = document.getElementById("resultat");
             svar.style.backgroundColor = "transparent";
+            svar.style.boxShadow= "none";
             document.getElementById("resultat").innerHTML = "";
         }
     </script>

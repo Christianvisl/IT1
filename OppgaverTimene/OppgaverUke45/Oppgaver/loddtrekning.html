@@ -44,6 +44,7 @@
             svar.style.fontSize = "15px";
             svar.style.margin = "auto";
             svar.style.marginTop = "30px";
+            svar.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
 
             var svar2 = document.getElementById("Svar2");
             svar2.style.color = "#00aaff";
@@ -55,15 +56,18 @@
             svar2.style.fontSize = "15px";
             svar2.style.margin = "auto";
             svar2.style.marginTop = "10px";
+            svar2.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
         }
         function reset() {
             document.getElementById("Svar").innerHTML = "";
             var svar = document.getElementById("Svar");
             svar.style.backgroundColor = "transparent";
+            svar.style.boxShadow= "none";
 
             document.getElementById("Svar2").innerHTML = "";
             var svar2 = document.getElementById("Svar2");
             svar2.style.backgroundColor = "transparent";
+            svar2.style.boxShadow= "none";
 
             document.getElementById("Svar").innerHTML = "";
             document.getElementById("Svar2").innerHTML = "";

@@ -8,16 +8,77 @@
     <link rel="stylesheet" href="stilark.css">
     <title>Oppgave 4</title>
 </head>
+<style>
+    #knapp {
+        background-color: transparent;
+        border: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .dropbtn {
+        background-color: white;
+        color: #00aaff;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        width: 150px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-innhold {
+        display: none;
+        position: absolute;
+        right: 50px;
+        background-color: transparent;
+        border: solid 5px white;
+        box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.5);
+        width: 300px;
+        z-index: 1;
+    }
+
+    .dropdown-innhold p {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-weight: bold;
+    }
+
+    .dropdown:hover .dropdown-innhold {
+        display: block;
+    }
+</style>
+</head>
 
 <body>
+    <button id="knapp" onclick="sjekker()"></button>
     <div class="overskrift">
-    <h1>
-        Gjett passordet
-    </h1>
+        <h1>
+            Gjett passordet
+        </h1>
     </div>
-    
+
+    <div class="dropdown">
+        <button class="dropbtn">Hjelpemidler</button>
+        <div class="dropdown-innhold">
+            <p>?1 gir første bokstav</p>
+            <p>?2 gir andre bokstav</p>
+            <p>?siste gir passordets tre siste tegn</p>
+            <p>?lengde gir passordets lengde</p>
+            <p>?store gir passordet i CapsLock</p>
+            <p>?små gir passordet i små bokstaver</p>
+        </div>
+    </div>
+
+
     <input id="passord" type="password" placeholder="Skriv passordet">
-    <button id="knapp" onclick="sjekker()">Sjekk</button>
+
     <p id="Svar"></p>
     <script>
         var input = document.getElementById("passord");
@@ -37,6 +98,7 @@
             svar.style.borderRadius = "10px";
             svar.style.margin = "auto";
             svar.style.fontWeight = "bold";
+            svar.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
 
             var hemmelig = "cAl3sirD";
 
@@ -61,7 +123,7 @@
                 document.getElementById("Svar").innerHTML = "Passordet i CapsLock: " + hemmelig.toUpperCase();
             }
             else if (passord1 == "?små") {
-                document.getElementById("Svar").innerHTML = "Passordet i AllLower: " + hemmelig.toLowerCase();
+                document.getElementById("Svar").innerHTML = "Passordet i små bokstaver: " + hemmelig.toLowerCase();
             }
             else {
                 document.getElementById("Svar").innerHTML = "Feil passord";
