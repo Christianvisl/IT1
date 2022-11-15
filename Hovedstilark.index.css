@@ -52,11 +52,11 @@ p {
     text-align: center;
     width: 400px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 5px 10px 5px 10px;
     border-radius: 20px;
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 a {
@@ -82,16 +82,4 @@ a {
     100% {
         background-position: left
     }
-}
-
-a:hover {
-    color: white;
-}
-
-p:hover {
-    background-color: transparent;
-}
-
-a:active {
-    color: transparent;
 }
