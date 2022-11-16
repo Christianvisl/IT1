@@ -62,16 +62,15 @@ function oppgave3() {
 
 function oppgave4() {
     function skrivUtGangetabell(tall) {
-        var tallene = "";
-        var x = 0;
-        var tallet = 0;
+        let tekst = "";
+        let tallet = 0;
 
-        while (x < 10) {
+        for (let i = 0; i < 10; i++) {
             tallet += tall;
-            tallene += ", " + tallet;
-            x++;
+            tekst += ", " + tallet;
         }
-        return "Gangetabellen for " + tall + " opp til " + 10 * tall + " er" + tallene;
+
+        return "Gangetabellen for " + tall + " opp til " + 10 * tall + " er" + tekst;
     }
     let a = Number(document.getElementById("oppgave4input").value);
     document.getElementById("svar").innerHTML = skrivUtGangetabell(a);
@@ -80,19 +79,20 @@ function oppgave4() {
 
 // Oppgave 5 og 6 //
 
-function oppgave5(){
-    function arealRektangel(lengde, bredde){
-        if (lengde < 1 || lengde !=  Number){
+function oppgave5() {
+    function arealRektangel(lengde, bredde) {
+
+        if (lengde < 1 || bredde < 1) {
             return "ERROR";
         }
-        else if (bredde < 1 || bredde != Number){
-            return "ERROR";
+        else if (lengde - lengde == 0 && bredde - bredde == 0) {
+            return "Arealet til rektangelet er: " + (lengde * bredde);
         }
-        else{
-            return lengde * bredde;
+        else {
+            return "ERROR";
         }
     }
-    let a = Number(document.getElementById("oppgave5inputlengde").value);
-    let b = Number(document.getElementById("oppgave5inputbredde").value);
+    let a = document.getElementById("oppgave5inputlengde").value;
+    let b = document.getElementById("oppgave5inputbredde").value;
     document.getElementById("svar").innerHTML = arealRektangel(a, b);
 }
