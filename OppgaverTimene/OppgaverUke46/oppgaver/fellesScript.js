@@ -79,20 +79,61 @@ function oppgave4() {
 
 // Oppgave 5 og 6 //
 
-function oppgave5() {
-    function arealRektangel(lengde, bredde) {
+function arealRektangel(lengde, bredde) {
 
-        if (lengde < 1 || bredde < 1) {
-            return "ERROR";
-        }
-        else if (lengde - lengde == 0 && bredde - bredde == 0) {
-            return "Arealet til rektangelet er: " + (lengde * bredde);
-        }
-        else {
-            return "ERROR";
-        }
+    if (lengde < 1 || bredde < 1) {
+        return "ERROR";
     }
+    else if (lengde - lengde == 0 && bredde - bredde == 0) {
+        return "Arealet til rektangelet er: " + (lengde * bredde) + " enhet<sup>2</sup>";
+    }
+    else {
+        return "ERROR";
+    }
+}
+
+function oppgave56() {
     let a = document.getElementById("oppgave5inputlengde").value;
     let b = document.getElementById("oppgave5inputbredde").value;
     document.getElementById("svar").innerHTML = arealRektangel(a, b);
+}
+
+
+// Oppgave 7 //
+
+function skrivUt(navn, alder) {
+    if (alder < 30) {
+        return "Hei " + navn + ", du er ung!";
+    }
+    else {
+        return "Du er gammel!";
+    }
+}
+
+function oppgave7() {
+    let a = document.getElementById("oppgave7navn").value;
+    let b = document.getElementById("oppgave7alder").value;
+    document.getElementById("svar").innerHTML = skrivUt(a, b);
+}
+
+function oppgave7test1() {
+    document.getElementById("svar").innerHTML = skrivUt("Lise", 78);
+}
+
+function oppgave7test2() {
+    document.getElementById("svar").innerHTML = skrivUt("Janne", 29);
+}
+
+
+// Oppgave 8 //
+
+function arealTrapes(lengdeTop, lengdeBunn, høyde){
+    return ((lengdeTop + lengdeBunn) / 2) * høyde;
+}
+
+function oppgave8(){
+    let a = Number(document.getElementById("oppgave8a").value);
+    let b = Number(document.getElementById("oppgave8b").value);
+    let h = Number(document.getElementById("oppgave8h").value);
+    document.getElementById("svar").innerHTML = arealTrapes(a, b, h) + " enhet<sup>2</sup>";
 }
