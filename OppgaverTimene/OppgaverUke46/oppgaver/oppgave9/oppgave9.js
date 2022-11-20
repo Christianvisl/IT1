@@ -7,7 +7,7 @@ const terninger = [
     "terninger6.jpg",
 ]
 function kastTerningene() {
-    return kastTerning1() + kastTerning2() + kastTerning3() + kastTerning4() + kastTerning5() + kastTerning6();
+    return kastTerning1() + kastTerning2() + kastTerning3() + kastTerning4() + kastTerning5();
 }
 
 function kastTerning1() {
@@ -40,12 +40,10 @@ function kastTerning5() {
     terning5.src = terninger[bilde];
 }
 
-function kastTerning6() {
-    let randomTerning = Math.ceil(Math.random() * 6);
-    let bilde = randomTerning - 1;
-    terning6.src = terninger[bilde];
+function lagreTerning1() {
+    var terningStil = document.getElementById("terning1");
+    terningStil.style.border = "solid 3px black";
 }
-
 
 
 
