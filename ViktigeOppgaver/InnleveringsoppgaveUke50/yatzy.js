@@ -1,3 +1,10 @@
+function skruAvGuide(){
+    let skruAvG = document.getElementById("guideForSpillet");
+    skruAvG.style.display = "none";
+    let skruPaaSpill = document.getElementById("heleSiden");
+    skruPaaSpill.style.display = "contents";
+}
+
 const terninger = [
     "terninger1.jpg",
     "terninger2.jpg",

@@ -24,7 +24,17 @@ body {
     }
 }
 
+#heleSiden {
+    display: none;
+}
 
+#guideForSpillet {
+    display: block;
+}
+#spilletDiv{
+    display: flex;
+    flex-direction: row;
+}
 .overskrift {
     margin: auto;
     background-color: white;
@@ -83,15 +93,27 @@ th {
     grid-template-columns: repeat(3, 122px);
     position: absolute;
     grid-gap: 20px;
-    top: 200px;
-    right: 200px;
+    top: 300px;
+    right: 300px;
     z-index: 10;
 }
+#kastTerningene{
+    height: fit-content;
+    margin: 10px;
+}
+
 
 button {
     background-color: white;
-    width: 100px;
-    height: 25px;
     border: none;
     color: #00AAFF;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+}
+table button{
+    width: 100px;
+    height: 25px;
+    border-radius: 0;
+    padding: 0;
 }

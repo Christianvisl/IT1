@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 9</title>
+    <link rel="stylesheet" href="yatzy.css">
+    <script src="yatzy.js"></script>
+</head>
+
+<body>
+    <div class="overskrift">
+        <h1>
+            Oppgave 9
+        </h1>
+    </div>
+
+    <div id="guideForSpillet">
+        <h3>Guide for spillet</h3>
+        <button onclick="skruAvGuide()">Jeg har lest og forstått reglene</button>
+    </div>
+
+    <div id="heleSiden">
+        <div id="spilletDiv">
+            <div id="bildene">
+                <img id="terning1" onclick="lagreTerning1()"></img>
+                <img id="terning2" onclick="lagreTerning2()"></img>
+                <img id="terning3" onclick="lagreTerning3()"></img>
+                <img id="terning4" onclick="lagreTerning4()"></img>
+                <img id="terning5" onclick="lagreTerning5()"></img>
+            </div>
+
+            <div id="tabell">
+                <table>
+                    <tr class="grey-background bold-font">
+                        <th>Deltakere</th>
+                        <th><input type="text" placeholder="Person 1"></th>
+                        <th><input type="text" placeholder="Person 2"></th>
+                        <th><input type="text" placeholder="Person 3"></th>
+                        <th><input type="text" placeholder="Person 4"></th>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk1()">Enere</button></td>
+                        <td id="Enere1"></td>
+                        <td id="Enere2"></td>
+                        <td id="Enere3"></td>
+                        <td id="Enere4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk2()">Toere</button></td>
+                        <td id="Toere1"></td>
+                        <td id="Toere2"></td>
+                        <td id="Toere3"></td>
+                        <td id="Toere4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk3()">Treere</button></td>
+                        <td id="Treere1"></td>
+                        <td id="Treere2"></td>
+                        <td id="Treere3"></td>
+                        <td id="Treere4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk4()">Firere</button></td>
+                        <td id="Firere1"></td>
+                        <td id="Firere2"></td>
+                        <td id="Firere3"></td>
+                        <td id="Firere4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk5()">Femmere</button></td>
+                        <td id="Femmere1"></td>
+                        <td id="Femmere2"></td>
+                        <td id="Femmere3"></td>
+                        <td id="Femmere4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk6()">Seksere</button></td>
+                        <td id="Seksere1"></td>
+                        <td id="Seksere2"></td>
+                        <td id="Seksere3"></td>
+                        <td id="Seksere4"></td>
+                    </tr>
+                    <tr class="grey-background bold-font">
+                        <td><button onclick="summer()">Summer</button></td>
+                        <td id="Sum1"></td>
+                        <td id="Sum2"></td>
+                        <td id="Sum3"></td>
+                        <td id="Sum4"></td>
+                    </tr>
+                    <tr class="grey-background bold-font">
+                        <td><button onclick="sjekkBonus()">Bonus</button></td>
+                        <td id="Bonus1"></td>
+                        <td id="Bonus2"></td>
+                        <td id="Bonus3"></td>
+                        <td id="Bonus4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk1Par()">Ett par</button></td>
+                        <td id="EttPar1"></td>
+                        <td id="EttPar2"></td>
+                        <td id="EttPar3"></td>
+                        <td id="EttPar4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk2Par()">To par</button></td>
+                        <td id="ToPar1"></td>
+                        <td id="ToPar2"></td>
+                        <td id="ToPar3"></td>
+                        <td id="ToPar4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk3Like()">Tre like</button></td>
+                        <td id="TreLike1"></td>
+                        <td id="TreLike2"></td>
+                        <td id="TreLike3"></td>
+                        <td id="TreLike4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekk4Like()">Fire like</button></td>
+                        <td id="FireLike1"></td>
+                        <td id="FireLike2"></td>
+                        <td id="FireLike3"></td>
+                        <td id="FireLike4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekkLitenStraight()">Liten straight</button></td>
+                        <td id="LitenStraight1"></td>
+                        <td id="LitenStraight2"></td>
+                        <td id="LitenStraight3"></td>
+                        <td id="LitenStraight4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekkStorStraight()">Stor straight</button></td>
+                        <td id="StorStraight1"></td>
+                        <td id="StorStraight2"></td>
+                        <td id="StorStraight3"></td>
+                        <td id="StorStraight4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekkHus()">Hus</button></td>
+                        <td id="Hus1"></td>
+                        <td id="Hus2"></td>
+                        <td id="Hus3"></td>
+                        <td id="Hus4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekkSjanse()">Sjanse</button></td>
+                        <td id="Sjanse1"></td>
+                        <td id="Sjanse2"></td>
+                        <td id="Sjanse3"></td>
+                        <td id="Sjanse4"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sjekkYatzy()">Yatzy</button></td>
+                        <td id="Yatzy1"></td>
+                        <td id="Yatzy2"></td>
+                        <td id="Yatzy3"></td>
+                        <td id="Yatzy4"></td>
+                    </tr>
+                    <tr class="grey-background bold-font">
+                        <td><button onclick="totalt()">Totalt</button></td>
+                        <td id="Totalt1"></td>
+                        <td id="Totalt2"></td>
+                        <td id="Totalt3"></td>
+                        <td id="Totalt4"></td>
+                    </tr>
+                </table>
+            </div>
+            <button id="kastTerningene" onclick="kastTerningene()">Kast terningene <br>Person 1</button>
+            <button id="kastTerningene" onclick="kastTerningene()">Kast terningene <br>Person 2</button>
+            <button id="kastTerningene" onclick="kastTerningene()">Kast terningene <br>Person 3</button>
+            <button id="kastTerningene" onclick="kastTerningene()">Kast terningene <br>Person 4</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -35,6 +35,7 @@
     <script>
         function svar() {
             var svar = document.getElementById("Svar");
+            svar.style.display = "block";
             svar.style.color = "#00aaff";
             svar.style.backgroundColor = "white";
             svar.style.padding = "10px";
@@ -47,6 +48,7 @@
             svar.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
 
             var svar2 = document.getElementById("Svar2");
+            svar2.style.display = "block";
             svar2.style.color = "#00aaff";
             svar2.style.backgroundColor = "white";
             svar2.style.padding = "10px";
@@ -59,18 +61,10 @@
             svar2.style.boxShadow= "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
         }
         function reset() {
-            document.getElementById("Svar").innerHTML = "";
             var svar = document.getElementById("Svar");
-            svar.style.backgroundColor = "transparent";
-            svar.style.boxShadow= "none";
-
-            document.getElementById("Svar2").innerHTML = "";
+            svar.style.display = "none";
             var svar2 = document.getElementById("Svar2");
-            svar2.style.backgroundColor = "transparent";
-            svar2.style.boxShadow= "none";
-
-            document.getElementById("Svar").innerHTML = "";
-            document.getElementById("Svar2").innerHTML = "";
+            svar2.style.display = "none";
         }
 
 
