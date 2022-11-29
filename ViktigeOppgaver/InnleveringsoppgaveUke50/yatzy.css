@@ -115,6 +115,7 @@ li {
     width: 120px;
     height: 120px;
     border: none;
+    cursor: pointer;
 }
 
 #bildene {
@@ -128,8 +129,10 @@ li {
 }
 
 #kastTerningene {
-    height: fit-content;
+    height: 100px;
+    width: 150px;
     margin: 10px;
+    margin-top: 50px;
 }
 
 button {
@@ -139,6 +142,7 @@ button {
     padding: 10px;
     width: fit-content;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 article {
@@ -185,4 +189,29 @@ article {
     padding: 20px;
     border-radius: 10px;
     color: #00AAFF;
+}
+
+#konfetti {
+    display: flex;
+    flex-direction: row;
+    z-index: 20;
+}
+
+#konfettiBilde1 {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+#konfettiBilde2 {
+    display: none;
+    position: absolute;
+    right: 45%;
+    top: 0px;
+}
+#konfettiBilde3 {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }

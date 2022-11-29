@@ -114,7 +114,7 @@ function startSpillet() {
             kolonneArray[6][radNummer].style.display = "none";
             radNummer++;
         }
-        radArray[18][6].innerHTML = 0;
+        radArray[18][6].innerHTML = 1;
     }
     radNummer = 0;
     if (antallSpillere <= 4) {
@@ -122,7 +122,7 @@ function startSpillet() {
             kolonneArray[5][radNummer].style.display = "none";
             radNummer++;
         }
-        radArray[18][5].innerHTML = 0;
+        radArray[18][5].innerHTML = 1;
     }
     radNummer = 0;
     if (antallSpillere <= 3) {
@@ -130,7 +130,7 @@ function startSpillet() {
             kolonneArray[4][radNummer].style.display = "none";
             radNummer++;
         }
-        radArray[18][4].innerHTML = 0;
+        radArray[18][4].innerHTML = 1;
     }
     radNummer = 0;
     if (antallSpillere <= 2) {
@@ -138,7 +138,7 @@ function startSpillet() {
             kolonneArray[3][radNummer].style.display = "none";
             radNummer++;
         }
-        radArray[18][3].innerHTML = 0;
+        radArray[18][3].innerHTML = 1;
     }
     radNummer = 0;
     if (antallSpillere <= 1) {
@@ -146,7 +146,7 @@ function startSpillet() {
             kolonneArray[2][radNummer].style.display = "none";
             radNummer++;
         }
-        radArray[18][2].innerHTML = 0;
+        radArray[18][2].innerHTML = 1;
     }
 
     antallSpillere++;
@@ -621,7 +621,7 @@ function totalt(person) {
         resetTerningene();
     }
 
-    if (radArray[18][1].innerHTML < 1000 && radArray[18][2].innerHTML < 1000 && radArray[18][3].innerHTML < 1000 && radArray[18][4].innerHTML < 1000 && radArray[18][5].innerHTML < 1000 && radArray[18][6].innerHTML < 1000) {
+    if (radArray[18][1].innerHTML > 0 && radArray[18][2].innerHTML > 0 && radArray[18][3].innerHTML > 0 && radArray[18][4].innerHTML > 0 && radArray[18][5].innerHTML > 0 && radArray[18][6].innerHTML > 0) {
         const totalScoreArray = [
             0,
             Number(radArray[18][1].innerHTML),
@@ -643,9 +643,17 @@ function totalt(person) {
         if (vinnerNavn == "") {
             vinnerNavn = "spiller " + vinnerSpiller + " (du glemte å skrive inn navnet)";
         }
-        document.getElementById("vinnerTekst").innerHTML = "Vinneren er " + vinnerNavn + ", med en score på " + vinnerScore;
-        let vinnerTekst = document.getElementById("vinnerTekst");
 
+        let vinnerTekst = document.getElementById("vinnerTekst");
         vinnerTekst.style.display = "block";
+        document.getElementById("vinnerTekst").innerHTML = "Vinneren er " + vinnerNavn + ", med en score på " + vinnerScore;
+
+        let konfettiBilde1 = document.getElementById("konfettiBilde1");
+        let konfettiBilde2 = document.getElementById("konfettiBilde2");
+        let konfettiBilde3 = document.getElementById("konfettiBilde3");
+        
+        konfettiBilde1.style.display = "block";
+        konfettiBilde2.style.display = "block";
+        konfettiBilde3.style.display = "block";
     }
 }
