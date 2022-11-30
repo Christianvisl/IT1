@@ -109,6 +109,10 @@ function startSpillet() {
     let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
     let radNummer = 0;
 
+    if (antallSpillere == "") {
+        antallSpillere = 6;
+    }
+
     if (antallSpillere <= 5) {
         while (radNummer <= 18) {
             kolonneArray[6][radNummer].style.display = "none";
@@ -526,7 +530,7 @@ function sjekkHus(person) {
 
         while (terningVerdi3 <= 6) {
             var antall = sjekkAntall(terningene, terningVerdi3);
-            if (antall == 3) {   
+            if (antall == 3) {
                 var like3score = terningVerdi3 * 3;
                 var terningNummerFor3Like = terningVerdi3;
             }
@@ -651,7 +655,7 @@ function totalt(person) {
         let konfettiBilde1 = document.getElementById("konfettiBilde1");
         let konfettiBilde2 = document.getElementById("konfettiBilde2");
         let konfettiBilde3 = document.getElementById("konfettiBilde3");
-        
+
         konfettiBilde1.style.display = "block";
         konfettiBilde2.style.display = "block";
         konfettiBilde3.style.display = "block";

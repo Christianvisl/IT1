@@ -203,12 +203,14 @@ article {
     right: 0px;
     top: 0px;
 }
+
 #konfettiBilde2 {
     display: none;
     position: absolute;
     right: 45%;
     top: 0px;
 }
+
 #konfettiBilde3 {
     display: none;
     position: absolute;
