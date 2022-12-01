@@ -44,9 +44,26 @@
             </h1>
         </div>
         <input id="antallSpillereInput" type="number" placeholder="Hvor mange spiller? (maks 6)">
-        <button onclick="startSpillet()">Start spillet</button>
+
+        <button onclick="lagreAntallSpillere()">Lagre</button>
     </div>
 
+    <div id="fyllInnNavn">
+        <div class="overskrift">
+            <h1>
+                Yatzy - uke 47-49
+            </h1>
+        </div>
+
+        <input id="personInput1" type="text" placeholder="Person 1">
+        <input id="personInput2" type="text" placeholder="Person 2">
+        <input id="personInput3" type="text" placeholder="Person 3">
+        <input id="personInput4" type="text" placeholder="Person 4">
+        <input id="personInput5" type="text" placeholder="Person 5">
+        <input id="personInput6" type="text" placeholder="Person 6">
+        
+        <button onclick="startSpillet()">Lagre navn & start spillet</button>
+    </div>
 
     <div id="heleSiden">
         <div id="konfetti">
@@ -64,20 +81,14 @@
             </div>
 
             <div id="tabell">
-                <div class="grey-background">Deltakere</div>
-                <div class="kolonne1 grey-background"><input class="personInput" type="text" placeholder="Person 1">
-                </div>
-                <div class="kolonne2 grey-background"><input class="personInput" type="text" placeholder="Person 2">
-                </div>
-                <div class="kolonne3 grey-background"><input class="personInput" type="text" placeholder="Person 3">
-                </div>
-                <div class="kolonne4 grey-background"><input class="personInput" type="text" placeholder="Person 4">
-                </div>
-                <div class="kolonne5 grey-background"><input class="personInput" type="text" placeholder="Person 5">
-                </div>
-                <div class="kolonne6 grey-background"><input class="personInput" type="text" placeholder="Person 6">
-                </div>
 
+                <div class="rad0 grey-background">Deltakere</div>
+                <div class="rad0 kolonne1 grey-background"></div>
+                <div class="rad0 kolonne2 grey-background"></div>
+                <div class="rad0 kolonne3 grey-background"></div>
+                <div class="rad0 kolonne4 grey-background"></div>
+                <div class="rad0 kolonne5 grey-background"></div>
+                <div class="rad0 kolonne6 grey-background"></div>
 
                 <div class="rad1">Enere</div>
                 <div class="rad1 kolonne1"><button onclick="sjekk1Til6(1, 1)"></button></div>

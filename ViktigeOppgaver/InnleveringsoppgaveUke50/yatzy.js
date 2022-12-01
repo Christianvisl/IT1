@@ -19,7 +19,7 @@ const redTerninger = [
 
 
 // Får informasjon fra og til alle feltene i tabellen
-let rad0;
+let rad0 = document.getElementsByClassName("rad0");
 let rad1 = document.getElementsByClassName("rad1");
 let rad2 = document.getElementsByClassName("rad2");
 let rad3 = document.getElementsByClassName("rad3");
@@ -100,11 +100,60 @@ function skruAvGuide() {
     let skruPaaHvorMangeDiv = document.getElementById("hvorMangeSpillereDiv");
     skruPaaHvorMangeDiv.style.display = "block";
 }
-function startSpillet() {
+
+function lagreAntallSpillere() {
     let skruPaaHvorMangeDiv = document.getElementById("hvorMangeSpillereDiv");
     skruPaaHvorMangeDiv.style.display = "none";
+    let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
+    skrupaaSpillerNavn.style.display = "block";
+
+    let input6 = document.getElementById("personInput6");
+    let input5 = document.getElementById("personInput5");
+    let input4 = document.getElementById("personInput4");
+    let input3 = document.getElementById("personInput3");
+    let input2 = document.getElementById("personInput2");
+
+    
+    let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
+    
+    if (antallSpillere == "") {
+        antallSpillere = 6;
+    }
+
+    if (antallSpillere <= 5) {
+        input6.style.display = "none";
+        input6.innerHTML = "a";
+    }
+    if (antallSpillere <= 4) {
+        input5.style.display = "none";
+        input5.innerHTML = "a";
+    }
+    if (antallSpillere <= 3) {
+        input4.style.display = "none";
+        input4.innerHTML = "a";
+    }
+    if (antallSpillere <= 2) {
+        input3.style.display = "none";
+        input3.innerHTML = "a";
+    }
+    if (antallSpillere == 1) {
+        input2.style.display = "none";
+        input2.innerHTML = "a";
+    }
+}
+
+function startSpillet() {
+    let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
+    skrupaaSpillerNavn.style.display = "none";
     let skruPaaSpill = document.getElementById("heleSiden");
     skruPaaSpill.style.display = "contents";
+
+    radArray[0][1].innerHTML = document.getElementById("personInput1").value;
+    radArray[0][2].innerHTML = document.getElementById("personInput2").value;
+    radArray[0][3].innerHTML = document.getElementById("personInput3").value;
+    radArray[0][4].innerHTML = document.getElementById("personInput4").value;
+    radArray[0][5].innerHTML = document.getElementById("personInput5").value;
+    radArray[0][6].innerHTML = document.getElementById("personInput6").value;
 
     let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
     let radNummer = 0;
@@ -302,7 +351,6 @@ function lagreTerning3() {
 
 function lagreTerning4() {
     if (antallKast <= 2) {
-
         let terningNummer = document.getElementById("terning4index").innerHTML;
         if (terning4Av == false) {
             terning4Av = true;

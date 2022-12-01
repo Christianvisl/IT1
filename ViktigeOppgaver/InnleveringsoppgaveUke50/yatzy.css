@@ -78,6 +78,10 @@ body {
     color: white;
 }
 
+#fyllInnNavn {
+    display: none;
+}
+
 #spilletDiv {
     display: flex;
     flex-direction: row;
@@ -104,13 +108,13 @@ h1 {
 }
 
 #overskrift2 {
-    color: black;
+    color: white;
     margin-top: 40px;
     text-align: center;
-    margin-left: 200px;
+    margin-left: 60px;
     text-transform: uppercase;
-    text-shadow: 6px 3px 4px white;
-    font-size: 60px;
+    text-shadow: 6px 3px 4px rgb(32, 133, 235);
+    font-size: 90px;
 }
 
 input {
