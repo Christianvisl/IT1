@@ -11,14 +11,19 @@
 </head>
 
 <body>
-    <div class="overskrift">
-        <h1>
-            Yatzy - uke 47-49
-        </h1>
-    </div>
+    <div class="bakgrunn1"></div>
+    <div class="bakrgunn1 bakgrunn2"></div>
+    <div class="bakgrunn1 bakgrunn3"></div>
+
+
 
     <div id="guideForSpillet">
-        <ul>
+        <div class="overskrift">
+            <h1>
+                Yatzy - uke 47-49
+            </h1>
+        </div>
+        <ul id="guide">
             <h3>Guide for spillet</h3>
             <li>Skriv inn navnene til alle spillerene</li>
             <li>Kast terningene ved å trykke på knappen</li>
@@ -35,6 +40,11 @@
     </div>
 
     <div id="hvorMangeSpillereDiv">
+        <div class="overskrift">
+            <h1>
+                Yatzy - uke 47-49
+            </h1>
+        </div>
         <input id="antallSpillereInput" type="number" placeholder="Hvor mange spiller? (maks 6)">
         <button onclick="startSpillet()">Start spillet</button>
     </div>
@@ -242,6 +252,12 @@
             </div>
 
             <button id="kastTerningene" onclick="kastTerningene(), displayBilder()">Kast terningene</button>
+
+
+            <h1 id="overskrift2">
+                Yatzy
+            </h1>
+
         </div>
 
         <h3 id="vinnerTekst"></h3>
