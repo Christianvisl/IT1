@@ -102,113 +102,140 @@ function skruAvGuide() {
 }
 
 function lagreAntallSpillere() {
-    let skruPaaHvorMangeDiv = document.getElementById("hvorMangeSpillereDiv");
-    skruPaaHvorMangeDiv.style.display = "none";
-    let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
-    skrupaaSpillerNavn.style.display = "block";
-
-    let input6 = document.getElementById("personInput6");
-    let input5 = document.getElementById("personInput5");
-    let input4 = document.getElementById("personInput4");
-    let input3 = document.getElementById("personInput3");
-    let input2 = document.getElementById("personInput2");
-
-    
     let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
-    
-    if (antallSpillere == "") {
-        antallSpillere = 6;
-    }
 
-    if (antallSpillere <= 5) {
-        input6.style.display = "none";
-        input6.innerHTML = "a";
+    if (antallSpillere == "" || antallSpillere < 1 || antallSpillere > 6) {
     }
-    if (antallSpillere <= 4) {
-        input5.style.display = "none";
-        input5.innerHTML = "a";
-    }
-    if (antallSpillere <= 3) {
-        input4.style.display = "none";
-        input4.innerHTML = "a";
-    }
-    if (antallSpillere <= 2) {
-        input3.style.display = "none";
-        input3.innerHTML = "a";
-    }
-    if (antallSpillere == 1) {
-        input2.style.display = "none";
-        input2.innerHTML = "a";
+    else {
+        let skruPaaHvorMangeDiv = document.getElementById("hvorMangeSpillereDiv");
+        skruPaaHvorMangeDiv.style.display = "none";
+        let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
+        skrupaaSpillerNavn.style.display = "block";
+
+        let input6 = document.getElementById("personInput6");
+        let input5 = document.getElementById("personInput5");
+        let input4 = document.getElementById("personInput4");
+        let input3 = document.getElementById("personInput3");
+        let input2 = document.getElementById("personInput2");
+
+
+        if (antallSpillere <= 5) {
+            input6.style.display = "none";
+            input6.innerHTML = "a";
+        }
+        if (antallSpillere <= 4) {
+            input5.style.display = "none";
+            input5.innerHTML = "a";
+        }
+        if (antallSpillere <= 3) {
+            input4.style.display = "none";
+            input4.innerHTML = "a";
+        }
+        if (antallSpillere <= 2) {
+            input3.style.display = "none";
+            input3.innerHTML = "a";
+        }
+        if (antallSpillere == 1) {
+            input2.style.display = "none";
+            input2.innerHTML = "a";
+        }
     }
 }
 
 function startSpillet() {
-    let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
-    skrupaaSpillerNavn.style.display = "none";
-    let skruPaaSpill = document.getElementById("heleSiden");
-    skruPaaSpill.style.display = "contents";
+    let input6 = document.getElementById("personInput6").value;
+    let input5 = document.getElementById("personInput5").value;
+    let input4 = document.getElementById("personInput4").value;
+    let input3 = document.getElementById("personInput3").value;
+    let input2 = document.getElementById("personInput2").value;
+    let input1 = document.getElementById("personInput1").value;
 
-    radArray[0][1].innerHTML = document.getElementById("personInput1").value;
-    radArray[0][2].innerHTML = document.getElementById("personInput2").value;
-    radArray[0][3].innerHTML = document.getElementById("personInput3").value;
-    radArray[0][4].innerHTML = document.getElementById("personInput4").value;
-    radArray[0][5].innerHTML = document.getElementById("personInput5").value;
-    radArray[0][6].innerHTML = document.getElementById("personInput6").value;
-
-    let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
-    let radNummer = 0;
-
-    if (antallSpillere == "") {
-        antallSpillere = 6;
+    if (input1 == "") {
+        input1 = document.getElementById("personInput1").innerHTML;
     }
-
-    if (antallSpillere <= 5) {
-        while (radNummer <= 18) {
-            kolonneArray[6][radNummer].style.display = "none";
-            radNummer++;
-        }
-        radArray[18][6].innerHTML = 1;
+    if (input2 == "") {
+        input2 = document.getElementById("personInput2").innerHTML;
     }
-    radNummer = 0;
-    if (antallSpillere <= 4) {
-        while (radNummer <= 18) {
-            kolonneArray[5][radNummer].style.display = "none";
-            radNummer++;
-        }
-        radArray[18][5].innerHTML = 1;
+    if (input3 == "") {
+        input3 = document.getElementById("personInput3").innerHTML;
     }
-    radNummer = 0;
-    if (antallSpillere <= 3) {
-        while (radNummer <= 18) {
-            kolonneArray[4][radNummer].style.display = "none";
-            radNummer++;
-        }
-        radArray[18][4].innerHTML = 1;
+    if (input4 == "") {
+        input4 = document.getElementById("personInput4").innerHTML;
     }
-    radNummer = 0;
-    if (antallSpillere <= 2) {
-        while (radNummer <= 18) {
-            kolonneArray[3][radNummer].style.display = "none";
-            radNummer++;
-        }
-        radArray[18][3].innerHTML = 1;
+    if (input5 == "") {
+        input5 = document.getElementById("personInput5").innerHTML;
     }
-    radNummer = 0;
-    if (antallSpillere <= 1) {
-        while (radNummer <= 18) {
-            kolonneArray[2][radNummer].style.display = "none";
-            radNummer++;
-        }
-        radArray[18][2].innerHTML = 1;
+    if (input6 == "") {
+        input6 = document.getElementById("personInput6").innerHTML;
     }
 
-    antallSpillere++;
-    if (antallSpillere >= 8) {
-        antallSpillere = 7;
+    if (input1.length > 0 && input2.length > 0 && input3.length > 0 && input4.length > 0 && input5.length > 0 && input6.length > 0) {
+        let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
+        skrupaaSpillerNavn.style.display = "none";
+        let skruPaaSpill = document.getElementById("heleSiden");
+        skruPaaSpill.style.display = "contents";
+
+        radArray[0][1].innerHTML = document.getElementById("personInput1").value;
+        radArray[0][2].innerHTML = document.getElementById("personInput2").value;
+        radArray[0][3].innerHTML = document.getElementById("personInput3").value;
+        radArray[0][4].innerHTML = document.getElementById("personInput4").value;
+        radArray[0][5].innerHTML = document.getElementById("personInput5").value;
+        radArray[0][6].innerHTML = document.getElementById("personInput6").value;
+
+        let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
+        let radNummer = 0;
+
+        if (antallSpillere == "") {
+            antallSpillere = 6;
+        }
+
+        if (antallSpillere <= 5) {
+            while (radNummer <= 18) {
+                kolonneArray[6][radNummer].style.display = "none";
+                radNummer++;
+            }
+            radArray[18][6].innerHTML = 1;
+        }
+        radNummer = 0;
+        if (antallSpillere <= 4) {
+            while (radNummer <= 18) {
+                kolonneArray[5][radNummer].style.display = "none";
+                radNummer++;
+            }
+            radArray[18][5].innerHTML = 1;
+        }
+        radNummer = 0;
+        if (antallSpillere <= 3) {
+            while (radNummer <= 18) {
+                kolonneArray[4][radNummer].style.display = "none";
+                radNummer++;
+            }
+            radArray[18][4].innerHTML = 1;
+        }
+        radNummer = 0;
+        if (antallSpillere <= 2) {
+            while (radNummer <= 18) {
+                kolonneArray[3][radNummer].style.display = "none";
+                radNummer++;
+            }
+            radArray[18][3].innerHTML = 1;
+        }
+        radNummer = 0;
+        if (antallSpillere <= 1) {
+            while (radNummer <= 18) {
+                kolonneArray[2][radNummer].style.display = "none";
+                radNummer++;
+            }
+            radArray[18][2].innerHTML = 1;
+        }
+
+        antallSpillere++;
+        if (antallSpillere >= 8) {
+            antallSpillere = 7;
+        }
+        document.querySelector(":root").style.setProperty("--antallKolonner", antallSpillere);
     }
-    document.querySelector(":root").style.setProperty("--antallKolonner", antallSpillere);
 }
-
 
 // Her kaster den alle terningene om de ikke er blitt trykket på
 function kastTerningene() {
@@ -242,6 +269,29 @@ function regnUtHvemSinTur() {
     }
     else if (hvemSinTur == antallSpillere) {
         hvemSinTur = 1;
+    }
+    let i = 0;
+    while (i < 19) {
+        var kolonne1av = radArray[i][1];
+        var kolonne2av = radArray[i][2];
+        var kolonne3av = radArray[i][3];
+        var kolonne4av = radArray[i][4];
+        var kolonne5av = radArray[i][5];
+        var kolonne6av = radArray[i][6];
+
+        kolonne1av.style.border = "solid 2px rgba(250, 250, 250, 0.4)";
+        kolonne2av.style.border = "solid 2px rgba(250, 250, 250, 0.4)";
+        kolonne3av.style.border = "solid 2px rgba(250, 250, 250, 0.4)";
+        kolonne4av.style.border = "solid 2px rgba(250, 250, 250, 0.4)";
+        kolonne5av.style.border = "solid 2px rgba(250, 250, 250, 0.4)";
+        kolonne6av.style.border = "solid 2px rgba(250, 250, 250, 0.4)";
+        i++;
+    }
+    i = 0;
+    while (i < 19) {
+        var boks = radArray[i][hvemSinTur];
+        boks.style.border = "white solid 2px";
+        i++;
     }
 }
 

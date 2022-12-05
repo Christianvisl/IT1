@@ -196,6 +196,7 @@ article {
     margin-top: 40px;
     color: white;
     font-weight: bold;
+    background-color: rgba(20, 20, 20, 0.2);
 }
 
 #tabell button {
