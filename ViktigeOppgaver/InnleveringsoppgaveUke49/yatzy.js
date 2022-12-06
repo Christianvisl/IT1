@@ -113,45 +113,43 @@ function lagreAntallSpillere() {
 
 // Starter spillet om alle inputsene fra forrige side er fylt inn. Om noen er tomme, skjer ingenting. Om alle er fylt ut, vises spillet med korrekt antall kolonner, og riktig navn for hver kolonne
 function startSpillet() {
-    let input1 = document.getElementById("personInput1").value;
-    let input2 = document.getElementById("personInput2").value;
-    let input3 = document.getElementById("personInput3").value;
-    let input4 = document.getElementById("personInput4").value;
-    let input5 = document.getElementById("personInput5").value;
-    let input6 = document.getElementById("personInput6").value;
+    const navnArray = [
+        document.getElementById("personInput1").value,
+        document.getElementById("personInput2").value,
+        document.getElementById("personInput3").value,
+        document.getElementById("personInput4").value,
+        document.getElementById("personInput5").value,
+        document.getElementById("personInput6").value
+    ]
+    let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
 
-    if (input1 == "") {
-        input1 = document.getElementById("personInput1").innerHTML;
+    let i = 6;
+    while (i > antallSpillere){
+        navnArray[i-1] = "filler";
+        i = i - 1;
     }
-    if (input2 == "") {
-        input2 = document.getElementById("personInput2").innerHTML;
-    }
-    if (input3 == "") {
-        input3 = document.getElementById("personInput3").innerHTML;
-    }
-    if (input4 == "") {
-        input4 = document.getElementById("personInput4").innerHTML;
-    }
-    if (input5 == "") {
-        input5 = document.getElementById("personInput5").innerHTML;
-    }
-    if (input6 == "") {
-        input6 = document.getElementById("personInput6").innerHTML;
-    }
+    
+    console.log(navnArray[0]);
+    console.log(navnArray[1]);
+    console.log(navnArray[2]);
+    console.log(navnArray[3]);
+    console.log(navnArray[4]);
+    console.log(navnArray[5]);
+    
 
-    if (input1.length > 0 && input2.length > 0 && input3.length > 0 && input4.length > 0 && input5.length > 0 && input6.length > 0) {
+    if (navnArray.includes("") == false) {
         let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
         skrupaaSpillerNavn.style.display = "none";
         let skruPaaSpill = document.getElementById("heleSiden");
         skruPaaSpill.style.display = "contents";
 
 
-        radArray[0][1].innerHTML = input1;
-        radArray[0][2].innerHTML = input2;
-        radArray[0][3].innerHTML = input3;
-        radArray[0][4].innerHTML = input4;
-        radArray[0][5].innerHTML = input5;
-        radArray[0][6].innerHTML = input6;
+        radArray[0][1].innerHTML = navnArray[0];
+        radArray[0][2].innerHTML = navnArray[1];
+        radArray[0][3].innerHTML = navnArray[2];
+        radArray[0][4].innerHTML = navnArray[3];
+        radArray[0][5].innerHTML = navnArray[4];
+        radArray[0][6].innerHTML = navnArray[5];
 
 
         let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
