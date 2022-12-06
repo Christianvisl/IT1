@@ -139,6 +139,12 @@ function startSpillet() {
     if (input6 == "") {
         input6 = document.getElementById("personInput6").innerHTML;
     }
+    console.log(input1);
+    console.log(input2);
+    console.log(input3);
+    console.log(input4);
+    console.log(input5);
+    console.log(input6);
 
     if (input1.length > 0 && input2.length > 0 && input3.length > 0 && input4.length > 0 && input5.length > 0 && input6.length > 0) {
         let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
