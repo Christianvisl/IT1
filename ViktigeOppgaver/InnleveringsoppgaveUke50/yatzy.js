@@ -17,75 +17,44 @@ const redTerninger = [
     "redTerning6.png",
 ]
 
-
-// Får informasjon fra og til alle feltene i tabellen
-let rad0 = document.getElementsByClassName("rad0");
-let rad1 = document.getElementsByClassName("rad1");
-let rad2 = document.getElementsByClassName("rad2");
-let rad3 = document.getElementsByClassName("rad3");
-let rad4 = document.getElementsByClassName("rad4");
-let rad5 = document.getElementsByClassName("rad5");
-let rad6 = document.getElementsByClassName("rad6");
-let rad7 = document.getElementsByClassName("rad7");
-let rad8 = document.getElementsByClassName("rad8");
-let rad9 = document.getElementsByClassName("rad9");
-let rad10 = document.getElementsByClassName("rad10");
-let rad11 = document.getElementsByClassName("rad11");
-let rad12 = document.getElementsByClassName("rad12");
-let rad13 = document.getElementsByClassName("rad13");
-let rad14 = document.getElementsByClassName("rad14");
-let rad15 = document.getElementsByClassName("rad15");
-let rad16 = document.getElementsByClassName("rad16");
-let rad17 = document.getElementsByClassName("rad17");
-let rad18 = document.getElementsByClassName("rad18");
-
-let kolonne0;
-let kolonne1 = document.getElementsByClassName("kolonne1");
-let kolonne2 = document.getElementsByClassName("kolonne2");
-let kolonne3 = document.getElementsByClassName("kolonne3");
-let kolonne4 = document.getElementsByClassName("kolonne4");
-let kolonne5 = document.getElementsByClassName("kolonne5");
-let kolonne6 = document.getElementsByClassName("kolonne6");
-
-
-// Maks antall kast er 3, og endres for hver gang en trykker på KastTerningene-knappen. Det samme er hvemSinTur.
+// Maks antall kast er 3, og endres for hver gang en trykker på KastTerningene-knappen. HvemSinTur er by-default 1, som betyr at det er spiller 1 sin tur når spillet starter.
 let antallKast = 3;
 let hvemSinTur = 1;
 
 
-// Lager en array som brukes til all slags posisjonering senere
+// Lager to arrays som brukes til all slags posisjonering senere
 const radArray = [
-    rad0,
-    rad1,
-    rad2,
-    rad3,
-    rad4,
-    rad5,
-    rad6,
-    rad7,
-    rad8,
-    rad9,
-    rad10,
-    rad11,
-    rad12,
-    rad13,
-    rad14,
-    rad15,
-    rad16,
-    rad17,
-    rad18
+    document.getElementsByClassName("rad0"),
+    document.getElementsByClassName("rad1"),
+    document.getElementsByClassName("rad2"),
+    document.getElementsByClassName("rad3"),
+    document.getElementsByClassName("rad4"),
+    document.getElementsByClassName("rad5"),
+    document.getElementsByClassName("rad6"),
+    document.getElementsByClassName("rad7"),
+    document.getElementsByClassName("rad8"),
+    document.getElementsByClassName("rad9"),
+    document.getElementsByClassName("rad10"),
+    document.getElementsByClassName("rad11"),
+    document.getElementsByClassName("rad12"),
+    document.getElementsByClassName("rad13"),
+    document.getElementsByClassName("rad14"),
+    document.getElementsByClassName("rad15"),
+    document.getElementsByClassName("rad16"),
+    document.getElementsByClassName("rad17"),
+    document.getElementsByClassName("rad18")
 ]
 const kolonneArray = [
-    kolonne0,
-    kolonne1,
-    kolonne2,
-    kolonne3,
-    kolonne4,
-    kolonne5,
-    kolonne6
+    0,
+    document.getElementsByClassName("kolonne1"),
+    document.getElementsByClassName("kolonne2"),
+    document.getElementsByClassName("kolonne3"),
+    document.getElementsByClassName("kolonne4"),
+    document.getElementsByClassName("kolonne5"),
+    document.getElementsByClassName("kolonne6")
 ]
 
-// Lager en variabel for hver av de fem terningene, og angir dem verdien false, slik at funksjonen "kastTerningene()" vet om den skal kaste terningene på nytt eller ikke
+// Lager en variabel for hver av de fem terningene, og angir dem verdien false, slik at funksjonen "kastTerningene()" vet om den skal kaste terningene på nytt eller ikke, avhengig av om de er lagret eller ei
 var terning1Av = false;
 var terning2Av = false;
 var terning3Av = false;
@@ -93,7 +62,7 @@ var terning4Av = false;
 var terning5Av = false;
 
 
-// Tar vekk spillguiden som spilleren møter når nettsiden åpnes, og viser spillet
+// Tar vekk spillguiden som spilleren møter når nettsiden åpnes, og viser neste side, der spilleren blir spurt om antall spillere
 function skruAvGuide() {
     let skruAvG = document.getElementById("guideForSpillet");
     skruAvG.style.display = "none";
@@ -101,6 +70,7 @@ function skruAvGuide() {
     skruPaaHvorMangeDiv.style.display = "block";
 }
 
+// Lagrer antall spillere og sjekker om det er et nummer mellom 1 og 6, om det ikke er det, skjer ingenting. Om tallet er mellom 1 og 6, vil det kommer opp x antall inputs, der navnene må fylles inn
 function lagreAntallSpillere() {
     let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
 
@@ -142,6 +112,7 @@ function lagreAntallSpillere() {
     }
 }
 
+// Starter spillet om alle inputsene fra forrige side er fylt inn. Om noen er tomme, skjer ingenting. Om alle er fylt ut, vises spillet med korrekt antall kolonner, og riktig navn for hver kolonne
 function startSpillet() {
     let input6 = document.getElementById("personInput6").value;
     let input5 = document.getElementById("personInput5").value;
@@ -237,7 +208,8 @@ function startSpillet() {
     }
 }
 
-// Her kaster den alle terningene om de ikke er blitt trykket på
+
+// Funksjonen kaster alle terningene om de ikke er blitt trykket på, og spilleren har flere kast igjen. Om spilleren har brukt alle kastene, er "antallKast" == 0, og da skjer ingenting
 function kastTerningene() {
     if (antallKast > 0) {
         kastTerning1() + kastTerning2() + kastTerning3() + kastTerning4() + kastTerning5();
@@ -246,6 +218,7 @@ function kastTerningene() {
     }
 }
 
+// For hver gang noen lagrer scoren sin i et felt, vil terningene vises i sin originale form, og alle terningene settes i spill igjen ("terning1Av = false"...)
 function resetTerningene() {
     terning1.src = terninger[document.getElementById("terning1index").innerHTML];
     terning2.src = terninger[document.getElementById("terning2index").innerHTML];
@@ -261,6 +234,7 @@ function resetTerningene() {
     document.getElementById("kastTerningene").innerHTML = "Kast terningene";
 }
 
+// For at spillerene skal vite hvem sin tur det er, vil denne regne ut og vise dette (i form av at "border"-en til feltene bytter farge), om den kjøres etter hver gang noen har lagret scoren sin i et felt
 function regnUtHvemSinTur() {
     let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
 
@@ -355,8 +329,7 @@ function kastTerning5() {
 }
 
 
-// De neste fem funksjonene lagrer terningene, slik at de ikke kastes på nytt. Kan også sette terninger tilbake i spill
-
+// De neste fem funksjonene lagrer terningene, slik at de ikke kastes på nytt. Funkjsonene kan også sette terninger tilbake i spill, om de trykkes på mens de er ute av spill
 function lagreTerning1() {
     if (antallKast <= 2) {
         let terningNummer = document.getElementById("terning1index").innerHTML;
@@ -427,6 +400,13 @@ function lagreTerning5() {
     }
 }
 
+
+// Nå begynner alle funksjonene som regner ut score i de forskjellige mulige spill-kombinasjonene
+
+/* Denne brukes i de 6 første radene, og har to parametre. 
+Parametrene bestemmes i html-filen, og forteller funksjonen hvem som trykker, og hvilket tall mellom 1 og 6, som skal telles 
+Den gjennomføres bare om spilleren har kastet alle sine tre kast, og om det er denne personen sin tur
+Etter at alt er gjort, resettes terningene, og det er neste perosn sin tur. I tillegg vil den sjekke om alle felt fra 1 til 6 er fylt ut, og da vil neste funksjon skje*/
 function sjekk1Til6(nummer, person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -448,6 +428,11 @@ function sjekk1Til6(nummer, person) {
         summer(person)
     }
 }
+
+/* Denne funksjonen skjer hver gang noen trykker på feltene fra 1 til 6
+Da henter funksjonen ut alle scorene fra disse feltene
+Om alle feltene er fylt ut, vil den addere dem sammen, og skrive ut den totale scoren
+Om denne scoren er mer enn 63, vil spilleren få en bonus på 50 */
 function summer(person) {
     const score1Til6 = [
         Number(radArray[1][person].innerHTML),
@@ -472,7 +457,11 @@ function summer(person) {
 }
 
 
+/* Her begynner funksjonene som regnes ut scorene i feltene etter bonus
+I slutten av hver funksjon, vil funksjonen "totalt" kjøre */
 
+
+// Denne funksjonen fungerer som "sjekk1Til6", men regner i stedet ut det høyeste paret en spiller har
 function sjekk1Par(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -502,6 +491,7 @@ function sjekk1Par(person) {
     }
 }
 
+// Fungerer som forrige funksjon, men sjekker om terningene inneholder to par, som ikke er like(d.v.s; 4, 4, 4, 4, 5, gir 0)
 function sjekk2Par(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -541,7 +531,8 @@ function sjekk2Par(person) {
     }
 }
 
-
+/* Denne funksjonen har to paremetre som bestemmes i HTML-filen 
+Den regner ut "tre like" og "fire like" */
 function sjekkLike(antallLikeSjekk, person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -571,6 +562,7 @@ function sjekkLike(antallLikeSjekk, person) {
     }
 }
 
+// Sjekker om terningene inneholder 1, 2, 3, 4 og 5, altså "liten straight"
 function sjekkLitenStraight(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -591,6 +583,7 @@ function sjekkLitenStraight(person) {
     }
 }
 
+// Sjekker om terningene inneholder 2, 3, 4, 5 og 6, altså "stor straight"
 function sjekkStorStraight(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -611,6 +604,7 @@ function sjekkStorStraight(person) {
     }
 }
 
+// Ser først etter tre like, og deretter etter to like, som ikke har samme tall som de tre like (linje 635).
 function sjekkHus(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -655,6 +649,7 @@ function sjekkHus(person) {
     }
 }
 
+// Plusser sammen alle terningverdiene
 function sjekkSjanse(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -672,6 +667,7 @@ function sjekkSjanse(person) {
     }
 }
 
+
 function sjekkYatzy(person) {
     if (antallKast == 0 && hvemSinTur == person) {
         const terningene = [
@@ -681,23 +677,14 @@ function sjekkYatzy(person) {
             Number(document.getElementById("terning4index").innerHTML) + 1,
             Number(document.getElementById("terning5index").innerHTML) + 1
         ]
-
-        function sjekkAntall(array, value) {
-            return array.filter((v) => (v == value)).length;
+        if (terningene[0] == terningene[1] == terningene[2] == terningene[3] == terningene[4]) {
+            radArray[17][person].innerHTML = 50;
         }
-        radArray[17][person].innerHTML = 0;
 
-        let terningVerdi = 0;
-        while (terningVerdi <= 6) {
-            var antall = sjekkAntall(terningene, terningVerdi);
-            if (antall == 5) {
-                radArray[17][person].innerHTML = 50;
-            }
-            terningVerdi++;
-        }
         resetTerningene();
         regnUtHvemSinTur();
         totalt(person);
+
     }
 }
 
