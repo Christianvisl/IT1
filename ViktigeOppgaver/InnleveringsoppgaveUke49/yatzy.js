@@ -5,7 +5,7 @@ const terninger = [
     "terning3.png",
     "terning4.png",
     "terning5.png",
-    "terning6.png",
+    "terning6.png"
 ]
 
 const redTerninger = [
@@ -14,7 +14,7 @@ const redTerninger = [
     "redTerning3.png",
     "redTerning4.png",
     "redTerning5.png",
-    "redTerning6.png",
+    "redTerning6.png"
 ]
 
 // Maks antall kast er 3, og endres for hver gang en trykker på KastTerningene-knappen. HvemSinTur er by-default 1, som betyr at det er spiller 1 sin tur når spillet starter.
