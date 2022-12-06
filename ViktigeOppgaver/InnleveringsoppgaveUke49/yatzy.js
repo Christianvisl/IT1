@@ -74,7 +74,7 @@ function skruAvGuide() {
 function lagreAntallSpillere() {
     let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
 
-    if (antallSpillere == "" || antallSpillere < 1 || antallSpillere > 6) {
+    if (isNaN(antallSpillere) || antallSpillere < 1 || antallSpillere > 6) {
     }
     else {
         let skruPaaHvorMangeDiv = document.getElementById("hvorMangeSpillereDiv");
