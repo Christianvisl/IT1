@@ -88,38 +88,37 @@ function lagreAntallSpillere() {
         let input3 = document.getElementById("personInput3");
         let input2 = document.getElementById("personInput2");
 
-
         if (antallSpillere <= 5) {
             input6.style.display = "none";
-            input6.innerHTML = "a";
+            input6.innerHTML = "123321";
         }
         if (antallSpillere <= 4) {
             input5.style.display = "none";
-            input5.innerHTML = "a";
+            input5.innerHTML = "123321";
         }
         if (antallSpillere <= 3) {
             input4.style.display = "none";
-            input4.innerHTML = "a";
+            input4.innerHTML = "123321";
         }
         if (antallSpillere <= 2) {
             input3.style.display = "none";
-            input3.innerHTML = "a";
+            input3.innerHTML = "123321";
         }
         if (antallSpillere == 1) {
             input2.style.display = "none";
-            input2.innerHTML = "a";
+            input2.innerHTML = "123321";
         }
     }
 }
 
 // Starter spillet om alle inputsene fra forrige side er fylt inn. Om noen er tomme, skjer ingenting. Om alle er fylt ut, vises spillet med korrekt antall kolonner, og riktig navn for hver kolonne
 function startSpillet() {
-    let input6 = document.getElementById("personInput6").value;
-    let input5 = document.getElementById("personInput5").value;
-    let input4 = document.getElementById("personInput4").value;
-    let input3 = document.getElementById("personInput3").value;
-    let input2 = document.getElementById("personInput2").value;
     let input1 = document.getElementById("personInput1").value;
+    let input2 = document.getElementById("personInput2").value;
+    let input3 = document.getElementById("personInput3").value;
+    let input4 = document.getElementById("personInput4").value;
+    let input5 = document.getElementById("personInput5").value;
+    let input6 = document.getElementById("personInput6").value;
 
     if (input1 == "") {
         input1 = document.getElementById("personInput1").innerHTML;
@@ -139,12 +138,6 @@ function startSpillet() {
     if (input6 == "") {
         input6 = document.getElementById("personInput6").innerHTML;
     }
-    console.log(input1);
-    console.log(input2);
-    console.log(input3);
-    console.log(input4);
-    console.log(input5);
-    console.log(input6);
 
     if (input1.length > 0 && input2.length > 0 && input3.length > 0 && input4.length > 0 && input5.length > 0 && input6.length > 0) {
         let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
@@ -152,12 +145,14 @@ function startSpillet() {
         let skruPaaSpill = document.getElementById("heleSiden");
         skruPaaSpill.style.display = "contents";
 
-        radArray[0][1].innerHTML = document.getElementById("personInput1").value;
-        radArray[0][2].innerHTML = document.getElementById("personInput2").value;
-        radArray[0][3].innerHTML = document.getElementById("personInput3").value;
-        radArray[0][4].innerHTML = document.getElementById("personInput4").value;
-        radArray[0][5].innerHTML = document.getElementById("personInput5").value;
-        radArray[0][6].innerHTML = document.getElementById("personInput6").value;
+
+        radArray[0][1].innerHTML = input1;
+        radArray[0][2].innerHTML = input2;
+        radArray[0][3].innerHTML = input3;
+        radArray[0][4].innerHTML = input4;
+        radArray[0][5].innerHTML = input5;
+        radArray[0][6].innerHTML = input6;
+
 
         let antallSpillere = Number(document.getElementById("antallSpillereInput").value);
         let radNummer = 0;
