@@ -424,7 +424,7 @@ function sjekk1Til6(nummer, person) {
 
         resetTerningene();
         regnUtHvemSinTur();
-        summer(person)
+        summer(person);
     }
 }
 
@@ -453,6 +453,7 @@ function summer(person) {
         }
         resetTerningene();
     }
+    totalt(person);
 }
 
 
@@ -718,7 +719,7 @@ function totalt(person) {
     ]
 
     let totalScore = total[0] + total[1] + total[2] + total[3] + total[4] + total[5] + total[6] + total[7] + total[8] + total[9] + total[10];
-    if (totalScore > 0) {
+    if (totalScore > 0 && total[0] > 0) {
         radArray[18][person].innerHTML = totalScore;
         resetTerningene();
     }
