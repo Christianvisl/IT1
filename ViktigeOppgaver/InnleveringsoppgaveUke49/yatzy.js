@@ -128,14 +128,6 @@ function startSpillet() {
         navnArray[i-1] = "filler";
         i = i - 1;
     }
-    
-    console.log(navnArray[0]);
-    console.log(navnArray[1]);
-    console.log(navnArray[2]);
-    console.log(navnArray[3]);
-    console.log(navnArray[4]);
-    console.log(navnArray[5]);
-    
 
     if (navnArray.includes("") == false) {
         let skrupaaSpillerNavn = document.getElementById("fyllInnNavn");
