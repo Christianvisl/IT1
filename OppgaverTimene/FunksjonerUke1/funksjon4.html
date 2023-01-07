@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksjon 4</title>
+</head>
+
+<body>
+    <h1>sjekk1par(tall1, tall2, tall3, tall4, tall5)</h1>
+    <br><br><br>
+    <h3>Her har jeg lagt inn sjekk1par(2, 4, 5, 5, 4)</h3>
+    <h3>Sjekk konsollen for resultatet</h3>
+    <script>
+        /***************************************************************************/
+        /* Navn: sjekk1par (tall1, tall2, tall3, tall4, tall5)                     */
+        /* Funksjonen tar 5 parametre og hvis minst 2 av dem er like, skal den     */
+        /* returnere summen av de 2 største tallene. Hvis alle er ulike, skal      */
+        /* den returne veridern "false".                                           */
+        /***************************************************************************/
+
+        function sjekk1par(tall1, tall2, tall3, tall4, tall5) {
+            const array4Like = [
+                tall1, tall2, tall3, tall4, tall5
+            ]
+            const arrayForPar = []
+
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+            if (sjekkAntall(array4Like, tall1) >= 2) {
+                arrayForPar.push(tall1 * 2)
+            }
+            if (sjekkAntall(array4Like, tall2) >= 2) {
+                arrayForPar.push(tall2 * 2)
+            }
+            if (sjekkAntall(array4Like, tall3) >= 2) {
+                arrayForPar.push(tall3 * 2)
+            }
+            if (sjekkAntall(array4Like, tall4) >= 2) {
+                arrayForPar.push(tall4 * 2)
+            }
+            if (sjekkAntall(array4Like, tall5) >= 2) {
+                arrayForPar.push(tall5 * 2)
+            }
+
+            let storst = arrayForPar[0];
+            for (let i = 0; i < (arrayForPar.length - 1); i++) {
+                if (arrayForPar[i] > storst) {
+                    storst = arrayForPar[i];
+                }
+            }
+            if (storst != undefined) {
+                return storst;
+            }
+            else {
+                return false;
+            }
+        }
+
+
+        /*****************************************************************************/
+        /* Navn: consoleLogResultat(tallA, tallB, tallC, tallD, tallE)               */
+        /* Denne delen av koden trenger bare å brukes om en ønsker sjekke funksjonen */
+        /* ovenfor, med 4 valgfrie input-verdier "tallA", "tallB", "tallC", "tallD"  */ 
+        /* og "tallE"                                                                */
+        /*        tallA = tall1                                                      */
+        /*        tallB = tall2                                                      */
+        /*        tallC = tall3                                                      */
+        /*        tallD = tall4                                                      */
+        /*        tallE = tall5                                                      */
+        /*****************************************************************************/
+
+
+        function consoleLogResultat(tallA, tallB, tallC, tallD, tallE) {
+            var resultat = sjekk1par(tallA, tallB, tallC, tallD, tallE);
+
+            if (resultat == false) {
+                console.log("Tallene er ulike")
+            }
+            else {
+                console.log("To av tallene er like og summen av dem er " + resultat);
+            }
+        }
+
+        consoleLogResultat(2, 4, 5, 5, 4)
+
+    </script>
+</body>
+
+</html>
