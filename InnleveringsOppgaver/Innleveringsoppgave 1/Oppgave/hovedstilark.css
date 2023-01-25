@@ -1,0 +1,165 @@
+/* hovedoverskrift får sine verdier */
+h1 {
+    color: antiquewhite;
+    background-color: rgba(190, 81, 214, 0.5);
+
+    width: fit-content;
+
+    padding: 0.3% 10% 0.3% 10%;
+    margin: auto;
+}
+
+
+/* hovedmalen for oppsettet av siden */
+.hovedDiv {
+    color: rgb(50, 0, 200);
+    background-color: rgba(210, 210, 210, 0.7);
+
+    text-align: left;
+    width: fit-content;
+
+    padding: 1% 5% 2% 5%;
+    margin: 2% 20% 2% 20%;
+
+    border-style: solid;
+    border-color: rgb(70, 0, 139);
+    border-width: 3px;
+}
+
+.hovedDiv li {
+    color: rgb(150, 0, 200);
+}
+
+/* alle span-elementer i .hovedDiv får disse verdiene */
+.hovedDiv span {
+    color: rgb(150, 0, 200);
+    font-weight: bold;
+}
+
+/* alle h2-overskrifter i .hovedDiv får disse verdiene */
+.hovedDiv h2 {
+    color: rgb(150, 0, 200);
+}
+
+/* alle elementer med klassen .oppsummering får disse verdiene */
+.oppsummering {
+    color: antiquewhite;
+    background-color: rgba(190, 81, 214, 0.5);
+
+    margin: 2% 20% 2% 20%;
+    padding: 1% 5% 2% 5%;
+
+    border-style: dashed;
+    border-color: rgb(70, 0, 139);
+    border-width: 3px;
+}
+
+
+/* id-en til et bilde */
+#eksemplerStoffer {
+    max-width: 100%;
+    padding-top: 5%;
+}
+
+
+/* angir egenskaper til tabell 1 */
+#tabell1 {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* angir egenskaper til tabell 2 */
+#tabell2 th,
+#tabell2 td,
+#tabell2 table {
+    border: 3px solid rgb(70, 0, 139);
+    border-collapse: collapse;
+    padding: 0.5% 3% 0.5% 1%;
+}
+
+#tabell2 {
+    margin: 2% 0% 2% 0%;
+}
+
+#tabell2 th,
+#tabell2 td,
+#tabell2 table {
+    border: 3px solid rgb(70, 0, 139);
+    border-collapse: collapse;
+    padding: 0.5% 3% 0.5% 1%;
+}
+
+/* design for #meny1, menyen øverst på siden */
+.meny1 {
+    background-color: rgba(210, 210, 210, 0.7);
+    border-style: solid;
+    border-color: rgb(70, 0, 139);
+    border-width: 3px;
+    float: left;
+    margin: 2% 0% 0% 1%;
+    display: block;
+    position: fixed;
+}
+
+.meny1 h3 {
+    color: rgb(150, 0, 200);
+    padding-left: 9%;
+}
+
+.meny1 ul {
+    list-style-type: circle;
+    overflow: hidden;
+    padding-right: 3%;
+}
+
+.meny1 ul li a {
+    color: rgb(50, 0, 200);
+    text-align: left;
+    text-decoration: none;
+}
+
+.meny1>ul>li>a {
+    color: rgb(150, 0, 200);
+    font-size: 105%;
+}
+
+.meny1 ul li a:hover {
+    color: antiquewhite;
+}
+
+.meny1 ul li a:active {
+    color: rgba(255, 255, 255, 0.001);
+}
+
+/* link nederst på siden som tar klienten til toppen av siden */
+#linkTop {
+    float: right;
+    width: fit-content;
+    background-color: rgba(210, 210, 210, 0.7);
+    text-decoration: none;
+    color: rgb(50, 0, 200);
+    padding: 1%;
+    margin-right: 5%;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(70, 0, 139);
+}
+
+.periodesystemet {
+    max-width: 100%;
+    padding-top: 5%;
+}
+
+/* gir farger og animasjoner til listene øverst på side 1 og 2 */
+.kategorier a {
+    text-decoration: none;
+    text-decoration: underline;
+    color: rgb(150, 0, 200);
+    transition-duration: 700ms;
+}
+
+.kategorier a:hover {
+    color: antiquewhite;
+    background-color: blueviolet;
+}

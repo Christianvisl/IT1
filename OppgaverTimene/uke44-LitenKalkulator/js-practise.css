@@ -1,0 +1,68 @@
+:root {
+    --gradient: linear-gradient(90deg, #00aaff, #00ff6c, #00aaff);
+
+}
+
+body {
+    background-size: 300%;
+    background-image: var(--gradient);
+    animation: bg-animation 20s infinite;
+    text-align: center;
+    margin: auto;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
+}
+
+#dittTall {
+    width: 350px;
+    margin: 0px 0px 30px 20px;
+}
+
+.overskrift {
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 20px;
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h1 {
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+    padding: 15px;
+    width: fit-content;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+input {
+    text-decoration: #00FF6C;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    margin: auto;
+    font-size: 15px;
+    width: 300px;
+    text-align: center;
+}
