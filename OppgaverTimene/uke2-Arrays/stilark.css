@@ -1,0 +1,62 @@
+:root {
+    --gradient: linear-gradient(90deg, #00aaff, #00ff6c, #00aaff);
+
+}
+
+body {
+    background-size: 300%;
+    background-image: var(--gradient);
+    animation: bg-animation 20s infinite;
+    text-align: center;
+    margin: auto;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
+}
+
+
+
+h1 {
+    padding: 15px;
+    width: fit-content;
+    color: white;
+    margin: auto;
+}
+
+a {
+    background-color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #00aaff;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+h3 {
+    background-color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #00aaff;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#linker {
+    display: flex;
+    flex-direction: column;
+}

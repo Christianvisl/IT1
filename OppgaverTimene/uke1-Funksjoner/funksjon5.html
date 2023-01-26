@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksjon 5</title>
+    <link rel="stylesheet" href="stilark.css">
+
+</head>
+
+<body>
+    <h1>sjekk1par(array)</h1>
+    <br><br><br>
+    <h3>Her har jeg lagt inn sjekk1par(minArray)</h3>
+    <h3>const minArray = [ 1, 6, 4, 4, 5, 7, 5 ]</h3>
+    <h3>Sjekk konsollen for resultatet</h3>
+    <script>
+        /***************************************************************************/
+        /* Navn: sjekk1par (array)                                                 */
+        /* Funksjonen tar 1 parameter og hvis minst 2 av verdiene den inneholder   */ 
+        /* er like, skal den returnere summen av de 2 største tallene. Hvis alle   */ 
+        /* er ulike, skal den returne verdien "false".                             */
+        /***************************************************************************/
+
+        function sjekk1par(angittArray) {
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+
+            let storst = angittArray[0];
+            for (var i = 0; i < (angittArray.length - 1); i++) {
+                if (angittArray[i] > storst) {
+                    storst = angittArray[i];
+                }
+            }
+
+            let storstSvar = ""
+            var i = 0;
+            while (i < angittArray.length){
+                if (sjekkAntall(angittArray, storst) >= 2) {
+                storstSvar = storst * 2
+                }
+                else {
+                    storst-= 1;
+                }
+                i++
+            }
+
+            if (storstSvar == ""){
+                return false
+            }
+            else {
+                return storstSvar
+            }
+        }
+
+
+        /*****************************************************************************/
+        /* Navn: consoleLogResultat(Array)                                           */
+        /* Denne delen av koden trenger bare å brukes om en ønsker sjekke funksjonen */
+        /* ovenfor, med 1 array med valgfrie verdier                                 */
+        /*****************************************************************************/
+
+
+        function consoleLogResultat(Array) {
+            var resultat = sjekk1par(Array);
+
+            if (resultat == false) {
+                console.log("Tallene er ulike")
+            }
+            else {
+                console.log("To av tallene er like og summen av dem er " + resultat);
+            }
+        }
+
+        const minArray = [
+            1, 6, 4, 4, 5, 7, 5
+        ]
+        consoleLogResultat(minArray)
+
+    </script>
+</body>
+
+</html>

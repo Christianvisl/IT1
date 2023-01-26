@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekt-øving</title>
+    <link rel="stylesheet" href="stilark.css">
+</head>
+
+<body>
+    <h1>Objekter <br> Uke 3 og 4</h1>
+    <h1>Blandede oppgaver kapittel 3F Objekter</h1>
+    <a href="sporsmalOgSvar.html">Spørsmål og svar</a>
+    <script>
+
+
+        /*************************************/
+        /*           Oppgave 1               */
+        /*************************************/
+        let informasjonsteknologi1 = {
+            spraak: ["HTML", "CSS"],
+            likerFaget: false,
+            timetall: 5,
+            klasserom: "231",
+            antallElever: 22,
+        }
+
+
+        informasjonsteknologi1.spraak.push("JavaScript", "Python");
+        informasjonsteknologi1.antallElever = 27;
+        informasjonsteknologi1.likerFaget = true;
+        delete informasjonsteknologi1.timetall;
+
+        for (let i = 0; i < 4; i++) {
+            console.log(informasjonsteknologi1.spraak[i])
+        }
+
+        for (egenskap in informasjonsteknologi1) {
+            console.log(egenskap)
+        }
+
+        for (egenskaper in informasjonsteknologi1) {
+            console.log(informasjonsteknologi1.egenskap)
+        }
+
+        console.log(informasjonsteknologi1)
+
+    </script>
+</body>
+
+</html>

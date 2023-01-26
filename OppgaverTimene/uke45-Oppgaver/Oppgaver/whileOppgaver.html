@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stilark.css">
+    <title>While oppgaver</title>
+</head>
+<style>
+    span {
+        color: #00ff6c;
+        font-size: 25px;
+    }
+</style>
+
+<body>
+    <div class="overskrift">
+        <h1>
+            Oppgaver tirsdag 8.september
+        </h1>
+    </div>
+
+    <div>
+        <button id="knapp1" onclick="reset(), svar(), click1()"><span>Oppgave 2</span><br><br> Alle tall fra 0 til
+            100</button>
+        <button id="knapp2" onclick="reset(), svar(), click2()"><span>Oppgave 3</span><br><br> Alle tall fra 0 til 100,
+            untatt tiere</button>
+        <button id="knapp3" onclick="reset(), svar(), click3()"><span>Oppgave 4</span><br><br>
+            8-ganger'n</button>
+        <button id="knapp4" onclick="reset(), svar(), click4()"><span>Oppgave 5</span><br><br> Tilfeldig ord på
+            2 til 10 bokstaver</button>
+        <button id="knapp5" onclick="reset(), svar(), click5()"><span>Oppgave 6</span><br><br> Tilfeldig liten
+            gangetabellen</button>
+    </div>
+
+    <p id="Svar"></p>
+
+
+    <button id="resetKnapp" onclick="reset()">Reset</button>
+
+    <script>
+        function svar() {
+            Svar.style.display = "block";
+            Svar.style.color = "#00aaff";
+            Svar.style.backgroundColor = "white";
+            Svar.style.padding = "30px";
+            Svar.style.fontWeight = "bold";
+            Svar.style.width = "fit-content";
+            Svar.style.borderRadius = "10px";
+            Svar.style.fontSize = "15px";
+            Svar.style.margin = "auto";
+            Svar.style.marginTop = "20px";
+            Svar.style.maxWidth = "600px";
+            Svar.style.textAlign = "center";
+            Svar.style.boxShadow = "0px 16px 32px 0px rgba(0, 0, 0, 0.5)";
+        }
+
+        function click1() {
+            var tallene = "";
+            var tall = 0;
+
+            while (tall <= 100) {
+                tallene += ", " + tall;
+                tall++;
+            }
+            document.getElementById("Svar").innerHTML = "Tallene fra 0 til 100 er" + tallene;
+        }
+
+        function click2() {
+            var tallene = "";
+            var tall = 0;
+
+            while (tall <= 100) {
+                if (tall % 10 != 0) {
+                    tallene += ", " + tall;
+                    tall++;
+                }
+                else{
+                    tallene += "";
+                    tall++;
+                }
+
+            }
+
+            document.getElementById("Svar").innerHTML = "Tallene fra 0 til 100 untatt tiere er" + tallene;
+        }
+
+        function click3() {
+            var tallene = "";
+            for (var tall = 8; tall < 100; tall += 8) {
+                tallene += "<br>" + tall;
+            }
+            document.getElementById("Svar").innerHTML = "8-ganger'n opp til 100 er" + tallene;
+        }
+
+        function click4() {
+            var konsonantliste = "bcdfghjklmnpqrstvwxz";
+            var vokalliste = "aeiouyæøå"
+
+            var antallKonsonanter = Number(Math.round((Math.random() * 5)));
+            var antallVokaler = Number(Math.round((Math.random() * 3)));
+
+
+            var bokstaverKonsonant = String(bokstaverKonsonant);
+            var bokstaverVokal = String(bokstaverVokal);
+
+            var Konsonanter = "";
+            var Vokaler = "";
+
+            var konsNummer;
+            var vokNummer;
+
+            while (Konsonanter.length <= antallKonsonanter) {
+                konsNummer = (Math.random() * 19);
+                konsNummer = Math.round(konsNummer);
+                bokstaverKonsonant = konsonantliste[konsNummer];
+                Konsonanter += "" + bokstaverKonsonant;
+            }
+
+            while (Vokaler.length <= antallVokaler) {
+                vokNummer = (Math.random() * 8);
+                vokNummer = Math.round(vokNummer);
+                bokstaverVokal = vokalliste[vokNummer];
+                Vokaler += "" + bokstaverVokal;
+            }
+
+            var ord = Konsonanter + Vokaler;
+            var arrayOrd = ord.split("");
+            arrayOrd.sort(function () { return 0.5 - Math.random() });
+
+            document.getElementById("Svar").innerHTML = "De tilfeldige konsonantene er: " + Konsonanter + " og de tilfeldige vokalene er: " + Vokaler + "<br><br><br>Ordet er: " + arrayOrd.join("");
+
+
+        }
+
+
+        function click5() {
+            var tallene = "";
+            var tall = Math.floor(Math.random() * 10) + 1;
+            var x = tall;
+
+            for (tall = x; tall < (x * 11); tall += x) {
+                tallene += "<br>" + tall;
+            }
+            document.getElementById("Svar").innerHTML = x + "-ganger'n opp til " + (10 * x) + " er:" + tallene;
+        }
+
+
+        function reset() {
+            Svar.style.display = "none";
+            document.getElementById("Svar").innerHTML = "";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksjoner for yatzy</title>
+    <link rel="stylesheet" href="stilark.css">
+</head>
+
+<body>
+    <h1>
+        Funksjoner for yatzy-spillet
+    </h1>
+
+    <script>
+
+        /***************************************************************************/
+        /* Navn: sjekk1par (array)                                                 */
+        /* Funksjonen tar 1 parameter og hvis minst 2 av verdiene den inneholder   */
+        /* er like, skal den returnere summen av de 2 største tallene. Hvis alle   */
+        /* er ulike, skal den returne verdien "false".                             */
+        /***************************************************************************/
+        function sjekk1par(angittArray) {
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+
+            let storst = angittArray[0];
+            for (var i = 0; i < (angittArray.length - 1); i++) {
+                if (angittArray[i] > storst) {
+                    storst = angittArray[i];
+                }
+            }
+
+            let storstSvar = ""
+            var i = 0;
+            while (i < angittArray.length) {
+                if (sjekkAntall(angittArray, storst) >= 2) {
+                    storstSvar = storst * 2
+                }
+                else {
+                    storst -= 1;
+                }
+                i++
+            }
+
+            if (storstSvar == "") {
+                return false
+            }
+            else {
+                return storstSvar
+            }
+        }
+
+
+
+
+        /***************************************************************************/
+        /* Navn: sjekk2par (array)                                                 */
+        /* Funksjonen tar 1 parameter og hvis arrayen inneholder to par returnerer */
+        /* den sammen av dem. Om den ikke inneholder to par, returnerer den false  */
+        /***************************************************************************/
+        function sjekk2par(angittArray) {
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+
+            let storstVerdiIArray = angittArray[0];
+            for (var i = 0; i < (angittArray.length - 1); i++) {
+                if (angittArray[i] > storstVerdiIArray) {
+                    storstVerdiIArray = angittArray[i];
+                }
+            }
+
+            let storstSvar = ""
+            var i = 0;
+            let storst = storstVerdiIArray;
+            while (i < angittArray.length) {
+                if (sjekkAntall(angittArray, storst) >= 2) {
+                    storstSvar = storst * 2
+                    i += 1000
+                }
+                else {
+                    storst -= 1;
+                }
+                i++
+            }
+
+            let storstSvarNummer2 = ""
+            var i = 0;
+            storst = storst - 1;
+            while (i < angittArray.length) {
+                if (sjekkAntall(angittArray, storst) >= 2) {
+                    storstSvarNummer2 = storst * 2
+                }
+                else {
+                    storst -= 1;
+                }
+                i++
+            }
+
+            if (storstSvar != "" && storstSvarNummer2 != "") {
+                return storstSvar + storstSvarNummer2;
+            }
+            else {
+                return false
+            }
+        }
+
+        /***************************************************************************/
+        /* Navn: sjekk3Like (array)                                                */
+        /* Funksjonen tar 1 parameter og hvis minst 3 av verdiene den inneholder   */
+        /* er like, skal den returnere summen av de 3tallene. Hvis ikke, skal den  */
+        /* returne verdien "false".                                                */
+        /***************************************************************************/
+        function sjekk3Like(angittArray) {
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+
+            let treLike = 0;
+            for (var i = 0; i < (angittArray.length - 1); i++) {
+                if (sjekkAntall(angittArray, angittArray[i]) >= 3) {
+                    treLike = angittArray[i] * 3;
+                    i += 1000;
+                }
+                else {
+                    i++
+                }
+            }
+
+            if (treLike > 0) {
+                return treLike
+            }
+            else {
+                return false
+            }
+        }
+
+
+        /***************************************************************************/
+        /* Navn: sjekkHus (array)                                                  */
+        /* Funksjonen tar 1 parameter og hvis 3 av verdiene den inneholder er like */
+        /* og 2 andre verdier er like, skal den returnere summen av de 5 tallene.  */
+        /* Hvis ikke, skal den returne verdien "false".                            */
+        /***************************************************************************/
+        function sjekkHus(angittArray) {
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+
+            let treLike = 0;
+            let treLikeVerdi = 0
+            for (var i = 0; i < (angittArray.length - 1); i++) {
+                if (sjekkAntall(angittArray, angittArray[i]) >= 3) {
+                    treLikeVerdi = angittArray[i];
+                    treLike = angittArray[i] * 3;
+                    i += 1000;
+                }
+                else {
+                    i++
+                }
+            }
+
+            let toLike = 0;
+            for (var i = 0; i < (angittArray.length - 1); i++) {
+                if (sjekkAntall(angittArray, angittArray[i]) >= 2 && treLikeVerdi != angittArray[i]) {
+                    toLike = angittArray[i] * 2;
+                    i += 1000;
+                }
+                else {
+                    i++
+                }
+            }
+
+
+            if (treLike > 0 && toLike > 0) {
+                return treLike + toLike
+            }
+            else {
+                return false
+            }
+        }
+
+
+        /***************************************************************************/
+        /* Navn: sjekkSjanse (array)                                               */
+        /* Funksjonen tar 1 parameter og legger sammen summen av alle tallene      */
+        /***************************************************************************/
+        function sjekkSjanse(angittArray) {
+
+            let sum = 0
+            for (var i = 0; i < (angittArray.length); i++) {
+                sum += angittArray[i]
+            }
+            return sum
+        }
+
+
+        /***************************************************************************/
+        /* Navn: sjekkYatzy (array)                                                */
+        /* Funksjonen tar 1 parameter og om alle tallene er like, gir den 50 poeng */
+        /***************************************************************************/
+        function sjekkYatzy(angittArray) {
+            let tall1 = angittArray[0]
+
+            function sjekkAntall(array, value) {
+                return array.filter((v) => (v == value)).length;
+            }
+
+            if (sjekkAntall(angittArray, tall1) == angittArray.length) {
+                return 50
+            }
+            else {
+                return false
+            }
+        }
+
+
+
+        /*****************************************************************************/
+        /*                   Navn: consoleLogResultat(Array)                         */
+        /*                                                                           */
+        /*                     Om du ønsker å sjekke en av                           */
+        /*                     funksjonene over så må du                             */
+        /*                     endre koden i linje to slik                           */
+        /*                     at funksjonsnavnet stemmer                            */
+        /*                     overens med funksjonen du                             */
+        /*                     ønsker å sjekke.                                      */
+        /*                                                                           *7
+        /*                     I tilleg kan du endre arrayen                         */
+        /*                     "minArray" for å sjekke med                           */
+        /*                      ulike verdier                                        */
+        /*                                                                           */
+        /*****************************************************************************/
+
+        /*
+        function consoleLogResultat(Array) {
+            // Endre linjen under, for å sjekke forskjellige funksjoner
+            var resultat = sjekkYatzy(Array);
+
+            if (resultat == false) {
+                console.log('Verdien "false" ble gitt')
+            }
+            else {
+                console.log('Resultatet av funksjonen var ' + resultat);
+            }
+        }
+
+        const minArray = [
+            1, 1, 1, 1, 1, 1
+        ]
+        consoleLogResultat(minArray)                                                  */
+    </script>
+</body>
+
+</html>

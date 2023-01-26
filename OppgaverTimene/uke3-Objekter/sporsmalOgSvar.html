@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spørsmål og svar</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #hovedBlokk {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #knapper {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        margin: 50px 0px 0px 100px;
+    }
+
+    #knapper button {
+        margin-top: 20px;
+        width: 200px;
+    }
+
+    #inputSporsmal {
+        width: 200px;
+        margin: 50px 0px 0px 100px;
+    }
+
+    img {
+        margin: 50px 0px 0px 100px;
+    }
+</style>
+
+<body>
+    <h1 id="sporsmal"></h1>
+
+    <div id="hovedBlokk">
+        <div id="knapper">
+            <button id="svar1" onclick="sjekkSvarFunksjon(1)"></button>
+            <button id="svar2" onclick="sjekkSvarFunksjon(2)"></button>
+            <button id="svar3" onclick="sjekkSvarFunksjon(3)"></button>
+            <button id="nyttSporsmal">Neste spørsmål</button>
+        </div>
+        <div id="inputSporsmal">
+            <input type="text" id="inpSvar" style="margin-top: 10px;">
+            <button id="sjekkSvar" onclick="sjekkSvarFunksjon(10)">Sjekk svaret</button>
+        </div>
+        <img id="sporsmalsBilde" src="bilder/oslo.png" height="300px">
+        <audio src="bilder/applaus.mp3" id="lyd"></audio>
+    </div>
+
+
+
+    <script>
+        let sporsmal = document.getElementById("sporsmal");
+
+        let sporsmalMC = document.getElementById("knapper")
+        let alternativ1 = document.getElementById("svar1");
+        let alternativ2 = document.getElementById("svar2");
+        let alternativ3 = document.getElementById("svar3");
+        let nyttSporsmal = document.getElementById("nyttSporsmal");
+
+        let inputSporsmal = document.getElementById("inputSporsmal");
+        let inpSvar = document.getElementById("inpSvar");
+        let sjekkSvar = document.getElementById("sjekkSvar");
+
+        let sporsmalsBilde = document.getElementById("sporsmalsBilde");
+        let lyd = document.getElementById("lyd");
+
+        let indexSporsmal = 0;
+        let antallPoeng = 0;
+
+        nyttSporsmal.addEventListener("click", nyttSporsmalFunksjon)
+
+
+        let sporsmalOgSvar = [
+            { q: "Hva heter Norges hovedstad?", a1: "Ozlo", a2: "Oslo", a3: "Bæærgen", riktig: 2, bilde: "bilder/oslo.png" },
+            { q: "Hvor mange innbyggere har Norge?", a1: "5,4 millioner", a2: "54 00 00", a3: "5 millioner 300 tusen", riktig: 1, bilde: "bilder/norge.png" },
+            { q: "Hva heter Norges statsminister?", a1: "John Gahr Støre", a2: "Jonas Gahr Støre", a3: "Erna Solfjell", riktig: 2, bilde: "bilder/jonas.png" },
+            { q: "Hvilket land har flest innbyggere i verden?", a1: "Kina", a2: "", bilde: "bilder/asia.png" },
+            { q: "Hvem er dette?", a1: "Reodor", a2: "Ludvig", a3: "Solan", riktig: 2, bilde: "bilder/ludvig.png" },
+            { q: "Hvilket grunnstoff har atomsymbol C", a1: "Kull", a2: "Karbon", a3: "Calium", riktig: 2, bilde: "bilder/karbon.png" },
+            { q: "Hvilket land har dette flagget", a1: "Bangladesh", a2: "Palau", a3: "Katmanske øyer", riktig: 2, bilde: "bilder/palau.png" },
+            { q: "Hvor gammel er Norges konge", a1: "86", a2: "83", a3: "85", riktig: 3, bilde: "bilder/kongHaraldV.png" },
+            { q: "Hva er fornavnet til faren til Jakob Ingebritsen", a1: "Gjert", a2: "", bilde: "bilder/gjert.png" },
+            { q: "Hvor mange land er i NATO", a1: "22", a2: "39", a3: "30", riktig: 3, bilde: "bilder/NATO.png" }
+        ]
+
+
+        function settOppSkjerm() {
+            inputSporsmal.style.display = "none";
+            sporsmalMC.style.display = "block";
+            sporsmal.innerHTML = sporsmalOgSvar[indexSporsmal].q;
+            alternativ1.innerHTML = sporsmalOgSvar[indexSporsmal].a1;
+            alternativ2.innerHTML = sporsmalOgSvar[indexSporsmal].a2;
+            alternativ3.innerHTML = sporsmalOgSvar[indexSporsmal].a3;
+            sporsmalsBilde.src = sporsmalOgSvar[indexSporsmal].bilde;
+        }
+        settOppSkjerm();
+
+        function settOppApentSporsmal() {
+            inputSporsmal.style.display = "block";
+            sporsmalMC.style.display = "none";
+            sporsmal.innerHTML = sporsmalOgSvar[indexSporsmal].q;
+            sporsmalsBilde.src = sporsmalOgSvar[indexSporsmal].bilde;
+        }
+
+        function disableKnapperAv() {
+            alternativ1.disabled = false;
+            alternativ2.disabled = false;
+            alternativ3.disabled = false;
+        }
+        function disableKnapper() {
+            alternativ1.disabled = true;
+            alternativ2.disabled = true;
+            alternativ3.disabled = true;
+        }
+
+        function nyttSporsmalFunksjon() {
+            if (indexSporsmal == (sporsmalOgSvar.length - 2)) {
+                nyttSporsmal.disabled = true;
+            }
+            else {
+                nyttSporsmal.disabled = false;
+            }
+            indexSporsmal++;
+            if (sporsmalOgSvar[indexSporsmal].a2 != "") {
+                settOppSkjerm();
+            }
+            else {
+                settOppApentSporsmal();
+            }
+            disableKnapperAv();
+        }
+
+
+        function sjekkSvarFunksjon(alternativ) {
+            if (alternativ == 10) {
+                if (inpSvar.value == sporsmalOgSvar[indexSporsmal].a1) {
+                    lyd.play();
+                    antallPoeng++;
+                    alert("Riktig svar");
+                    nyttSporsmalFunksjon();
+                }
+                else {
+                    alert("Det var feil");
+                    nyttSporsmalFunksjon();
+                }
+            }
+            else {
+                if (alternativ == sporsmalOgSvar[indexSporsmal].riktig) {
+                    lyd.play();
+                    antallPoeng++;
+                    disableKnapper();
+                    alert("Riktig svar");
+                }
+                else {
+                    disableKnapper();
+                    alert("Det var feil");
+                }
+            }
+            inpSvar.value = "";
+            if (indexSporsmal == (sporsmalOgSvar.length - 1)) {
+                alert("Du fikk " + antallPoeng + " poeng av " + sporsmalOgSvar.length + " mulige");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
