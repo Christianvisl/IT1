@@ -18,21 +18,22 @@
         flex-direction: row;
     }
 
-    #knapper {
+    #multipleChoiceBlokk {
         display: flex;
         flex-direction: column;
         width: 200px;
         margin: 50px 0px 0px 100px;
     }
 
-    #knapper button {
+    #multipleChoiceBlokk button {
         margin-top: 20px;
         width: 200px;
     }
 
-    #inputSporsmal {
+    #inputBlokk {
         width: 200px;
         margin: 50px 0px 0px 100px;
+        height: fit-content;
     }
 
     img {
@@ -42,36 +43,54 @@
 
 <body>
     <h1 id="sporsmal"></h1>
+    <audio src="bilder/applaus.mp3" id="lyd"></audio>
 
     <div id="hovedBlokk">
-        <div id="knapper">
+        <div id="multipleChoiceBlokk">
             <button id="svar1" onclick="sjekkSvarFunksjon(1)"></button>
             <button id="svar2" onclick="sjekkSvarFunksjon(2)"></button>
             <button id="svar3" onclick="sjekkSvarFunksjon(3)"></button>
             <button id="nyttSporsmal">Neste spørsmål</button>
         </div>
-        <div id="inputSporsmal">
+        <div id="inputBlokk">
             <input type="text" id="inpSvar" style="margin-top: 10px;">
             <button id="sjekkSvar" onclick="sjekkSvarFunksjon(10)">Sjekk svaret</button>
         </div>
         <img id="sporsmalsBilde" src="bilder/oslo.png" height="300px">
-        <audio src="bilder/applaus.mp3" id="lyd"></audio>
+    </div>
+
+    <div id="adminBlokk" hidden="true">
+        <input id="inpNyttSpm" type="text">
+        <input id="inpNyttSpmSvar" type="text">
+        <input id="inpNyttBilde" type="text">
+        <button id="leggTilNyttSpm"> Legg til spørsmålet</button>
+        <button id="btnAdmin"> Tilbake til normalsiden</button>
     </div>
 
 
 
     <script>
+        alert("For admin: trykk venstre piltast");
+
+        let hovedBlokk = document.getElementById("hovedBlokk");
         let sporsmal = document.getElementById("sporsmal");
 
-        let sporsmalMC = document.getElementById("knapper")
+        let multipleChoiceBlokk = document.getElementById("multipleChoiceBlokk")
         let alternativ1 = document.getElementById("svar1");
         let alternativ2 = document.getElementById("svar2");
         let alternativ3 = document.getElementById("svar3");
         let nyttSporsmal = document.getElementById("nyttSporsmal");
 
-        let inputSporsmal = document.getElementById("inputSporsmal");
+        let inputBlokk = document.getElementById("inputBlokk");
         let inpSvar = document.getElementById("inpSvar");
         let sjekkSvar = document.getElementById("sjekkSvar");
+
+        let adminBlokk = document.getElementById("adminBlokk");
+        let inpNyttSpm = document.getElementById("inpNyttSpm");
+        var inpNyttSpmSvar = document.getElementById("inpNyttSpmSvar");
+        var inpNyttBilde = document.getElementById("inpNyttBilde");
+        let leggInnNyttSpm = document.getElementById("leggTilNyttSpm");
+        var btnAdmin = document.getElementById("btnAdmin");
 
         let sporsmalsBilde = document.getElementById("sporsmalsBilde");
         let lyd = document.getElementById("lyd");
@@ -80,6 +99,7 @@
         let antallPoeng = 0;
 
         nyttSporsmal.addEventListener("click", nyttSporsmalFunksjon)
+        leggInnNyttSpm.addEventListener("click", leggInnNyttSpmFunksjon);
 
 
         let sporsmalOgSvar = [
@@ -97,8 +117,8 @@
 
 
         function settOppSkjerm() {
-            inputSporsmal.style.display = "none";
-            sporsmalMC.style.display = "block";
+            inputBlokk.style.display = "none";
+            multipleChoiceBlokk.style.display = "flex";
             sporsmal.innerHTML = sporsmalOgSvar[indexSporsmal].q;
             alternativ1.innerHTML = sporsmalOgSvar[indexSporsmal].a1;
             alternativ2.innerHTML = sporsmalOgSvar[indexSporsmal].a2;
@@ -108,8 +128,9 @@
         settOppSkjerm();
 
         function settOppApentSporsmal() {
-            inputSporsmal.style.display = "block";
-            sporsmalMC.style.display = "none";
+            inputBlokk.style.display = "flex";
+            multipleChoiceBlokk.style.display = "none";
+            inpSvar.value = "";
             sporsmal.innerHTML = sporsmalOgSvar[indexSporsmal].q;
             sporsmalsBilde.src = sporsmalOgSvar[indexSporsmal].bilde;
         }
@@ -155,6 +176,10 @@
                     alert("Det var feil");
                     nyttSporsmalFunksjon();
                 }
+                if (indexSporsmal == (sporsmalOgSvar.length)) {
+                    alert("Du fikk " + antallPoeng + " poeng av " + sporsmalOgSvar.length + " mulige");
+                }
+                inpSvar.value = "";
             }
             else {
                 if (alternativ == sporsmalOgSvar[indexSporsmal].riktig) {
@@ -167,14 +192,65 @@
                     disableKnapper();
                     alert("Det var feil");
                 }
-            }
-            inpSvar.value = "";
-            if (indexSporsmal == (sporsmalOgSvar.length - 1)) {
-                alert("Du fikk " + antallPoeng + " poeng av " + sporsmalOgSvar.length + " mulige");
+                if (indexSporsmal == (sporsmalOgSvar.length - 1)) {
+                    alert("Du fikk " + antallPoeng + " poeng av " + sporsmalOgSvar.length + " mulige");
+                }
             }
         }
 
+        function adminFunksjoner() {
+            hovedBlokk.style.display = "none";
+            adminBlokk.hidden = false;
 
+            btnAdmin.removeEventListener("click", adminFunksjoner);
+            btnAdmin.addEventListener("click", normalFunksjoner);
+
+            sporsmal.innerHTML = "Skriv nytt spørsmål i første inputfelt, riktig svar i andre";
+            inpNyttSpm.placeholder = "Skriv inn nytt spørsmål";
+            inpNyttSpmSvar.placeholder = "Skriv inn riktig svar";
+            inpNyttBilde.placeholder = "Legg inn bildelink";
+        }
+
+        function normalFunksjoner() {
+            alert("Nå er det " + sporsmalOgSvar.length + " spørmål i arrayen")
+            hovedBlokk.style.display = "flex";
+            adminBlokk.hidden = true;
+
+            btnAdmin.removeEventListener("click", normalFunksjoner);
+            btnAdmin.addEventListener("click", adminFunksjoner);
+
+            inpNyttSpm.value = "";
+            inpNyttSpmSvar.value = "";
+            inpNyttBilde.value = "";
+            sporsmal.innerHTML = sporsmalOgSvar[indexSporsmal].q;
+            sporsmalsBilde.src = sporsmalOgSvar[indexSporsmal].bilde;
+
+            nyttSporsmal.disabled = false;
+            nyttSporsmal.click();
+        }
+
+        function leggInnNyttSpmFunksjon() {
+            //gjør alt som trengs for å legge til et nytt spm
+            var nyttSpm = { q: inpNyttSpm.value, a1: inpNyttSpmSvar.value, a2: "", bilde: inpNyttBilde.value };
+            sporsmalOgSvar.push(nyttSpm);
+        }
+
+        function knappeTrykk(evt) {
+            var tallKode = evt.keyCode;
+            if (tallKode == 37 && indexSporsmal < (sporsmalOgSvar.length - 1)) {
+                adminFunksjoner();
+            }
+            else if (tallKode == 37) {
+                alert("Du kan ikke bli admin nå")
+            }
+            else if (tallKode == 13 && sporsmalOgSvar[indexSporsmal].a2 == "") {
+                sjekkSvar.click();
+            }
+            else if (tallKode == 13) {
+                nyttSporsmal.click();
+            }
+        }
+        document.addEventListener("keydown", knappeTrykk)
     </script>
 </body>
 
