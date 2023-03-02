@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blipp</title>
+</head>
+<style>
+    div {
+        position: absolute;
+        border-radius: 50%;
+        background-color: blue;
+        width: 50px;
+        height: 50px;
+        z-index: -10;
+    }
+
+    p {
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        font-size: 50px;
+    }
+</style>
+
+<body>
+    <input type="color" id="fargeInput">
+    <input type="number" id="storrelseInput" max="300" min="5" placeholder="Størrelse mellom 5 og 300">
+    <audio src="popLyd.mp4" id="lyd"></audio>
+    <p id="poeng">Poeng</p>
+    <script>
+        var ny = true
+        let fargeInput = document.getElementById("fargeInput");
+        let storrelseInput = document.getElementById("storrelseInput");
+        let lyd = document.getElementById("lyd");
+        let poeng = document.getElementById("poeng");
+        let antallPoeng = 0;
+
+        let fjern = function fjern(evt) {
+            evt.stopPropagation();
+            if (ny == false) {
+                lyd.play();
+                var minAnimasjon = evt.target.animate([{ transform: "scale(1)" }, { transform: "scale(0)" }], 200);
+                minAnimasjon.onfinish = function () {
+                    document.body.removeChild(evt.target)
+                    antallPoeng++;
+                    poeng.innerHTML = antallPoeng;
+                }
+            }
+            ny = false
+        }
+
+        window.onclick = function (evt) {
+            ny = true;
+            var mittElement = document.createElement("div");
+            mittElement.onmouseover = fjern;
+
+            var storrelse = storrelseInput.value;
+            if (storrelse >= 5 && storrelse <= 300) {
+                mittElement.style.width = storrelse + "px";
+                mittElement.style.height = storrelse + "px";
+                mittElement.style.top = evt.clientY - (storrelse / 2) + "px";
+                mittElement.style.left = evt.clientX - (storrelse / 2) + "px";
+                mittElement.style.backgroundColor = fargeInput.value;
+                document.body.appendChild(mittElement);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
