@@ -18,25 +18,53 @@
     }
 
     p {
-        position: absolute;
-        top: 10px;
-        right: 50px;
-        font-size: 50px;
+        font-size: 30px;
+        margin: auto;
+        color: white;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        background-color: black;
+    }
+
+    #storrelseInput {
+        height: 25px;
+        margin: 10px;
+    }
+
+    #fargeInput {
+        height: 30px;
+        margin: 10px;
+    }
+
+    button {
+        height: 30px;
+        margin: 10px;
     }
 </style>
 
 <body>
-    <input type="color" id="fargeInput">
-    <input type="number" id="storrelseInput" max="300" min="5" placeholder="Størrelse mellom 5 og 300">
+    <nav>
+        <input type="color" id="fargeInput">
+        <input type="number" id="storrelseInput" max="300" min="5" placeholder="Størrelse mellom 5 og 300">
+        <button id="randomFargeBtn" onclick="endreTilRandom()">Trykk for random farge</button>
+        <p id="poeng">Poeng</p>
+    </nav>
     <audio src="popLyd.mp4" id="lyd"></audio>
-    <p id="poeng">Poeng</p>
+
     <script>
-        var ny = true
+        let ny = true
         let fargeInput = document.getElementById("fargeInput");
         let storrelseInput = document.getElementById("storrelseInput");
         let lyd = document.getElementById("lyd");
         let poeng = document.getElementById("poeng");
+        let randomFargeBtn = document.getElementById("randomFargeBtn");
         let antallPoeng = 0;
+        let randomMode = false;
+        let randomFarge = 0;
 
         let fjern = function fjern(evt) {
             evt.stopPropagation();
@@ -52,6 +80,16 @@
             ny = false
         }
 
+        function endreTilRandom() {
+            if (randomMode == false) {
+                randomMode = true;
+                randomFargeBtn.innerHTML = "Trykk for selvalgt farge";
+            }
+            else {
+                randomMode = false;
+                randomFargeBtn.innerHTML = "Trykk for random farge";
+            }
+        }
         window.onclick = function (evt) {
             ny = true;
             var mittElement = document.createElement("div");
@@ -63,7 +101,13 @@
                 mittElement.style.height = storrelse + "px";
                 mittElement.style.top = evt.clientY - (storrelse / 2) + "px";
                 mittElement.style.left = evt.clientX - (storrelse / 2) + "px";
-                mittElement.style.backgroundColor = fargeInput.value;
+                if (randomMode == true) {
+                    randomFarge = Math.floor(Math.random() * 16777215).toString(16);
+                    mittElement.style.backgroundColor = "#" + randomFarge;
+                }
+                else {
+                    mittElement.style.backgroundColor = fargeInput.value;
+                }
                 document.body.appendChild(mittElement);
             }
         }
