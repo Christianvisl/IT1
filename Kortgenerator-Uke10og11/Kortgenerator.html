@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kortgenerator</title>
+</head>
+
+<style>
+    body>div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    body>div>div {
+        border-radius: 20px;
+        background-color: white;
+        border: solid 3px black;
+        padding: 0px 50px 0px 50px;
+        text-align: center;
+    }
+
+    body>div>div>div {
+        margin: 20px;
+        height: 80px;
+    }
+
+    #kortDiv {
+        grid-column: span 2;
+    }
+
+    #kort {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 600px;
+        height: 500px;
+        border: solid black 3px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    button {
+        margin-left: 100px;
+        width: 100px;
+    }
+
+    #kort {
+        text-align: center;
+    }
+
+    #kort>div {
+        margin: 10px;
+    }
+</style>
+
+
+<body>
+    <div>
+        <div id="informasjonDiv">
+            <h1>Informasjon</h1>
+            <div id="nameDiv">
+                <h2>Navn:</h2>
+                <input id="name" type="text">
+            </div>
+
+            <div id="adressDiv">
+                <h2>Adresse:</h2>
+                <input id="adress" type="text">
+            </div>
+
+            <div id="phoneDiv">
+                <h2>Telefonnummer:</h2>
+                <input id="phone" type="number">
+            </div>
+
+            <div id="emailDiv">
+                <h2>Mailadresse</h2>
+                <input id="email" type="email">
+            </div>
+
+            <div id="birthDiv">
+                <h2>Fødselsdato:</h2>
+                <input id="birth" type="date">
+            </div>
+
+            <div id="genderDiv">
+                <h2>Kjønn:</h2>
+                <input id="gender" type="select">
+            </div>
+        </div>
+
+        <div id="utseendeDiv">
+            <h1>Utseende</h1>
+            <div id="heightDIv">
+                <h2>Høyde</h2>
+                <input id="height" type="number" min="100" max="500">
+            </div>
+
+            <div id="widthDiv">
+                <h2>Bredde</h2>
+                <input id="width" type="number" min="100" max="600">
+            </div>
+
+            <div id="bakgrunnsfargeDiv">
+                <h2>Bakgrunnsfarge</h2>
+                <input id="backgroundcolor" type="color">
+            </div>
+
+            <div id="textcolorDiv">
+                <h2>Tekstfarge</h2>
+                <input id="textcolor" type="color">
+            </div>
+
+            <div id="bordercolorDiv">
+                <h2>Kantfarge</h2>
+                <input id="bordercolor" type="color">
+            </div>
+
+            <div id="borderwidthDiv">
+                <h2>Kanttykkelse</h2>
+                <input id="borderwidth" type="number" min="1" max="10">
+            </div>
+        </div>
+
+        <div id="kortDiv">
+            <div style="display: flex; flex-direction: row;">
+                <h1>Kortet ditt</h1>
+                <button id="oppdaterKort">Kjør!</button>
+            </div>
+
+            <div id="kort">
+                <div id="cardName">Ole Nordmann</div>
+                <div id="cardAdress">Norges vei 99, Oslo</div>
+                <div id="cardPhonenumber">123 45 678</div>
+                <div id="cardBirth">01. januar 2000</div>
+                <div id="cardAge">23 år</div>
+                <div id="cardGender">Mann</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
