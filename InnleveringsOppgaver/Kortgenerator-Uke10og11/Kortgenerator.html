@@ -58,10 +58,23 @@
         height: 50%;
         background-color: blue;
     }
-    #kort>div{
+
+    #kort>div {
         position: inherit;
     }
 
+    #kort-navn {
+        font-size: 40px;
+    }
+
+    #kort-kjonn,
+    #kort-stilling,
+    #kort-adresse,
+    #kort-telefonnummer,
+    #kort-email,
+    #kort-dato {
+        font-size: 20px;
+    }
 </style>
 
 
@@ -113,24 +126,24 @@
 
         <div>
             <label for="tekstfarge">Tekstfarge:</label>
-            <input name="tekstfarge" id="tekstfargeInp" type="color" >
+            <input name="tekstfarge" id="tekstfargeInp" type="color">
         </div>
 
         <div>
             <label for="kantfarge">Kantfarge:</label>
-            <input name="kantfarge" id="kantfargeInp" type="color" >
+            <input name="kantfarge" id="kantfargeInp" type="color">
         </div>
 
         <div>
             <label for="kanttype">Kanttype:</label>
             <div id="kanttypeDiv">
-                <input type="radio" id="kanttype1" name="kanttype" value="solid" >
+                <input type="radio" id="kanttype1" name="kanttype" value="solid">
                 <label for="kanttype1">Heltrukket</label>
                 <br>
-                <input type="radio" id="kanttype2" name="kanttype" value="dotted" >
+                <input type="radio" id="kanttype2" name="kanttype" value="dotted">
                 <label for="kanttype2">Striplet</label>
                 <br>
-                <input type="radio" id="kanttype3" name="kanttype" value="double" >
+                <input type="radio" id="kanttype3" name="kanttype" value="double">
                 <label for="kanttype3">Dobbel</label>
             </div>
         </div>
@@ -198,12 +211,12 @@
 
         function draModus(elementet) {
             let pos1 = 0;
-            let pos2 = 0; 
+            let pos2 = 0;
             let pos3 = 0;
             let pos4 = 0;
 
             elementet.onmousedown = startDraModus;
-        
+
 
             function startDraModus(event) {
                 event.preventDefault();
