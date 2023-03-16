@@ -62,6 +62,9 @@
     #kort>div {
         position: inherit;
     }
+    #kort>img{
+        position: inherit;
+    }
 
     #kort-navn {
         font-size: 40px;
@@ -148,6 +151,11 @@
             </div>
         </div>
 
+        <div>
+            <label for="bilde">Bilde:</label>
+            <input name="bilde" id="bildeInp" type="file">
+        </div>
+
         <button style="margin-bottom: 10px;" onclick="oppdater('stil')">Lagre</button>
     </div>
 
@@ -161,8 +169,11 @@
             <div id="kort-telefonnummer"></div>
             <div id="kort-email"></div>
             <div id="kort-dato"></div>
+            <img src="" id="bildeBlokk" width="300px">
+
         </div>
     </div>
+
 
     </div>
 
@@ -174,6 +185,10 @@
         let kortTelefonnummer = document.getElementById("kort-telefonnummer");
         let kortEmail = document.getElementById("kort-email");
         let kortDato = document.getElementById("kort-dato");
+        let kortBilde = document.getElementById("bildeBlokk");
+
+        let inpFilNavn = document.getElementById("bildeInp");
+        inpFilNavn.addEventListener("change", velgFil)
 
         let kort = document.getElementById("kort");
 
@@ -189,6 +204,11 @@
             else {
                 document.getElementById("kort-" + element).innerHTML = document.getElementById(element + "Inp").value;
             }
+        }
+
+        function velgFil() {
+            var aktueltFilNavn = URL.createObjectURL(inpFilNavn.files[0]);
+            bildeBlokk.src = aktueltFilNavn;
         }
 
         function displayRadioValue() {
@@ -208,6 +228,7 @@
         draModus(document.getElementById("kort-telefonnummer"));
         draModus(document.getElementById("kort-email"));
         draModus(document.getElementById("kort-dato"));
+        draModus(document.getElementById("bildeBlokk"));
 
         function draModus(elementet) {
             let pos1 = 0;
