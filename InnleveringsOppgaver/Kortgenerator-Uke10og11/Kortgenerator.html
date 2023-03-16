@@ -35,6 +35,7 @@
 
     label {
         font-size: 20px;
+        margin-top: 5px;
     }
 
     #kanttypeDiv {
@@ -66,8 +67,6 @@
 
 <body>
     <div id="dataDiv">
-        <h1>Informasjon</h1>
-
         <div>
             <label for="navn">Navn:</label>
             <input name="navn" id="navnInp" type="text" onkeyup="oppdater('navn')">
@@ -136,7 +135,7 @@
             </div>
         </div>
 
-        <button onclick="oppdater('stil')">Lagre</button>
+        <button style="margin-bottom: 10px;" onclick="oppdater('stil')">Lagre</button>
     </div>
 
 
