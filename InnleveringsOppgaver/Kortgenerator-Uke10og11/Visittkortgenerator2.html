@@ -116,7 +116,7 @@
         <div id="antallInputDiv">
             <h1>Legg til nye tekstbokser</h1>
             <label for="antallInput">Velg hvor mange tekstbokser du ønsker:</label>
-            <input id="antallBokser" type="number" name="antallInput" min="1" max="8" placeholder="min 1, max 8">
+            <input style="width: 100px;" id="antallBokser" type="number" name="antallInput" min="1" max="8" placeholder="min 1, max 8">
             <button id="lagreAntallBokser" onclick="lagreAntallBokser()">Lagre antall bokser</button>
         </div>
 
@@ -129,7 +129,6 @@
                     <option value="tel">Nummer</option>
                     <option value="date">Dato</option>
                     <option value="email">Email</option>
-                    <option value="file">Bilde</option>
                 </select>
                 <button id="lagInputenBtn" onclick="lagInputen()">Lag inputen</button>
                 <br><br>
@@ -257,6 +256,7 @@
             nyBoks.type = valgInputType.value;
             nyBoks.placeholder = "Fyll inn her";
             nyBoks.className = "bokser";
+            nyBoks.style.width = "100px";
 
             document.getElementById("styleBokseneDiv1").appendChild(nyBoks);
             styleBokseneDiv2.style.display = "flex";
