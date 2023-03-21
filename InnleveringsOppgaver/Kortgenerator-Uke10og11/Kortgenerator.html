@@ -66,7 +66,8 @@
     #kort>div {
         position: inherit;
     }
-    #kort>img{
+
+    #kort>img {
         position: inherit;
     }
 
@@ -197,6 +198,8 @@
         let kort = document.getElementById("kort");
 
 
+        // Hver gang en endring blir gjort i en av inputene, blir tekstboksen i kortet endret til same verdi
+        // denne kjøres med en variabel som tilsvarer hvilken input som har blitt endret
         function oppdater(element) {
             if (element == 'stil') {
                 kort.style.backgroundColor = document.getElementById("bakgrunnsfargeInp").value;
@@ -210,11 +213,13 @@
             }
         }
 
+        // Kjøres når fil-inputen detekterer en endring, "change"
         function velgFil() {
             var aktueltFilNavn = URL.createObjectURL(inpFilNavn.files[0]);
             bildeBlokk.src = aktueltFilNavn;
         }
 
+        // For å hente ut hvilket svaralternativ i radio-inputen som er aktivert, trengs denne funksjonen
         function displayRadioValue() {
             var element = document.getElementsByName('kanttype');
 
@@ -225,6 +230,7 @@
             }
         }
 
+        // Skrur på dramodus for alle tekstbokser
         draModus(document.getElementById("kort-navn"));
         draModus(document.getElementById("kort-kjonn"));
         draModus(document.getElementById("kort-stilling"));
@@ -234,6 +240,7 @@
         draModus(document.getElementById("kort-dato"));
         draModus(document.getElementById("bildeBlokk"));
 
+
         function draModus(elementet) {
             let pos1 = 0;
             let pos2 = 0;
@@ -242,7 +249,7 @@
 
             elementet.onmousedown = startDraModus;
 
-
+            // Funksjonen henter klientens posisjon
             function startDraModus(event) {
                 event.preventDefault();
                 pos3 = event.clientX;
@@ -251,6 +258,8 @@
                 document.onmousemove = draElementet;
             }
 
+            // Klienten kan med denne funksjonen flytte hver tekstboks
+            // Den nye posisjonen blir da lagret som den gamle posisjonen
             function draElementet(event) {
                 event.preventDefault();
                 pos1 = pos3 - event.clientX;
@@ -261,6 +270,7 @@
                 elementet.style.left = (elementet.offsetLeft - pos1) + "px";
             }
 
+            // Modusen skrus av når musen slippes
             function draModusAv() {
                 document.onmouseup = null;
                 document.onmousemove = null;

@@ -217,6 +217,7 @@
         let index = 0;
 
 
+        // Funksjonen lagrer hvordan kortet skal se ut og kortet lages i bakgrunnen. Det blir ikke vist enda, men senere
         function lagreUtseende() {
             kortetsUtseende.style.display = "none";
             kortDiv.style.display = "flex";
@@ -236,12 +237,15 @@
             kortNr2.style.borderStyle = "solid";
         }
 
+        // Funksjonen åpner opp for å bestemme hvor mange tekstbokser klienten ønsker å lage
         function nyeTekstbokser() {
             kortDiv.style.display = "none";
             kortFyllDiv.style.display = "flex";
             styleHverTekstboks.style.display = "none";
         }
 
+        // Antall bokser blir lagret og åpner opp for å style hver av dem helt til klienten har stylet alle. Da vil du ikke lenger kunne trykke på knappen
+        // Funksjonen kjører etter klienten har lagret antall bokser
         function lagreAntallBokser() {
             antallLagdeBokser = antallBokser.value;
             antallBokserIgjen = antallLagdeBokser - 1;
@@ -259,6 +263,7 @@
             }
         }
 
+        // En ny input lages og knappen blir disabled 
         function lagInputen() {
             lagInputenBtn.disabled = true;
             var nyBoks = document.createElement("input")
@@ -271,6 +276,10 @@
             styleBokseneDiv2.style.display = "flex";
         }
 
+        // Elementet lagres og alle elementet lukkes. 
+        // Klienten vil få mulighet til å style neste tekstboks om de har flere igjen
+        // Om alle tekstboksene har blitt lagd, vises det ferdige kortet
+        // Da kjører også funksjonen; igangsettStartModusFunksjoner(antallLagdeBokser) og klienten vil kunne flytte på tekstboksene
         function lagreElementet() {
             if (antallBokserIgjen > 0 && bokserArray[index].value != "") {
 
@@ -301,6 +310,8 @@
             }
         }
 
+        // Funkjsonen kjøres etter at en input har blitt stylet og fylt inn
+        // Da gjøres inputen om til en tekstboks som får klientens valgte egenskaper
         function lagTekstboksAvInput(nummer) {
 
             var nyTekstBoks = document.createElement("div");
@@ -316,6 +327,7 @@
             document.getElementById("tekstboksNr" + index).style.top = 30 * index + "px";
         }
 
+        // Igangsetter funksjonen der alle tekstbokser som har blitt lagd får mulighet til å flyttes rundt på siden
         function igangsettStartModusFunksjoner(verdi) {
             if (verdi > 0) {
                 draModus(document.getElementById("tekstboksNr0"));
@@ -344,12 +356,14 @@
         }
 
 
-        function draModus(elementet) {
 
+        // Starter modusen som gjelder for alle kortets tekstbokser
+        function draModus(elementet) {
             let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
             elementet.onmousedown = startDraModus;
 
+            // Funksjonen henter klientens posisjon
             function startDraModus(event) {
                 event.preventDefault();
                 pos3 = event.clientX;
@@ -358,7 +372,8 @@
                 document.onmousemove = draElementet;
             }
 
-
+            // Klienten kan med denne funksjonen flytte hver tekstboks
+            // Den nye posisjonen blir da lagret som den gamle posisjonen
             function draElementet(event) {
                 event.preventDefault();
                 pos1 = pos3 - event.clientX;
@@ -369,6 +384,7 @@
                 elementet.style.left = (elementet.offsetLeft - pos1) + "px";
             }
 
+            // Modusen skrus av når musen slippes
             function draModusAv() {
                 document.onmouseup = null;
                 document.onmousemove = null;
