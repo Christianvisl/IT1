@@ -77,9 +77,17 @@
 
     #kortNr2 {
         display: none;
-        top: 16.5px;
-        left: 16.5px;
         position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translateY(-50%);
+    }
+
+    button {
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        padding: 4px;
     }
 </style>
 
@@ -116,7 +124,8 @@
         <div id="antallInputDiv">
             <h1>Legg til nye tekstbokser</h1>
             <label for="antallInput">Velg hvor mange tekstbokser du ønsker:</label>
-            <input style="width: 100px;" id="antallBokser" type="number" name="antallInput" min="1" max="8" placeholder="min 1, max 8">
+            <input style="width: 100px;" id="antallBokser" type="number" name="antallInput" min="1" max="8"
+                placeholder="min 1, max 8">
             <button id="lagreAntallBokser" onclick="lagreAntallBokser()">Lagre antall bokser</button>
         </div>
 
@@ -138,8 +147,8 @@
                 <label for="tekstFarge">Farge på teksten: </label>
                 <input id="tekstFargeInput" name="tekstFarge" type="color">
 
-                <label for="tekstStorrelse">Storrelse på teksten (min 5px, max 15px): </label>
-                <input id="tekstStorrelseInput" name="tekstStorrelse" type="range" min="5" max="15">
+                <label for="tekstStorrelse">Storrelse på teksten (min 10px, max 30px): </label>
+                <input id="tekstStorrelseInput" name="tekstStorrelse" type="range" min="10" max="30">
 
 
                 <label for="tekstFont">Tekst-font:</label>
@@ -294,16 +303,17 @@
 
         function lagTekstboksAvInput(nummer) {
 
-            var nyTekstBoks = document.createElement("p");
+            var nyTekstBoks = document.createElement("div");
             nyTekstBoks.innerHTML = bokserArray[index].value;
             nyTekstBoks.style.color = tekstFargeInput.value;
-            nyTekstBoks.style.fontSize = tekstStorrelseInput.value;
+            nyTekstBoks.style.fontSize = tekstStorrelseInput.value + "px";
+            nyTekstBoks.style.height = 30 + "px";
             nyTekstBoks.style.fontFamily = document.querySelector("input[name='tekstFont']:checked").value;
             nyTekstBoks.id = "tekstboksNr" + String(index);
 
             document.getElementById("kortNr2").appendChild(nyTekstBoks);
             document.getElementById("tekstboksNr" + index).style.position = "absolute";
-            document.getElementById("tekstboksNr" + index).style.top = 20*index + "px";
+            document.getElementById("tekstboksNr" + index).style.top = 30 * index + "px";
         }
 
         function igangsettStartModusFunksjoner(verdi) {
@@ -355,7 +365,7 @@
                 pos2 = pos4 - event.clientY;
                 pos3 = event.clientX;
                 pos4 = event.clientY;
-                elementet.style.top = (elementet.offsetTop - pos2) - 16.5 + "px";
+                elementet.style.top = (elementet.offsetTop - pos2) + "px";
                 elementet.style.left = (elementet.offsetLeft - pos1) + "px";
             }
 
