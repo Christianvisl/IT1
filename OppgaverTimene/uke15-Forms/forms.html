@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data om klassen</title>
+</head>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    #klasseSkjema {
+        width: 400px;
+        border: black 3px dotted;
+        text-align: center;
+        margin: auto;
+    }
+
+    input {
+        width: 300px;
+        margin: 20px;
+    }
+
+    button {
+        margin: 20px;
+    }
+
+    #fagNavnSkjema {
+        width: 400px;
+        border: black 3px dotted;
+        text-align: center;
+        margin: auto;
+        display: none;
+    }
+
+    form>div>input{
+        margin-top: 0px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+    <h1>Fyll inn disse feltene</h1>
+
+    <form id="klasseSkjema">
+        <input id="dittNavn" type="text" placeholder="Hva heter du?" required>
+        <input id="antallElever" type="number" placeholder="Hvor mange elever er det i din fellesklasse?" min="10" max="30" required>
+        <input id="kontaktLaerer" type="text" placeholder="Hva heter din kontaktlærer?" required style="margin-bottom: 5px;">
+        <input id="kontaktFag" type="text" placeholder="I hvilket fag har du kontaktlæreren din?" required style="margin-top: 0px;">
+
+        <input id="antallFag" type="number" placeholder="Hvor mange fag har du på skolen?" min="3" max="9" required>
+        <br>
+        <label for="favorittFag">Dine 3 favorittfag</label>
+        <div id="favorittFag">
+            <input id="favorittFag1" type="text" placeholder="Favorittfag 1" required> <!--Lag listeknapper med alle fag man kan ha på skolen-->
+            <input id="favorittFag2" type="text" placeholder="Favorittfag 2" required>
+            <input id="favorittFag3" type="text" placeholder="Favorittfag 3" required>
+        </div>
+
+        <button id="klasseSubmit" type="submit" for="klasseSkjema">Bekreft</button>
+    </form>
+    <!--   Hvis jeg bruker dette må jeg finne ut av hvordan jeg får flere forms til å fungere i samme doukument!
+    <form id="fagNavnSkjema">
+        <input id="fag1" type="text" placeholder="Hva er fag 1?" required>
+        <input id="laererFag1" type="text" placeholder="Hvem er lærer i fag 1?" required>
+        <input id="fag2" type="text" placeholder="Hva er fag 2?" required>
+        <input id="laererFag2" type="text" placeholder="Hvem er lærer i fag 2?" required>
+        <input id="fag3" type="text" placeholder="Hva er fag 3?" required>
+        <input id="laererFag3" type="text" placeholder="Hvem er lærer i fag 3?" required>
+        <input id="fag4" type="text" placeholder="Hva er fag 4?" required>
+        <input id="laererFag4" type="text" placeholder="Hvem er lærer i fag 4?" required>
+        <input id="fag5" type="text" placeholder="Hva er fag 5?" required>
+        <input id="laererFag5" type="text" placeholder="Hvem er lærer i fag 5?" required>
+        <input id="fag6" type="text" placeholder="Hva er fag 6?" required>
+        <input id="laererFag6" type="text" placeholder="Hvem er lærer i fag 6?" required>
+        <input id="fag7" type="text" placeholder="Hva er fag 7?" required>
+        <input id="laererFag7" type="text" placeholder="Hvem er lærer i fag 7?" required>
+        <input id="fag8" type="text" placeholder="Hva er fag 8?" required>
+        <input id="laererFag8" type="text" placeholder="Hvem er lærer i fag 8?" required>
+        <input id="fag9" type="text" placeholder="Hva er fag 9?" required>
+        <input id="laererFag9" type="text" placeholder="Hvem er lærer i fag 9?" required>
+
+        <button id="fagNavnSubmit" type="submit" for="fagNavnSkjema">Bekreft</button>
+    </form>
+
+    <button id="knapp">ddd</button>
+-->
+
+    <script>
+        let klasseSkjema = document.getElementById("klasseSkjema");
+
+        klasseSkjema.onsubmit = function () {
+            event.preventDefault();  // Forhidrer at siden endres til en ny side, action-siden i formen
+        }
+
+
+        /*
+                let antallFag = document.getElementById("antallFag");
+                let fagNavnSkjema = document.getElementById("fagNavnSkjema");
+        
+                let fagNavnSubmit = document.getElementById("fagNavnSubmit");
+        
+                fagNavnSkjema.onsubmit = function () {
+                    event.preventDefault();  // Forhidrer at siden endres til en ny side, action-siden i formen
+                    fagNavnSkjema.style.display = "none";
+                    klasseSkjema.style.display = "block";
+                }
+        
+                antallFag.onkeyup = function () {
+                    if (antallFag.value >= 3 && antallFag.value <= 9) {
+                        klasseSkjema.style.display = "none";
+                        fagNavnSkjema.style.display = "block";
+        
+                        let i = 1;
+                        while (i <= antallFag.value) {
+                            document.getElementById("fag" + i).style.marginBottom = "0px";
+                            document.getElementById("laererFag" + i).style.marginTop = "10px";
+                            i++;
+                        }
+                        let i2 = 9;
+                        while (i2 > antallFag.value) {
+                            document.getElementById("fag" + i2).style.display = "none";
+                            document.getElementById("fag" + i2).required = false;
+                            document.getElementById("laererFag" + i2).style.display = "none";
+                            document.getElementById("laererFag" + i2).required = false;
+        
+                            i2--;
+                        }
+                        antallFag.disabled = true;
+                    }
+        
+                }
+        */
+    </script>
+</body>
+
+</html>
