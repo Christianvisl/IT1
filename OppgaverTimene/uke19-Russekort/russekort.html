@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kortgenerator 2</title>
+</head>
+<style>
+    body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    #dataDiv {
+        grid-column: span 2;
+        border-radius: 20px;
+        background-color: white;
+        border: solid 3px black;
+        padding: 0px 50px 0px 50px;
+        text-align: left;
+        align-items: left;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #dataDiv>div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        align-items: left;
+    }
+
+    label {
+        font-size: 20px;
+        margin-top: 5px;
+        color: blueviolet;
+        font-weight: bold;
+    }
+
+    #kort {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translateY(-50%);
+        height: 50%;
+        width: 50%;
+        background-image: url("RussekortRed.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #kort>div {
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+
+    #kort-navn {
+        font-size: 30px;
+    }
+
+    #kort-kjonn,
+    #kort-stilling,
+    #kort-adresse,
+    #kort-telefonnummer,
+    #kort-email,
+    #kort-dato {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div id="dataDiv">
+        <div>
+            <label for="VelgNavn">Velg et navn:</label>
+            <select id="VelgNavn" name="VelgNavn"></select>
+        </div>
+
+        <div>
+            <label for="navn">Navn:</label>
+            <input name="navn" id="navnInp" type="text">
+        </div>
+
+        <div>
+            <label for="adresse">Adresse:</label>
+            <input name="adresse" id="adresseInp" type="text">
+        </div>
+
+        <div>
+            <label for="tlf">Telefonnummer:</label>
+            <input name="tlf" id="tlfInp" type="tel">
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input name="email" id="emailInp" type="email">
+        </div>
+
+        <div>
+            <label for="bilde">Bilde:</label>
+            <input name="bilde" id="bildeInp" type="file">
+        </div>
+
+        <button id="oppdaterKnapp" style="margin-bottom: 10px;">Lagre</button>
+    </div>
+
+    <div id="kort">
+        <div>
+            <div id="kort-navn"></div>
+            <div id="kort-adresse"></div>
+            <div id="kort-tlf"></div>
+            <div id="kort-email"></div>
+        </div>
+        <img src="" id="bildeBlokk" width="300px">
+    </div>
+
+    <script src="database.js"></script>
+
+    <script>
+        let kortNavn = document.getElementById("kort-navn");
+        let kortAdresse = document.getElementById("kort-adresse");
+        let kortTlf = document.getElementById("kort-tlf");
+        let kortEmail = document.getElementById("kort-email");
+        let kortBilde = document.getElementById("bildeBlokk");
+
+        let kort = document.getElementById("kort");
+
+        let inpFilNavn = document.getElementById("bildeInp");
+        inpFilNavn.addEventListener("change", velgFil)
+
+        var minListe = document.getElementById("VelgNavn")
+        let i = 0;
+        while (i <= 4) {
+            minListe.innerHTML += "<option>" + data.kortArray[i].navn + "</option>"
+            i++;
+        }
+        minListe.onchange = function () {
+            lagKort(minListe.selectedIndex)
+        }
+
+        let oppdaterKnapp = document.getElementById("oppdaterKnapp");
+        oppdaterKnapp.onclick = oppdater()
+        function oppdater() {
+            kortNavn.innerHTML = document.getElementById("navnInp").value;
+            kortAdresse.innerHTML = document.getElementById("adresseInp").value;
+            kortTlf.innerHTML = document.getElementById("tlfInp").value;
+            kortEmail.innerHTML = document.getElementById("emailInp").value;
+            kortBilde.innerHTML = document.getElementById("bildeInp").value;
+        }
+
+        function lagKort(index) {
+            kortNavn.innerHTML = data.kortArray[index].navn;
+            kortAdresse.innerHTML = data.kortArray[index].adresse;
+            kortTlf.innerHTML = data.kortArray[index].tlf;
+            kortEmail.innerHTML = data.kortArray[index].email;
+        }
+
+        // Kjøres når fil-inputen detekterer en endring, "change"
+        function velgFil() {
+            var aktueltFilNavn = URL.createObjectURL(inpFilNavn.files[0]);
+            bildeBlokk.src = aktueltFilNavn;
+        }
+
+    </script>
+</body>
+
+</html>
