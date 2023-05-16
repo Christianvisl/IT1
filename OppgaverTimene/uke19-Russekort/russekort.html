@@ -50,16 +50,20 @@
         top: 50%;
         left: 30%;
         transform: translateY(-50%);
-        height: 50%;
-        width: 50%;
-        background-image: url("RussekortRed.png");
-        background-size: contain;
-        background-repeat: no-repeat;
+        height: 70%;
+        width: 60%;
+        background: hsla(0, 51%, 92%, 1);
+        background: radial-gradient(circle, hsla(0, 51%, 92%, 1) 0%, hsla(0, 85%, 56%, 1) 29%);
+        background: -moz-radial-gradient(circle, hsla(0, 51%, 92%, 1) 0%, hsla(0, 85%, 56%, 1) 29%);
+        background: -webkit-radial-gradient(circle, hsla(0, 51%, 92%, 1) 0%, hsla(0, 85%, 56%, 1) 29%);
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#F5E0E0", endColorstr="#EE3232", GradientType=1);
+
     }
 
     #kort>div {
-        margin-bottom: 5px;
-        margin-right: 5px;
+        position: absolute;
+        top: 300px;
+        left: 500px;
     }
 
     #kort-navn {
@@ -74,8 +78,19 @@
     #kort-dato {
         font-size: 20px;
     }
-</style>
 
+    #bildeBlokk {
+        position: absolute;
+        width: 250px;
+        max-height: 350px;
+        left: 90px;
+        top: 160px;
+        transform: rotate(340deg);
+        border: solid black 4px;
+        z-index: 2;
+        object-fit: fill;
+    }
+</style>
 <body>
     <div id="dataDiv">
         <div>
@@ -108,7 +123,7 @@
             <input name="bilde" id="bildeInp" type="file">
         </div>
 
-        <button id="oppdaterKnapp" style="margin-bottom: 10px;">Lagre</button>
+        <button onclick="oppdater()" id="oppdaterKnapp" style="margin-bottom: 10px;">Lagre</button>
     </div>
 
     <div id="kort">
@@ -118,12 +133,14 @@
             <div id="kort-tlf"></div>
             <div id="kort-email"></div>
         </div>
-        <img src="" id="bildeBlokk" width="300px">
+        <img src="" id="bildeBlokk">
     </div>
 
     <script src="database.js"></script>
 
+
     <script>
+       
         let kortNavn = document.getElementById("kort-navn");
         let kortAdresse = document.getElementById("kort-adresse");
         let kortTlf = document.getElementById("kort-tlf");
@@ -144,9 +161,8 @@
         minListe.onchange = function () {
             lagKort(minListe.selectedIndex)
         }
-
+ 
         let oppdaterKnapp = document.getElementById("oppdaterKnapp");
-        oppdaterKnapp.onclick = oppdater()
         function oppdater() {
             kortNavn.innerHTML = document.getElementById("navnInp").value;
             kortAdresse.innerHTML = document.getElementById("adresseInp").value;
@@ -160,6 +176,7 @@
             kortAdresse.innerHTML = data.kortArray[index].adresse;
             kortTlf.innerHTML = data.kortArray[index].tlf;
             kortEmail.innerHTML = data.kortArray[index].email;
+            kortBilde.src = data.kortArray[index].bilde;
         }
 
         // Kjøres når fil-inputen detekterer en endring, "change"
@@ -169,6 +186,7 @@
         }
 
     </script>
+
 </body>
 
 </html>
