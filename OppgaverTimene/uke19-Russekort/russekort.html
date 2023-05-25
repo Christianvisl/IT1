@@ -82,7 +82,7 @@
     #bildeBlokk {
         position: absolute;
         width: 250px;
-        max-height: 350px;
+        height: 200px;
         left: 90px;
         top: 160px;
         transform: rotate(340deg);
@@ -91,6 +91,7 @@
         object-fit: fill;
     }
 </style>
+
 <body>
     <div id="dataDiv">
         <div>
@@ -140,7 +141,7 @@
 
 
     <script>
-       
+
         let kortNavn = document.getElementById("kort-navn");
         let kortAdresse = document.getElementById("kort-adresse");
         let kortTlf = document.getElementById("kort-tlf");
@@ -152,23 +153,50 @@
         let inpFilNavn = document.getElementById("bildeInp");
         inpFilNavn.addEventListener("change", velgFil)
 
+
+        /*******************************************************************************/
+        /* De neste fem linjene, lager dropdown-menyen øverst på siden, og displayer   */
+        /* de navnene som ligger i databasen. Derfor kan databasen endres, uten at     */
+        /* noe annet må endres. Siden er dynamisk                                      */
+        /*******************************************************************************/
         var minListe = document.getElementById("VelgNavn")
         let i = 0;
         while (i <= 4) {
             minListe.innerHTML += "<option>" + data.kortArray[i].navn + "</option>"
             i++;
         }
+
+
+        /*******************************************************************************/
+        /* Funksjonen under skjer når en trykker på lagre-knappen. Om det står noe i   */
+        /* hver av inputene, blir dette skrevet inn på kortet                          */ 
+        /*******************************************************************************/
+        function oppdater() {
+            if (document.getElementById("navnInp").value != "") {
+                kortNavn.innerHTML = document.getElementById("navnInp").value;
+            }
+            if (document.getElementById("adresseInp").value != "") {
+                kortAdresse.innerHTML = document.getElementById("adresseInp").value;
+            }
+            if (document.getElementById("tlfInp").value != "") {
+                kortTlf.innerHTML = document.getElementById("tlfInp").value;
+            }
+            if (document.getElementById("emailInp").value != "") {
+                kortEmail.innerHTML = document.getElementById("emailInp").value;
+            }
+            kortBilde.innerHTML = document.getElementById("bildeInp").value;
+        }
+
+
+        /*******************************************************************************/
+        /* Funksjonene under lager et russekort når brukeren endrer på dropdown-menyen */
+        /* med de ulike navnene.                                                       */
+        /* selectedIndex plukker ut indexen til det navnet som er valgt, og denne      */
+        /* indeksen brukes da som parameter i funksjonen lagKort(index)                */
+        /* Deretter brukes databasen der det finnes et objekt med arrays og verdier    */
+        /*******************************************************************************/
         minListe.onchange = function () {
             lagKort(minListe.selectedIndex)
-        }
- 
-        let oppdaterKnapp = document.getElementById("oppdaterKnapp");
-        function oppdater() {
-            kortNavn.innerHTML = document.getElementById("navnInp").value;
-            kortAdresse.innerHTML = document.getElementById("adresseInp").value;
-            kortTlf.innerHTML = document.getElementById("tlfInp").value;
-            kortEmail.innerHTML = document.getElementById("emailInp").value;
-            kortBilde.innerHTML = document.getElementById("bildeInp").value;
         }
 
         function lagKort(index) {
